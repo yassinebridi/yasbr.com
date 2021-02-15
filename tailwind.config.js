@@ -1,8 +1,14 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 module.exports = {
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-  darkMode: "class",
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Ubuntu Mono', ...fontFamily.sans],
+      },
+    },
   },
   variants: {
     extend: {},
