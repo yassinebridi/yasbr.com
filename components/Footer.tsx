@@ -7,7 +7,10 @@ const Footer: React.FC<FooterProps> = () => {
     <div className="">
       <nav className="flex font-bold text-md space-x-6">
         <Link href="/blog">
-          <a className="uppercase">blog</a>
+          <a className="relative pointer-events-none">
+            <span className="uppercase opacity-50">blog</span>
+            <span className="absolute text-xs -top-2 -right-2">soon</span>
+          </a>
         </Link>
         <a
           className="uppercase"
