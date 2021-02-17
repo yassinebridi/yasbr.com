@@ -5,6 +5,7 @@
       "@components/*": ["components/*"],
       "@design-system/*": ["design-system/*"],
       "@layouts/*": ["layouts/*"],
+      "@data/*": ["data/*"],
       "@utils/*": ["utils/*"]
     },
     "target": "es5",

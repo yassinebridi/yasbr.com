@@ -1,10 +1,12 @@
+import { focusItems, valueItems } from '@data/introduction';
 import React from 'react';
+import List from './List';
 
 export interface IntroductionProps {}
 const Introduction: React.FC<IntroductionProps> = () => {
   return (
-    <div className="text-lg font-normal text-gray-400">
-      <h2 id="introduction" className="pt-2 text-2xl font-bold text-white">
+    <div className="text-xl font-normal text-gray-400">
+      <h2 id="introduction" className="pt-2 text-3xl font-bold text-white">
         <a href="#introduction" title="introduction">
           Introduction
         </a>
@@ -25,69 +27,11 @@ const Introduction: React.FC<IntroductionProps> = () => {
       </p>
 
       <div className="mt-6">
-        <p className="">I'm usually focused on:</p>
-        <ul className="mt-2 space-y-2">
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-        </ul>
+        <List title="I'm usually focused on:" items={focusItems} />
       </div>
 
       <div className="mt-6">
-        <p className="">I'm usually focused on:</p>
-        <ul className="mt-2 space-y-2">
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-
-          <li>
-            <span className="inline-block mr-2">🎛️</span>
-            <span>
-              Designing user interfaces with a strong focus on user experience
-            </span>
-          </li>
-        </ul>
+        <List title="I'm usually focused on:" items={valueItems} />
       </div>
     </div>
   );
