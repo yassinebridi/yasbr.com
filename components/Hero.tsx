@@ -9,7 +9,7 @@ const Hero: React.FC<HeroProps> = () => {
         <h3 className="font-bold text-1xl md:text-3xl">About</h3>
         <h2 className="text-2xl font-bold md:text-5xl">Yassine Bridi</h2>
         <p className="mt-2 text-sm font-light text-gray-300 md:text-lg">
-          Web & mobile developer
+          Web & Mobile developer
         </p>
       </div>
 
