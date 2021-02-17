@@ -1,3 +1,5 @@
+import CodeEditor from '@components/CodeEditor';
+import Footer from '@components/Footer';
 import Hero from '@components/Hero';
 import Introduction from '@components/Introduction';
 import Uses from '@components/Uses';
@@ -13,6 +15,19 @@ export default function Home() {
 
       <div className="mt-4">
         <Uses />
+      </div>
+
+      <div className="mt-4">
+        <CodeEditor />
+      </div>
+
+      <hr
+        className="my-12 border-none"
+        style={{ height: '1.5px', backgroundColor: '#111' }}
+      />
+
+      <div className="">
+        <Footer />
       </div>
     </div>
   );
