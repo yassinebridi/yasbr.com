@@ -15,15 +15,14 @@ const Introduction: React.FC<IntroductionProps> = () => {
       <p className="mt-2">Hey, I'm Yassine Bridi 👋</p>
 
       <p className="mt-2">
-        I’m a developer who also designs, with a keen interest in web technology
-        and video games.
+        I’m a developer who also designs, with a keen interest in web and mobile
+        technology.
       </p>
 
       <p className="mt-2">
         I enjoy sharing my knowledge and helping others adopt the technologies
-        I’m passionate about. I do this by live streaming my work, reviewing
-        community code, developing open-source projects, and writing technical
-        blog posts.
+        I’m passionate about. I do this by blogging about my work,and developing
+        open-source projects.
       </p>
 
       <div className="mt-6">
@@ -31,7 +30,7 @@ const Introduction: React.FC<IntroductionProps> = () => {
       </div>
 
       <div className="mt-6">
-        <List title="I'm usually focused on:" items={valueItems} />
+        <List title="In my work, I value:" items={valueItems} />
       </div>
     </div>
   );

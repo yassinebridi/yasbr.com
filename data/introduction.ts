@@ -6,42 +6,34 @@ export const focusItems: Item[] = [
     icon: '🎛️',
   },
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
-  },
-  {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
-  },
-  {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
-  },
-  {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Developing full-stack websites that scale',
+    icon: '🌐',
   },
 ];
 
 export const valueItems: Item[] = [
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Efficiency',
+    icon: '⏱️',
   },
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Consistency',
+    icon: '🎯',
   },
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Reusability',
+    icon: '♻️',
   },
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Scalability',
+    icon: '⚙️',
   },
   {
-    desc: 'Designing user interfaces with a strong focus on user experience',
-    icon: '🎛️',
+    desc: 'Automation',
+    icon: '🤖',
+  },
+  {
+    desc: 'Modular Design',
+    icon: '💠',
   },
 ];

@@ -7,7 +7,7 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <div className="flex flex-col justify-center w-full px-10 py-4">
+    <div className="flex flex-col justify-center w-full px-10 py-4 md:px-56">
       <Hero />
       <div className="mt-4">
         <Introduction />

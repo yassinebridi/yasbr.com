@@ -41,13 +41,21 @@ const Footer: React.FC<FooterProps> = () => {
             <span className="mr-1">
               <TwitterIcon cn="h-3 w-3" />
             </span>
-            <span className="font-bold">Twitter</span>
+            <span className="font-bold">
+              <a href="https://twitter.com/yassinebridi" target="_blank">
+                Twitter
+              </a>
+            </span>
           </li>
           <li className="flex items-center">
             <span className="mr-1">
               <GithubIcon cn="h-3 w-3" />
             </span>
-            <span className="font-bold">Github</span>
+            <span className="font-bold">
+              <a href="https://github.com/yassinebridi" target="_blank">
+                Github
+              </a>
+            </span>
           </li>
         </ul>
       </div>

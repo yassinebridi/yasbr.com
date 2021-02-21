@@ -1,4 +1,5 @@
-import { nowItems, prevItems, withExtItems } from '@data/codeEditor';
+import { nowItems, prevItems } from '@data/codeEditor';
+import GithubIcon from '@design-system/icons/github';
 import React from 'react';
 import List from './List';
 
@@ -8,15 +9,12 @@ const CodeEditor: React.FC<CodeEditorProps> = () => {
     <div className="text-xl font-normal text-gray-400">
       <h2 id="codeEditor" className="pt-2 text-3xl font-bold text-white">
         <a href="#codeEditor" title="codeEditor">
-          CodeEditor
+          Code Editor
         </a>
       </h2>
 
       <div className="mt-6">
-        <List
-          title="Now this deserves a section of its own! I've previously used:"
-          items={prevItems}
-        />
+        <List title="I've previously used:" items={prevItems} />
       </div>
 
       <div className="mt-6">
@@ -24,7 +22,16 @@ const CodeEditor: React.FC<CodeEditorProps> = () => {
       </div>
 
       <div className="mt-6">
-        <List title="With these extensions:" items={withExtItems} />
+        <p className="block">You can find out more about my vim setup here:</p>
+        <a
+          target="_blank"
+          className="flex items-center text-yellow-300 underline"
+          href="https://github.com/yassinebridi/.dotfiles/tree/master/nvim/.config/nvim"
+          title="codeEditor"
+        >
+          <GithubIcon cn="h-6 w-6 mr-3" />
+          yassinebridi/.dotfiles/nvim
+        </a>
       </div>
     </div>
   );

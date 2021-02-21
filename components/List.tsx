@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface Item {
-  icon: string;
+  icon: any;
   desc: string;
 }
 interface ListProps {
@@ -15,8 +15,12 @@ const List: React.FC<ListProps> = ({ title, items }) => {
       <ul className="mt-2 space-y-2">
         {items.map((item, i) => {
           return (
-            <li key={i}>
-              <span className="inline-block mr-2">{item.icon}</span>
+            <li key={i} className="flex items-center">
+              <span className="inline-block mr-2">
+                {typeof item.icon === 'string'
+                  ? item.icon
+                  : React.createElement(item.icon, { cn: 'h-5 w-5' })}
+              </span>
               <span>{item.desc}</span>
             </li>
           );
