@@ -20,12 +20,12 @@ const BracketsIcon: React.FC<BracketsIcon> = ({ cn }) => (
       y1="1079.506"
       y2="1079.4803"
     >
-      <stop offset="0" stop-color="#29abe2" />
-      <stop offset=".4757" stop-color="#28a9e1" />
-      <stop offset=".6639" stop-color="#23a2dc" />
-      <stop offset=".8012" stop-color="#1a96d4" />
-      <stop offset=".913" stop-color="#0e85c9" />
-      <stop offset="1" stop-color="#0071bc" />
+      <stop offset="0" stopColor="#29abe2" />
+      <stop offset=".4757" stopColor="#28a9e1" />
+      <stop offset=".6639" stopColor="#23a2dc" />
+      <stop offset=".8012" stopColor="#1a96d4" />
+      <stop offset=".913" stopColor="#0e85c9" />
+      <stop offset="1" stopColor="#0071bc" />
     </linearGradient>
     <path
       d="m64 51.2c0 7-5.8 12.8-12.8 12.8h-38.4c-7 0-12.8-5.8-12.8-12.8v-38.4c0-7 5.8-12.8 12.8-12.8h38.4c7 0 12.8 5.8 12.8 12.8z"

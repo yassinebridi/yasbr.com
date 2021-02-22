@@ -60,7 +60,7 @@ const Footer: React.FC<FooterProps> = () => {
         </ul>
       </div>
 
-      <div className="flex mt-2">
+      <div className="mt-2 sm:flex">
         <p className="mr-2 font-light">Built with ❤️ using: </p>
         <ul className="flex space-x-2">
           <li className="flex items-center">

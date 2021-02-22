@@ -5,8 +5,9 @@ export interface GithubIcon {
 }
 const GithubIcon: React.FC<GithubIcon> = ({ cn }) => (
   <svg
-    className={`${cn} text-white fill-current`}
+    className={`${cn}`}
     viewBox="0 0 24 24"
+    fill="#fff"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

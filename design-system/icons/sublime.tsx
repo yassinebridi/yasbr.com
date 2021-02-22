@@ -19,8 +19,8 @@ const SublimeIcon: React.FC<SublimeIcon> = ({ cn }) => (
       y1="369.638"
       y2="287.81"
     >
-      <stop offset=".233" stop-color="#f89822" />
-      <stop offset="1" stop-color="#c27818" />
+      <stop offset=".233" stopColor="#f89822" />
+      <stop offset="1" stopColor="#c27818" />
     </linearGradient>
     <path
       d="M456.1 473.3H43.9c-9.5 0-17.3-7.8-17.3-17.3V43.9c0-9.5 7.8-17.3 17.3-17.3h412.2c9.5 0 17.3 7.8 17.3 17.3v412.2c-.1 9.5-7.8 17.2-17.3 17.2z"

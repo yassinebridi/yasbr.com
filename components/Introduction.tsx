@@ -21,7 +21,7 @@ const Introduction: React.FC<IntroductionProps> = () => {
 
       <p className="mt-2">
         I enjoy sharing my knowledge and helping others adopt the technologies
-        I’m passionate about. I do this by blogging about my work,and developing
+        I’m passionate about. I do this by blogging about my work, and developing
         open-source projects.
       </p>
 

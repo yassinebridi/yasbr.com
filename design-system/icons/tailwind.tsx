@@ -5,9 +5,10 @@ export interface TailwindIcon {
 }
 const TailwindIcon: React.FC<TailwindIcon> = ({ cn }) => (
   <svg
-    className={`${cn} fill-current text-green-400`}
+    className={`${cn}`}
     viewBox="0 0 256 153.6"
     xmlns="http://www.w3.org/2000/svg"
+    fill="#34d399"
   >
     <path
       xmlns="http://www.w3.org/2000/svg"
