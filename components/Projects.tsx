@@ -19,8 +19,8 @@ const Projects: React.FC<ProjectsProps> = () => {
       </h3>
 
       <div className="flex flex-wrap justify-center mt-3 mb-4 overflow-hidden sm:mb-0 sm:-mx-2 md:-mx-px lg:-mx-1 xl:-mx-2">
-        {openSourceProjects.map((item) => {
-          return <Project projectItem={item} />;
+        {openSourceProjects.map((item, i) => {
+          return <Project key={i} projectItem={item} />;
         })}
       </div>
     </div>

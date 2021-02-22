@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = () => {
 
       <div className="">
         <Image
-          src="/images/avatar.jpeg"
+          src="/static/images/avatar.jpeg"
           alt="Yassine Bridi's avatar"
           height={200}
           width={200}
