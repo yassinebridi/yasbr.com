@@ -3,6 +3,7 @@ import Container from './Container';
 import Footer from './Footer';
 import Header from './Header';
 import Hero from './Hero';
+import HeroInfo from './HeroInfo';
 import Introduction from './Introduction';
 import List from './List';
 import Project from './Project';
@@ -21,4 +22,5 @@ export {
   Project,
   Projects,
   Uses,
+  HeroInfo,
 };
