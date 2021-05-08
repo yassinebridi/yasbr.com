@@ -1,18 +1,20 @@
 import { Item } from '@components/List';
-import FigmaIcon from '@design-system/icons/figma';
-import GraphqlIcon from '@design-system/icons/graphql';
-import NestIcon from '@design-system/icons/nest';
-import NextIcon from '@design-system/icons/next';
-import NgrokIcon from '@design-system/icons/ngrok';
-import NodeIcon from '@design-system/icons/node';
-import NotionIcon from '@design-system/icons/notion';
-import PostgresIcon from '@design-system/icons/postgres';
-import PrismaIcon from '@design-system/icons/prisma';
-import ReactIcon from '@design-system/icons/react';
-import SpotifyIcon from '@design-system/icons/spotify';
-import TailwindIcon from '@design-system/icons/tailwind';
-import TypescriptIcon from '@design-system/icons/typescript';
-import VercelIcon from '@design-system/icons/vercel';
+import {
+  ReactIcon,
+  NextIcon,
+  VercelIcon,
+  NodeIcon,
+  NestIcon,
+  GraphqlIcon,
+  TailwindIcon,
+  TypescriptIcon,
+  PrismaIcon,
+  PostgresIcon,
+  FigmaIcon,
+  NotionIcon,
+  SpotifyIcon,
+  NgrokIcon,
+} from '@design-system';
 
 export const webStackItems: Item[] = [
   {

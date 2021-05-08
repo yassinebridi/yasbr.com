@@ -11,8 +11,35 @@ html {
   min-width: 360px;
   scroll-behavior: smooth;
 }
+.btn {
+  @apply font-semibold rounded-3xl focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-2;
+}
+.btn-sm {
+  @apply px-4 py-1 text-xs;
+}
+.btn-md {
+  @apply px-6 py-2 text-sm;
+}
+.btn-lg {
+  @apply py-3 text-sm px-7;
+}
+.btn-primary {
+  @apply text-white bg-primary-500 hover:bg-primary-600 ring-primary-500;
+}
+.btn-ol-primary {
+  @apply text-primary-600 bg-primary-200 hover:bg-primary-300 ring-primary-500;
+}
+.btn-secondary {
+  @apply text-white bg-secondary-500 hover:bg-secondary-600 ring-secondary-500;
+}
+.btn-ol-secondary {
+  @apply text-secondary-600 bg-secondary-200 hover:bg-secondary-300 ring-secondary-500;
+}
 
-html {
-  color: white;
-  background-color: black;
+.gradify {
+  @apply text-white bg-gradient-to-r from-secondary-500 to-primary-500;
+}
+
+.inputify {
+  @apply text-gray-700 border-red-900 hover:border-gray-900;
 }
