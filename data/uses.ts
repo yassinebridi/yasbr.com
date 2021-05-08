@@ -26,10 +26,6 @@ export const webStackItems: Item[] = [
     icon: NextIcon,
   },
   {
-    desc: 'Vercel - Static / Serverless Deployment & CDN',
-    icon: VercelIcon,
-  },
-  {
     desc: 'Node.js - JavaScript Runtime',
     icon: NodeIcon,
   },
@@ -45,9 +41,6 @@ export const webStackItems: Item[] = [
     desc: 'Tailwind CSS - A utility-first CSS framework',
     icon: TailwindIcon,
   },
-];
-
-export const alsoUseItems: Item[] = [
   {
     desc: 'TypeScript - Typed Superset of JavaScript',
     icon: TypescriptIcon,
@@ -60,13 +53,13 @@ export const alsoUseItems: Item[] = [
     desc: "PostgreSQL - The world's most advanced open source database",
     icon: PostgresIcon,
   },
-];
-
-export const toolsItems: Item[] = [
   {
     desc: 'Figma - Interface design',
     icon: FigmaIcon,
   },
+];
+
+export const toolsItems: Item[] = [
   {
     desc: 'Notion - Todo / Management',
     icon: NotionIcon,

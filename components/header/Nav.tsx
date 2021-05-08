@@ -7,7 +7,9 @@ const Nav: React.FC<NavProps> = () => {
     <nav className="items-center hidden md:flex space-x-10">
       <NavLink path="/" name="Home" />
       <NavLink path="#introduction" name="Introduction" />
+      <NavLink path="#skills" name="Skills" />
       <NavLink path="#services" name="Services" />
+      <NavLink path="#projects" name="Projects" />
       <NavLink path="#testimonial" name="Testimonial" />
       <NavLink path="#blog" name="Blog" />
       <Link href="/">

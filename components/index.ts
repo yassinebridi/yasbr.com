@@ -8,6 +8,7 @@ import Introduction from './Introduction';
 import List from './List';
 import Project from './Project';
 import Projects from './Projects';
+import Skills from './Skills';
 import Uses from './Uses';
 
 export * from './header';
@@ -23,4 +24,5 @@ export {
   Projects,
   Uses,
   HeroInfo,
+  Skills,
 };

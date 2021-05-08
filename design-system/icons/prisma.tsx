@@ -7,7 +7,7 @@ const PrismaIcon: React.FC<PrismaIcon> = ({ cn }) => (
   <svg
     className={`${cn}`}
     viewBox="0.34 -0.059977834648891726 33.11668247084116 39.96397783464889"
-    fill="#fff"
+    fill="#0c344b"
     xmlns="http://www.w3.org/2000/svg"
     width="2047"
     height="2500"

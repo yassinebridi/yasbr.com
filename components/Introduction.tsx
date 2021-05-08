@@ -5,16 +5,18 @@ import List from './List';
 export interface IntroductionProps {}
 const Introduction: React.FC<IntroductionProps> = () => {
   return (
-    <div className="flex items-center justify-between max-w-4xl mx-auto max-w-7xl sm:px-6 mt-28">
-      <div className="font-normal">
-        <h3 className="text-xl text-primary-500 md:text-xl">My Intro</h3>
-        <h2 id="introduction" className="text-4xl font-extrabold">
-          <a href="#introduction" title="introduction" className="ringify">
-            About Me
-          </a>
-        </h2>
+    <div className="flex items-center justify-between max-w-5xl mx-auto mt-28">
+      <div className="w-full">
+        <div className="font-normal text-center">
+          <h3 className="text-xl text-primary-500 md:text-xl">My Intro</h3>
+          <h2 id="introduction" className="text-4xl font-extrabold">
+            <a href="#introduction" title="introduction" className="ringify">
+              About Me
+            </a>
+          </h2>
+        </div>
 
-        <div className="text-gray-700">
+        <div className="mt-8 text-gray-700">
           <p className="mt-2">Hey, I'm Yassine Bridi 👋</p>
 
           <p className="mt-2">

@@ -5,7 +5,9 @@ export interface NextIcon {
 }
 const NextIcon: React.FC<NextIcon> = ({ cn }) => (
   <svg
-    className={`${cn}`}
+    className={`${cn} fill-current`}
+    width="116"
+    height="100"
     viewBox=".5 -.2 1023 1024.1"
     fill="#fff"
     xmlns="http://www.w3.org/2000/svg"
