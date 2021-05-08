@@ -10,7 +10,7 @@ const Hero: React.FC<HeroProps> = () => {
         <h3 className="text-primary-500 text-1xl md:text-3xl">Hi, I am</h3>
         <h2 className="text-2xl font-extrabold md:text-5xl">Yassine Bridi</h2>
         <p className="mt-2 text-sm font-light md:text-lg">
-          Web & Mobile developer
+          Freelance full stack developer
         </p>
         <div className="flex space-x-4">
           <button className="mt-4 btn btn-primary btn-lg">Contact Me</button>

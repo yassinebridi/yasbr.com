@@ -8,8 +8,10 @@ const Skills: React.FC<SkillsProps> = () => {
       <div className="flex items-center max-w-4xl mx-auto max-w-7xl sm:px-6">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="text-xl text-primary-500 md:text-xl">My Intro</h3>
-            <h2 id="skills" className="text-4xl font-extrabold">
+            <h3 className="uppercase text-md text-primary-500">
+              What i'm good at
+            </h3>
+            <h2 id="skills" className="text-3xl font-extrabold">
               <a href="#skills" title="skills" className="ringify">
                 My Expertise/Skills
               </a>
