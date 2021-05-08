@@ -6,6 +6,7 @@ import GithubIcon from './github';
 import GraphqlIcon from './graphql';
 import GruvboxIcon from './gruvbox';
 import JetbrainsIcon from './jetbrains';
+import LinkIcon from './link';
 import NestIcon from './nest';
 import NextIcon from './next';
 import NgrokIcon from './ngrok';
@@ -18,6 +19,7 @@ import ReactIcon from './react';
 import SpotifyIcon from './spotify';
 import SublimeIcon from './sublime';
 import TailwindIcon from './tailwind';
+import TwitterIcon from './twitter';
 import TypescriptIcon from './typescript';
 import VercelIcon from './vercel';
 import VscodeIcon from './vscode';
@@ -46,4 +48,6 @@ export {
   VercelIcon,
   VscodeIcon,
   Divider,
+  TwitterIcon,
+  LinkIcon,
 };

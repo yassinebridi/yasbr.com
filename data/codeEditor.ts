@@ -1,11 +1,13 @@
-import { Item } from '@components/List';
-import AtomIcon from '@design-system/icons/atom';
-import BracketsIcon from '@design-system/icons/brackets';
-import GruvboxIcon from '@design-system/icons/gruvbox';
-import JetbrainsIcon from '@design-system/icons/jetbrains';
-import NvimIcon from '@design-system/icons/nvim';
-import SublimeIcon from '@design-system/icons/sublime';
-import VscodeIcon from '@design-system/icons/vscode';
+import { Item } from '@components';
+import {
+  SublimeIcon,
+  BracketsIcon,
+  AtomIcon,
+  VscodeIcon,
+  NvimIcon,
+  JetbrainsIcon,
+  GruvboxIcon,
+} from '@design-system';
 
 export const prevItems: Item[] = [
   {

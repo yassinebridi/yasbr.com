@@ -1,8 +1,10 @@
-import GithubIcon from '@design-system/icons/github';
-import NextIcon from '@design-system/icons/next';
-import TailwindIcon from '@design-system/icons/tailwind';
-import TwitterIcon from '@design-system/icons/twitter';
-import VercelIcon from '@design-system/icons/vercel';
+import {
+  GithubIcon,
+  NextIcon,
+  TailwindIcon,
+  TwitterIcon,
+  VercelIcon,
+} from '@design-system';
 import Link from 'next/link';
 import React from 'react';
 

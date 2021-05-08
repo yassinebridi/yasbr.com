@@ -1,6 +1,6 @@
-import { openSourceProjects } from '@data/projects';
+import { Project } from '@components';
+import { openSourceProjects } from '@data';
 import React from 'react';
-import Project from './Project';
 
 export interface ProjectsProps {}
 const Projects: React.FC<ProjectsProps> = () => {

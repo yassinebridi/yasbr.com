@@ -1,6 +1,6 @@
-import { alsoUseItems, toolsItems, webStackItems } from '@data/uses';
+import { List } from '@components';
+import { webStackItems, toolsItems } from '@data';
 import React from 'react';
-import List from './List';
 
 export interface UsesProps {}
 const Uses: React.FC<UsesProps> = () => {
@@ -20,9 +20,9 @@ const Uses: React.FC<UsesProps> = () => {
         <List title="Preferred web stack:" items={webStackItems} />
       </div>
 
-      <div className="mt-6">
-        <List title="I also use:" items={alsoUseItems} />
-      </div>
+      {/* <div className="mt-6"> */}
+      {/*   <List title="I also use:" items={alsoUseItems} /> */}
+      {/* </div> */}
 
       <div className="mt-6">
         <List title="Tools:" items={toolsItems} />

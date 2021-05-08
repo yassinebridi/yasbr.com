@@ -1,7 +1,7 @@
-import { ProjectItem } from '@data/projects';
 import React from 'react';
 import Image from 'next/image';
-import LinkIcon from '@design-system/icons/link';
+import { ProjectItem } from '@data';
+import { LinkIcon } from '@design-system';
 
 export interface ProjectProps {
   projectItem: ProjectItem;

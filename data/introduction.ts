@@ -1,4 +1,4 @@
-import { Item } from '@components/List';
+import { Item } from '@components';
 
 export const focusItems: Item[] = [
   {

@@ -12,6 +12,7 @@ import Skills from './Skills';
 import Uses from './Uses';
 
 export * from './header';
+export * from './List';
 export {
   CodeEditor,
   Container,

@@ -1,19 +1,18 @@
-import { Item } from '@components/List';
+import { Item } from '@components';
 import {
-  ReactIcon,
-  NextIcon,
-  VercelIcon,
-  NodeIcon,
-  NestIcon,
+  FigmaIcon,
   GraphqlIcon,
+  NestIcon,
+  NextIcon,
+  NgrokIcon,
+  NodeIcon,
+  NotionIcon,
+  PostgresIcon,
+  PrismaIcon,
+  ReactIcon,
+  SpotifyIcon,
   TailwindIcon,
   TypescriptIcon,
-  PrismaIcon,
-  PostgresIcon,
-  FigmaIcon,
-  NotionIcon,
-  SpotifyIcon,
-  NgrokIcon,
 } from '@design-system';
 
 export const webStackItems: Item[] = [

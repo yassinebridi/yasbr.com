@@ -1,7 +1,7 @@
-import { nowItems, prevItems } from '@data/codeEditor';
-import GithubIcon from '@design-system/icons/github';
+import { List } from '@components';
+import { prevItems, nowItems } from '@data';
+import { GithubIcon } from '@design-system';
 import React from 'react';
-import List from './List';
 
 export interface CodeEditorProps {}
 const CodeEditor: React.FC<CodeEditorProps> = () => {

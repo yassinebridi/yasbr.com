@@ -1,5 +1,5 @@
-import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 export interface ContainerProps {

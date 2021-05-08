@@ -1,4 +1,4 @@
-import { focusItems, valueItems } from '@data/introduction';
+import { focusItems, valueItems } from '@data';
 import React from 'react';
 import List from './List';
 
