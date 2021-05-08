@@ -11,7 +11,7 @@ interface ListProps {
 const List: React.FC<ListProps> = ({ title, items }) => {
   return (
     <div>
-      <p className="">{title}</p>
+      <p className="font-bold">{title}</p>
       <ul className="mt-2 space-y-2">
         {items.map((item, i) => {
           return (

@@ -8,28 +8,32 @@ import React from 'react';
 export interface HeroInfoProps {}
 const HeroInfo: React.FC<HeroInfoProps> = () => {
   return (
-    <div className="grid grid-cols-3 divide-x">
-      <InfoCard
-        title="5 Years job"
-        subtitle="Experience"
-        icon={
-          <BriefcaseIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
-        }
-      />
-      <InfoCard
-        title="20+ Projects"
-        subtitle="Completed"
-        icon={
-          <CheckCircleIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
-        }
-      />
-      <InfoCard
-        title="Support"
-        subtitle="Online 24/7"
-        icon={
-          <SupportIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
-        }
-      />
+    <div className="flex justify-center">
+      <div className="bg-white shadow-2xl rounded-full absolute py-10 -bottom-16">
+        <div className="grid grid-cols-3 divide-x">
+          <InfoCard
+            title="5 Years job"
+            subtitle="Experience"
+            icon={
+              <BriefcaseIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
+            }
+          />
+          <InfoCard
+            title="20+ Projects"
+            subtitle="Completed"
+            icon={
+              <CheckCircleIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
+            }
+          />
+          <InfoCard
+            title="Support"
+            subtitle="Online 24/7"
+            icon={
+              <SupportIcon className="w-12 h-12 p-3 text-white rounded-full bg-primary-400" />
+            }
+          />
+        </div>
+      </div>
     </div>
   );
 };

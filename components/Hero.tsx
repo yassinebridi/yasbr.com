@@ -7,7 +7,7 @@ const Hero: React.FC<HeroProps> = () => {
   return (
     <div className="flex items-center justify-between w-full text-gray-900 bg-gray-50 px-36">
       <div className="">
-        <h3 className="text-secondary-400 text-1xl md:text-3xl">Hi, I am</h3>
+        <h3 className="text-primary-500 text-1xl md:text-3xl">Hi, I am</h3>
         <h2 className="text-2xl font-extrabold md:text-5xl">Yassine Bridi</h2>
         <p className="mt-2 text-sm font-light md:text-lg">
           Web & Mobile developer
