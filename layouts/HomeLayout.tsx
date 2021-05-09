@@ -11,15 +11,15 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ children, cn }) => {
   return (
     <div className="flex flex-col flex-1 w-full">
       <Header />
-      <main className={clsx('"bg-gray-100"', cn)}>
+      <main className={clsx(cn)}>
         <Container>{children}</Container>
       </main>
       <Footer />
 
       <ScrollToTop showUnder={160}>
-        <span title="Go to top">
+        <button title="Go to top">
           <ChevronUpIcon className="w-12 h-12 p-2 bg-gray-800 rounded-full text-gray-50" />
-        </span>
+        </button>
       </ScrollToTop>
     </div>
   );

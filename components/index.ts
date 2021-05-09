@@ -1,3 +1,4 @@
+import Banner from './Banner';
 import CodeEditor from './CodeEditor';
 import Container from './Container';
 import Footer from './Footer';
@@ -28,4 +29,5 @@ export {
   HeroInfo,
   Skills,
   Services,
+  Banner,
 };

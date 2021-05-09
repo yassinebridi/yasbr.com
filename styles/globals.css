@@ -23,6 +23,9 @@ html {
 .btn-lg {
   @apply py-3 text-sm px-7;
 }
+.btn-white {
+  @apply bg-white text-primary-500 hover:text-primary-600 ring-primary-500;
+}
 .btn-primary {
   @apply text-white bg-primary-500 hover:bg-primary-600 ring-primary-500;
 }

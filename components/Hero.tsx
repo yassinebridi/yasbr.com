@@ -1,5 +1,6 @@
 import { ArrowDownIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export interface HeroProps {}
@@ -12,12 +13,18 @@ const Hero: React.FC<HeroProps> = () => {
         <p className="mt-2 text-sm font-light md:text-lg">
           Freelance full stack developer
         </p>
-        <div className="flex space-x-4">
-          <button className="mt-4 btn btn-primary btn-lg">Contact Me</button>
-          <button className="flex items-center mt-4 btn btn-ol-primary btn-lg space-x-2">
-            <span>See projects</span>
-            <ArrowDownIcon className="w-4 h-4" />
-          </button>
+        <div className="flex mt-4 space-x-4">
+          <Link href="/#contact">
+            <a className="flex items-center btn btn-primary btn-lg">
+              <span>Contact Me</span>
+            </a>
+          </Link>
+          <Link href="/#projects">
+            <a className="flex items-center btn btn-ol-primary btn-lg space-x-2">
+              <span>See projects</span>
+              <ArrowDownIcon className="w-4 h-4" />
+            </a>
+          </Link>
         </div>
       </div>
 

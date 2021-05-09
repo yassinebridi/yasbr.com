@@ -1,4 +1,5 @@
 import {
+  Banner,
   Hero,
   HeroInfo,
   Introduction,
@@ -21,6 +22,7 @@ export default function Home() {
         <Skills />
         <Services />
         <Projects />
+        <Banner />
       </div>
     </HomeLayout>
   );
