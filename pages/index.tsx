@@ -1,4 +1,11 @@
-import { Hero, HeroInfo, Introduction, Services, Skills } from '@components';
+import {
+  Hero,
+  HeroInfo,
+  Introduction,
+  Projects,
+  Services,
+  Skills,
+} from '@components';
 import { HomeLayout } from '@layouts';
 import React from 'react';
 
@@ -13,6 +20,7 @@ export default function Home() {
         <Introduction />
         <Skills />
         <Services />
+        <Projects />
       </div>
     </HomeLayout>
   );

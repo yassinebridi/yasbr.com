@@ -5,7 +5,7 @@ export interface SkillsProps {}
 const Skills: React.FC<SkillsProps> = () => {
   return (
     <div className="py-12 mt-16 bg-primary-50">
-      <div className="flex items-center max-w-4xl mx-auto max-w-7xl sm:px-6">
+      <div className="flex items-center max-w-4xl mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
             <h3 className="uppercase text-md text-primary-500">
@@ -19,7 +19,7 @@ const Skills: React.FC<SkillsProps> = () => {
           </div>
 
           <div className="mt-8">
-            <ul className="grid grid-cols-2 gap-4">
+            <ul className="grid grid-cols-2 gap-6">
               {webStackItems.map((item, i) => {
                 return (
                   <li key={i} className="flex items-center">
