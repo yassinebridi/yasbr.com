@@ -10,6 +10,8 @@
       "@design-system/*": ["design-system/*"],
       "@utils": ["utils"],
       "@utils/*": ["utils/*"],
+      "@lib": ["lib"],
+      "@lib/*": ["lib/*"],
       "@data": ["data"],
       "@data/*": ["data/*"]
     },
