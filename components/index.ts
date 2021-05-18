@@ -1,5 +1,6 @@
 import Banner from './Banner';
 import CodeEditor from './CodeEditor';
+import Contact from './Contact';
 import Container from './Container';
 import Footer from './Footer';
 import Header from './Header';
@@ -11,6 +12,7 @@ import Project from './Project';
 import Projects from './Projects';
 import Services from './Services';
 import Skills from './Skills';
+import Testimonial from './Testimonial';
 import Uses from './Uses';
 
 export * from './header';
@@ -30,4 +32,6 @@ export {
   Skills,
   Services,
   Banner,
+  Testimonial,
+  Contact,
 };

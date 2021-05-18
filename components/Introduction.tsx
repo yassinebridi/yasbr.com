@@ -5,7 +5,7 @@ import List from './List';
 export interface IntroductionProps {}
 const Introduction: React.FC<IntroductionProps> = () => {
   return (
-    <div className="flex items-center justify-between max-w-3xl mx-auto mt-28">
+    <div className="flex items-center justify-between max-w-3xl py-16 mx-auto mt-16">
       <div className="w-full">
         <div className="font-normal text-center">
           <h3 className="uppercase text-md text-primary-500">My Intro</h3>

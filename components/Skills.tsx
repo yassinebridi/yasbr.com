@@ -4,7 +4,7 @@ import React from 'react';
 export interface SkillsProps {}
 const Skills: React.FC<SkillsProps> = () => {
   return (
-    <div className="py-12 mt-16 bg-primary-50">
+    <div className="py-16 bg-primary-50">
       <div className="flex items-center max-w-4xl mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">

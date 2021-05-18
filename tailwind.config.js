@@ -12,9 +12,90 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: colors.violet,
+        // primary: colors.violet,
         secondary: colors.pink,
+        primary: {
+          50: '#FFF6DF',
+          100: '#fdf7f1',
+          200: '#F8EEDB',
+          300: '#ebbf99',
+          400: '#dea373',
+          500: '#ce864f',
+          600: '#A1724E',
+          700: '#8c501c',
+          800: '#5c340f',
+          900: '#482307',
+        },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.primary.900'),
+            h1: {
+              color: theme('colors.primary.900'),
+            },
+            h2: {
+              color: theme('colors.primary.900'),
+            },
+            h3: {
+              color: theme('colors.primary.800'),
+            },
+            h4: {
+              color: theme('colors.primary.900'),
+            },
+            strong: {
+              color: theme('colors.primary.900'),
+            },
+            pre: {
+              color: null,
+              backgroundColor: null,
+              overflowX: 'auto',
+              fontSize: theme('fontSize.base'),
+              padding: 0,
+            },
+            'pre pre': {
+              padding: theme('spacing.4'),
+              margin: 0,
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              borderWidth: '0',
+              borderRadius: '0',
+              fontWeight: '400',
+              color: 'inherit',
+              fontFamily: 'inherit',
+              lineHeight: 'inherit',
+            },
+            code: {
+              color: theme('colors.primary.900'),
+              fontWeight: '600',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            thead: {
+              color: theme('colors.primary.900'),
+              fontWeight: '600',
+              borderBottomWidth: '1px',
+              borderBottomColor: theme('colors.primary.200'),
+            },
+            'tbody tr': {
+              borderBottomWidth: '1px',
+              borderBottomColor: theme('colors.primary.200'),
+            },
+            'ul > li::before': {
+              content: '""',
+              position: 'absolute',
+              backgroundColor: theme('colors.primary.800'),
+              borderRadius: '50%',
+            },
+            // ...
+          },
+        },
+      }),
       fontFamily: {
         sans: ['Ubuntu', ...fontFamily.sans],
       },
@@ -23,5 +104,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };

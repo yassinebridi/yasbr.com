@@ -5,7 +5,7 @@ import Link from 'next/link';
 export interface BannerProps {}
 const Banner: React.FC<BannerProps> = () => {
   return (
-    <div className="bg-primary-400">
+    <div className="py-16 bg-primary-400">
       <div className="flex max-w-4xl mx-auto grid grid-cols-5">
         <div className="py-12 font-normal col-span-3">
           <h3 className="text-3xl font-bold text-white">
