@@ -1,10 +1,9 @@
 import { HomeLayout } from '@layouts';
-import { getBlocks, getPage } from '@lib';
+import { blogDatabaseId, getBlocks, getPage, getPageId } from '@lib';
 import { Block } from '@notionhq/client/build/src/api-types';
 import { dateFormat, renderBlock } from '@utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 import React from 'react';
 import { PageExd } from '.';
 
@@ -54,8 +53,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params;
-  const page = await getPage(slug);
-  const blocks = await getBlocks(slug);
+  const pageId = await getPageId(blogDatabaseId, slug as string);
+  const page = await getPage(pageId);
+  const blocks = await getBlocks(pageId);
 
   return {
     props: {

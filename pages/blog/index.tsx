@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export type PageExd = Page & {
+  slug: string;
   created_time: Date;
   last_edited_time: Date;
 };
@@ -24,12 +25,14 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
           {posts.map((post) => {
             const titleProps = post?.properties.Title as any;
             const title = titleProps.title[0]?.plain_text;
+            const slugProps = post?.properties.Slug as any;
+            const slug = slugProps.rich_text[0]?.plain_text;
             const date = dateFormat(post.last_edited_time);
             return (
               <li key={post.id}>
                 <h3>
-                  <Link href={`blog/${post.id}`}>
-                    <a className="text-primary-800 text-3xl underline font-semibold">
+                  <Link href={`blog/${slug}`}>
+                    <a className="text-3xl font-semibold underline text-primary-800">
                       {title}
                     </a>
                   </Link>
