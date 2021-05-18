@@ -1,5 +1,7 @@
 import { Client } from '@notionhq/client';
 
+export const blogDatabaseId = process.env.BLOG_DATABASE_ID;
+
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });

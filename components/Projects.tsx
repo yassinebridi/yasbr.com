@@ -70,8 +70,8 @@ const Projects: React.FC<ProjectsProps> = () => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-3 gap-6">
-              {items.map((item) => {
-                return <Project projectItem={item} />;
+              {items.map((item, i) => {
+                return <Project key={i} projectItem={item} />;
               })}
             </ul>
           </div>

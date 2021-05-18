@@ -1,4 +1,4 @@
-import { getDatabase } from '@lib';
+import { blogDatabaseId, getDatabase } from '@lib';
 import { Page } from '@notionhq/client/build/src/api-types';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
@@ -45,7 +45,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 export default Blogs;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const database = await getDatabase('b3588495cbdf4f56ab98b971e3cd58d0');
+  const database = await getDatabase(blogDatabaseId);
 
   return {
     props: {
