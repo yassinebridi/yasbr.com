@@ -54,7 +54,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
           </div>
         </div>
         <div className="flex">
-          {Array.from({ length: 4 }).map(() => (
+          {Array.from({ length: 5 }).map(() => (
             <StarIcon className="w-5 h-5 text-yellow-500" />
           ))}
         </div>

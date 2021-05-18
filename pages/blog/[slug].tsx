@@ -1,6 +1,7 @@
+import { HomeLayout } from '@layouts';
 import { getBlocks, getPage } from '@lib';
 import { Block } from '@notionhq/client/build/src/api-types';
-import { renderBlock } from '@utils';
+import { dateFormat, renderBlock } from '@utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -17,25 +18,28 @@ const BlogPost: React.FC<BlogPostProps> = ({ page, blocks }) => {
   }
   const titleProps = page?.properties.Title as any;
   const title = titleProps.title[0]?.plain_text;
+  const date = dateFormat(page.last_edited_time);
   return (
-    <div>
-      <Head>
-        <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <HomeLayout>
+      <div>
+        <Head>
+          <title>{title}</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <article>
-        <h1>{title}</h1>
-        <section>
-          {blocks.map((block) => (
-            <React.Fragment key={block.id}>{renderBlock(block)}</React.Fragment>
-          ))}
-          <Link href="/">
-            <a>← Go home</a>
-          </Link>
-        </section>
-      </article>
-    </div>
+        <article className="max-w-xl py-3 mx-auto">
+          <p className="font-light uppercase">{date}</p>
+          <h1 className="text-4xl font-bold">{title}</h1>
+          <section className="mt-4">
+            {blocks.map((block) => (
+              <React.Fragment key={block.id}>
+                {renderBlock(block)}
+              </React.Fragment>
+            ))}
+          </section>
+        </article>
+      </div>
+    </HomeLayout>
   );
 };
 
