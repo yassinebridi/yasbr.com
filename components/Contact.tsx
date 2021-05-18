@@ -8,8 +8,8 @@ const Contact: React.FC<ContactProps> = () => {
         <div className="w-full">
           <div className="font-normal text-center">
             <h3 className="uppercase text-md text-primary-500">Contact Me</h3>
-            <h2 id="projects" className="text-3xl font-extrabold">
-              <a href="#projects" title="projects" className="ringify">
+            <h2 id="contact" className="text-3xl font-extrabold">
+              <a href="#contact" title="contact" className="ringify">
                 Get in touch
               </a>
             </h2>

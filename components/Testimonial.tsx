@@ -11,8 +11,8 @@ const Testimonial: React.FC<TestimonialProps> = () => {
         <div className="w-full">
           <div className="font-normal text-center">
             <h3 className="uppercase text-md text-primary-500">Testimonials</h3>
-            <h2 id="projects" className="text-3xl font-extrabold">
-              <a href="#projects" title="projects" className="ringify">
+            <h2 id="testimonial" className="text-3xl font-extrabold">
+              <a href="#testimonial" title="testimonial" className="ringify">
                 What my clients are saying.
               </a>
             </h2>

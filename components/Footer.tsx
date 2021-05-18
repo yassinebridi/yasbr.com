@@ -1,11 +1,4 @@
-import {
-  GithubIcon,
-  NextIcon,
-  TailwindIcon,
-  TwitterIcon,
-  VercelIcon,
-} from '@design-system';
-import Link from 'next/link';
+import { GithubIcon, TwitterIcon } from '@design-system';
 import React from 'react';
 
 export interface FooterProps {}
@@ -21,7 +14,7 @@ const Footer: React.FC<FooterProps> = () => {
                 <TwitterIcon cn="h-3 w-3" />
               </span>
               <span className="font-bold">
-                <a href="https://twitter.com/yassinebridi" target="_blank">
+                <a href="https://yasbr.com/twitter" target="_blank">
                   Twitter
                 </a>
               </span>
@@ -31,7 +24,7 @@ const Footer: React.FC<FooterProps> = () => {
                 <GithubIcon cn="h-3 w-3" />
               </span>
               <span className="font-bold">
-                <a href="https://github.com/yassinebridi" target="_blank">
+                <a href="https://yasbr.com/github" target="_blank">
                   Github
                 </a>
               </span>

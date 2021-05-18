@@ -11,7 +11,7 @@ const Nav: React.FC<NavProps> = () => {
       <NavLink path="/#services" name="Services" />
       <NavLink path="/#projects" name="Projects" />
       <NavLink path="/#testimonial" name="Testimonial" />
-      <NavLink path="/#blog" name="Blog" />
+      <NavLink path="/blog" name="Blog" />
       <Link href="/#contact">
         <a className="btn btn-primary btn-md">Hire me</a>
       </Link>
