@@ -61,6 +61,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const page = await getPage(pageId);
   const blocks = await getBlocks(pageId);
 
+  // let tagsArray: TagType[] = [];
+  // const tagsProps = page?.properties.Tags as any;
+  // const tags = tagsProps.relation;
+
   return {
     props: {
       page: page,

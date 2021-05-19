@@ -1,16 +1,11 @@
-import { fetcher } from '@lib';
 import format from 'comma-number';
 import React from 'react';
-import useSWR from 'swr';
 
 export interface ViewCountProps {
-  slug: string;
+  views: string;
 }
-const ViewCount: React.FC<ViewCountProps> = ({ slug }) => {
-  const { data } = useSWR(`/api/views/${slug}`, fetcher);
-  const views = data?.total;
-
-  return <>{views ? format(views) : '–––'} views</>;
+const ViewCount: React.FC<ViewCountProps> = ({ views }) => {
+  return <>{views ? format(views) : '0'} views</>;
 };
 
 export default ViewCount;

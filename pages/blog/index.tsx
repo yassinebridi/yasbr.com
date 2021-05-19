@@ -21,6 +21,8 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
             const title = titleProps.title[0]?.plain_text;
             const slugProps = post?.properties.Slug as any;
             const slug = slugProps.rich_text[0]?.plain_text;
+            const viewsProps = post?.properties.Views as any;
+            const views = viewsProps.number;
             const date = dateFormat(post.last_edited_time);
             return (
               <li key={post.id}>
@@ -32,7 +34,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
                   </Link>
                 </h3>
 
-                <ViewCount slug={slug} />
+                <ViewCount views={views} />
                 <p className="font-light uppercase">{date}</p>
               </li>
             );
