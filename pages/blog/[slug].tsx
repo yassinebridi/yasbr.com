@@ -1,3 +1,4 @@
+import { ViewCountWithPost } from '@components';
 import { HomeLayout } from '@layouts';
 import { blogDatabaseId, getBlocks, getPage, getPageId } from '@lib';
 import { Block } from '@notionhq/client/build/src/api-types';
@@ -17,6 +18,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ page, blocks }) => {
   }
   const titleProps = page?.properties.Title as any;
   const title = titleProps.title[0]?.plain_text;
+  const slugProps = page?.properties.Slug as any;
+  const slug = slugProps.rich_text[0]?.plain_text;
   const date = dateFormat(page.last_edited_time);
   return (
     <HomeLayout>
@@ -28,6 +31,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ page, blocks }) => {
 
         <article className="max-w-xl py-3 mx-auto">
           <p className="font-light uppercase">{date}</p>
+          <ViewCountWithPost slug={slug} />
+          <p className="font-light uppercase">{}</p>
           <h1 className="text-4xl font-bold">{title}</h1>
           <section className="mt-4">
             {blocks.map((block) => (

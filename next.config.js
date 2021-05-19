@@ -1,4 +1,7 @@
 module.exports = {
+  future: {
+    webpack5: false,
+  },
   async redirects() {
     return [
       {

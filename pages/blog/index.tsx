@@ -1,3 +1,4 @@
+import { ViewCount } from '@components';
 import { HomeLayout } from '@layouts';
 import { blogDatabaseId, getDatabase } from '@lib';
 import { Page } from '@notionhq/client/build/src/api-types';
@@ -38,6 +39,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
                   </Link>
                 </h3>
 
+                <ViewCount slug={slug} />
                 <p className="font-light uppercase">{date}</p>
               </li>
             );
