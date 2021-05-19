@@ -2,11 +2,10 @@ import { ViewCountWithPost } from '@components';
 import { HomeLayout } from '@layouts';
 import { blogDatabaseId, getBlocks, getPage, getPageId } from '@lib';
 import { Block } from '@notionhq/client/build/src/api-types';
-import { dateFormat, renderBlock } from '@utils';
+import { dateFormat, PageExd, renderBlock } from '@utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { PageExd } from '.';
 
 export interface BlogPostProps {
   page: PageExd;

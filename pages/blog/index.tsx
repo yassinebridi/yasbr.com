@@ -1,17 +1,10 @@
 import { ViewCount } from '@components';
 import { HomeLayout } from '@layouts';
 import { blogDatabaseId, getDatabase } from '@lib';
-import { Page } from '@notionhq/client/build/src/api-types';
-import { dateFormat } from '@utils';
+import { dateFormat, PageExd } from '@utils';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
-
-export type PageExd = Page & {
-  slug: string;
-  created_time: Date;
-  last_edited_time: Date;
-};
 
 export interface BlogsProps {
   posts: PageExd[];
@@ -39,7 +32,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
                   </Link>
                 </h3>
 
-                <ViewCount slug={slug} />
+                {/* <ViewCount slug={slug} /> */}
                 <p className="font-light uppercase">{date}</p>
               </li>
             );
@@ -53,11 +46,11 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 export default Blogs;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const database = await getDatabase(blogDatabaseId);
+  // const database = await getDatabase(blogDatabaseId);
 
   return {
     props: {
-      posts: database,
+      posts: [],
     },
     revalidate: 1,
   };

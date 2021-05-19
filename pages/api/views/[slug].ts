@@ -1,4 +1,5 @@
-import { firebaseDb } from '@lib';
+import { blogDatabaseId, getPage, getPageId, updatePage } from '@lib';
+import { PageExd } from '@utils';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -6,26 +7,28 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    const ref = firebaseDb.ref('views').child(req.query.slug as string);
-    const { snapshot } = await ref.transaction((currentViews) => {
-      if (currentViews === null) {
-        return 1;
-      }
-
-      return currentViews + 1;
+    const pageId = await getPageId(blogDatabaseId, req.query.slug as string);
+    const pageBefore = (await getPage(pageId)) as PageExd;
+    const viewsBeforeProps = pageBefore?.properties.Views as any;
+    const viewsBefore = viewsBeforeProps.number;
+    const update = await updatePage({
+      page_id: pageId,
+      // @ts-ignore
+      properties: { Views: { number: viewsBefore + 1 } },
     });
+    const viewsAfterProps = update?.properties.Views as any;
+    const viewsAfter = viewsAfterProps.number;
 
     return res.status(200).json({
-      total: snapshot.val(),
+      total: viewsAfter,
     });
   }
 
   if (req.method === 'GET') {
-    const snapshot = await firebaseDb
-      .ref('views')
-      .child(req.query.slug as string)
-      .once('value');
-    const views = snapshot.val();
+    const pageId = await getPageId(blogDatabaseId, req.query.slug as string);
+    const page = (await getPage(pageId)) as PageExd;
+    const viewsProps = page?.properties.Views as any;
+    const views = viewsProps.number;
 
     return res.status(200).json({ total: views });
   }

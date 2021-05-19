@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client';
+import { PagesUpdateParameters } from '@notionhq/client/build/src/api-endpoints';
 
 export const blogDatabaseId = process.env.BLOG_DATABASE_ID;
 
@@ -37,4 +38,8 @@ export const getBlocks = async (blockId: string) => {
     page_size: 50,
   });
   return response.results;
+};
+
+export const updatePage = async (args: WithAuth<PagesUpdateParameters>) => {
+  return await notion.pages.update(args);
 };
