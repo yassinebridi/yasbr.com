@@ -32,7 +32,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
                   </Link>
                 </h3>
 
-                {/* <ViewCount slug={slug} /> */}
+                <ViewCount slug={slug} />
                 <p className="font-light uppercase">{date}</p>
               </li>
             );
@@ -46,11 +46,11 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 export default Blogs;
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const database = await getDatabase(blogDatabaseId);
+  const database = await getDatabase(blogDatabaseId);
 
   return {
     props: {
-      posts: [],
+      posts: database,
     },
     revalidate: 1,
   };

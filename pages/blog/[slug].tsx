@@ -63,8 +63,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      page,
-      blocks,
+      page: page,
+      blocks: blocks,
     },
     revalidate: 1,
   };
