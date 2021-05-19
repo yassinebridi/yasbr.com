@@ -12,20 +12,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // primary: colors.violet,
+        primary: colors.gray,
         secondary: colors.pink,
-        primary: {
-          50: '#FFF6DF',
-          100: '#fdf7f1',
-          200: '#F8EEDB',
-          300: '#ebbf99',
-          400: '#dea373',
-          500: '#ce864f',
-          600: '#A1724E',
-          700: '#8c501c',
-          800: '#5c340f',
-          900: '#482307',
-        },
+        // primary: {
+        //   50: '#FFF6DF',
+        //   100: '#fdf7f1',
+        //   200: '#F8EEDB',
+        //   300: '#ebbf99',
+        //   400: '#dea373',
+        //   500: '#ce864f',
+        //   600: '#A1724E',
+        //   700: '#8c501c',
+        //   800: '#5c340f',
+        //   900: '#482307',
+        // },
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -97,7 +97,7 @@ module.exports = {
         },
       }),
       fontFamily: {
-        sans: ['Ubuntu', ...fontFamily.sans],
+        sans: ['Inter', ...fontFamily.sans],
       },
     },
   },

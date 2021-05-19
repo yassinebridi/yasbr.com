@@ -13,9 +13,7 @@ const Nav: React.FC<NavProps> = () => {
       <NavLink path="/#testimonial" name="Testimonial" />
       <NavLink path="/blog" name="Blog" />
       <Link href="/#contact">
-        <a className="hover:border-solid hover:bg-black hover:text-white transition-all text-sm uppercase border-dashed border-black border-2 text-black px-4 py-2">
-          Hire me
-        </a>
+        <a className="btn btn-lg btn-primary">Hire me</a>
       </Link>
     </nav>
   );

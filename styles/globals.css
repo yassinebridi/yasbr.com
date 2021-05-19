@@ -12,25 +12,25 @@ html {
   scroll-behavior: smooth;
 }
 .btn {
-  @apply font-semibold rounded-3xl focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-2;
+  @apply uppercase transition-all;
 }
 .btn-sm {
   @apply px-4 py-1 text-xs;
 }
 .btn-md {
-  @apply px-6 py-2 text-sm;
+  @apply px-4 py-2 text-sm;
 }
 .btn-lg {
-  @apply py-3 text-sm px-7;
+  @apply px-7 py-3 text-sm;
 }
 .btn-white {
   @apply bg-white text-primary-500 hover:text-primary-600 ring-primary-500;
 }
 .btn-primary {
-  @apply text-white bg-primary-500 hover:bg-primary-600 ring-primary-500;
+  @apply text-black border-2 border-black border-dashed hover:bg-black hover:text-white;
 }
 .btn-ol-primary {
-  @apply text-primary-600 bg-primary-200 hover:bg-primary-300 ring-primary-500;
+  @apply text-primary-600 hover:bg-primary-100 hover:border-solid;
 }
 .btn-secondary {
   @apply text-white bg-secondary-500 hover:bg-secondary-600 ring-secondary-500;
