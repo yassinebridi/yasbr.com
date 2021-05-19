@@ -48,5 +48,5 @@ html {
 }
 
 .ringify {
-  @apply rounded-3xl ring-primary-500 focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-4;
+  @apply ring-black focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-4;
 }

@@ -4,7 +4,7 @@ import React from 'react';
 export interface NavProps {}
 const Nav: React.FC<NavProps> = () => {
   return (
-    <nav className="items-center hidden md:flex space-x-10">
+    <nav className="items-center hidden md:flex space-x-8">
       <NavLink path="/" name="Home" />
       <NavLink path="/#introduction" name="Introduction" />
       <NavLink path="/#skills" name="Skills" />
@@ -13,7 +13,9 @@ const Nav: React.FC<NavProps> = () => {
       <NavLink path="/#testimonial" name="Testimonial" />
       <NavLink path="/blog" name="Blog" />
       <Link href="/#contact">
-        <a className="btn btn-primary btn-md">Hire me</a>
+        <a className="hover:border-solid hover:bg-black hover:text-white transition-all text-sm uppercase border-dashed border-black border-2 text-black px-4 py-2">
+          Hire me
+        </a>
       </Link>
     </nav>
   );
@@ -28,7 +30,7 @@ export interface NavLinkProps {
 const NavLink: React.FC<NavLinkProps> = ({ name, path }) => {
   return (
     <Link href={path}>
-      <a className="text-sm font-medium text-gray-500 hover:text-gray-900 ringify">
+      <a className="text-sm text-black uppercase border-gray-500 hover:border-b-2 hover:text-gray-900 ringify">
         {name}
       </a>
     </Link>
