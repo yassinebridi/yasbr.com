@@ -315,6 +315,7 @@ img.notion-page-icon {
 
 .notion-asset-wrapper > img {
   max-width: 100%;
+  width: 100%;
 }
 
 .notion-asset-wrapper iframe {

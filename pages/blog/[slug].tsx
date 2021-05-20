@@ -6,7 +6,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
-import { BlockMapType, NotionRenderer } from 'react-notion';
+import { BlockMapType, ContentValueType, NotionRenderer } from 'react-notion';
 
 export interface BlogPostProps {
   post: Page;
@@ -48,7 +48,20 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
             ))}
           </div>
           <section className="mt-4">
-            <NotionRenderer blockMap={blocks} />
+            <NotionRenderer
+              blockMap={blocks}
+              mapImageUrl={(img, block) => {
+                const value = block.value as ContentValueType;
+                const format = value.format;
+                const width = format.block_width;
+                const height = format.block_height;
+                const resolution =
+                  width === undefined || height === undefined
+                    ? 'w_400'
+                    : `w_${width},h_${height}`;
+                return `https://res.cloudinary.com/yasbr/image/fetch/f_auto,c_limit,${resolution}/${img}`;
+              }}
+            />
           </section>
         </article>
       </div>
