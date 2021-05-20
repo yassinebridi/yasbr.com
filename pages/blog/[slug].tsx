@@ -25,7 +25,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <article className="max-w-xl py-3 mx-auto">
+        <article className="max-w-3xl py-3 mx-auto">
           <p className="font-light uppercase">{date}</p>
           <p>{comma(post.Views)} Views</p>
           <p className="font-light uppercase">{}</p>
@@ -41,7 +41,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
                   width={23}
                   className="rounded-full"
                 />
-                <span className="leading-3 text-sm text-gray-800">
+                <span className="text-sm text-gray-800 leading-3">
                   {author.fullName}
                 </span>
               </div>
