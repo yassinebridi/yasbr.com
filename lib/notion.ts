@@ -1,58 +1,49 @@
-import { Block, Page } from '@notionhq/client/build/src/api-types';
-import { PagesUpdateParameters } from '@notionhq/client/build/src/api-endpoints';
+import { Page } from '@utils';
+import { PagesUpdateParameters, WithAuth } from 'notion';
 
 export const blogDatabaseId = process.env.BLOG_DATABASE_ID;
+const myNotionBaseApi = 'https://notion.yasbr.com/v1';
 const notionBaseApi = 'https://api.notion.com/v1';
 
+const myNotionFetchConfig: RequestInit = {
+  headers: {
+    Authorization: `Bearer ${process.env.MY_NOTION_TOKEN}`,
+    pragma: 'no-cache',
+  },
+};
 const fetchConfig: RequestInit = {
   headers: {
     Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
     'Notion-Version': '2021-05-13',
   },
 };
+
 export const getDatabase = async (databaseId: string): Promise<Page[]> => {
-  const res = await fetch(`${notionBaseApi}/databases/${databaseId}/query`, {
-    ...fetchConfig,
-    method: 'post',
-  });
-  const data = await res.json();
-  return data.results;
-};
-
-export const getPageId = async (databaseId: string, slug: string) => {
-  const res = await fetch(`${notionBaseApi}/databases/${databaseId}/query`, {
-    ...fetchConfig,
-    headers: {
-      ...fetchConfig.headers,
-      'Content-Type': 'application/json',
-    },
-    method: 'post',
-    body: JSON.stringify({
-      filter: {
-        property: 'Slug',
-        text: {
-          contains: slug,
-        },
-      },
-    }),
-  });
-  const data = await res.json();
-  return data.results[0].id;
-};
-
-export const getPage = async (pageId: string): Promise<Page> => {
-  const res = await fetch(`${notionBaseApi}/pages/${pageId}`, fetchConfig);
+  const res = await fetch(
+    `${myNotionBaseApi}/table/${databaseId}`,
+    myNotionFetchConfig
+  );
   const data = await res.json();
   return data;
 };
 
-export const getBlocks = async (blockId: string): Promise<Block[]> => {
+export const getPage = async (
+  databaseId: string,
+  slug: string
+): Promise<Page> => {
+  const posts = await getDatabase(databaseId);
+
+  const post = posts.find((post) => post.Slug === slug);
+  return post;
+};
+
+export const getBlocks = async (pageId: string) => {
   const res = await fetch(
-    `${notionBaseApi}/blocks/${blockId}/children`,
-    fetchConfig
+    `${myNotionBaseApi}/page/${pageId}`,
+    myNotionFetchConfig
   );
   const data = await res.json();
-  return data.results;
+  return data;
 };
 
 export const updatePage = async (

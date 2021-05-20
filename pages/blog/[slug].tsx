@@ -1,44 +1,36 @@
-import { ViewCountWithPost } from '@components';
 import { HomeLayout } from '@layouts';
-import { blogDatabaseId, getBlocks, getPage, getPageId } from '@lib';
-import { Block } from '@notionhq/client/build/src/api-types';
-import { dateFormat, PageExd, renderBlock } from '@utils';
+import { blogDatabaseId, getBlocks, getPage, updatePage } from '@lib';
+import { dateFormat, Page } from '@utils';
+import comma from 'comma-number';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
+import { BlockMapType, NotionRenderer } from 'react-notion';
 
 export interface BlogPostProps {
-  page: PageExd;
-  blocks: Block[];
+  post: Page;
+  blocks: BlockMapType;
 }
-const BlogPost: React.FC<BlogPostProps> = ({ page, blocks }) => {
-  if (!page || !blocks) {
+const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
+  if (!post || !blocks) {
     return <div />;
   }
-  const titleProps = page?.properties.Title as any;
-  const title = titleProps.title[0]?.plain_text;
-  const slugProps = page?.properties.Slug as any;
-  const slug = slugProps.rich_text[0]?.plain_text;
-  const date = dateFormat(page.last_edited_time);
+  const date = dateFormat(post.Date);
   return (
     <HomeLayout>
       <div>
         <Head>
-          <title>{title}</title>
+          <title>{post.Title}</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <article className="max-w-xl py-3 mx-auto">
           <p className="font-light uppercase">{date}</p>
-          <ViewCountWithPost slug={slug} />
+          <p>{comma(post.Views)} Views</p>
           <p className="font-light uppercase">{}</p>
-          <h1 className="text-4xl font-bold">{title}</h1>
+          <h1 className="text-4xl font-bold">{post.Title}</h1>
           <section className="mt-4">
-            {blocks.map((block) => (
-              <React.Fragment key={block.id}>
-                {renderBlock(block)}
-              </React.Fragment>
-            ))}
+            <NotionRenderer blockMap={blocks} />
           </section>
         </article>
       </div>
@@ -57,18 +49,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params;
-  const pageId = await getPageId(blogDatabaseId, slug as string);
-  const page = await getPage(pageId);
-  const blocks = await getBlocks(pageId);
+  const post = await getPage(blogDatabaseId, slug as string);
+  const blocks = await getBlocks(post.id);
 
-  // let tagsArray: TagType[] = [];
-  // const tagsProps = page?.properties.Tags as any;
-  // const tags = tagsProps.relation;
+  await updatePage({
+    page_id: post.id,
+    properties: { Views: { number: post.Views + 1 } },
+  });
 
   return {
     props: {
-      page: page,
-      blocks: blocks,
+      post,
+      blocks,
     },
     revalidate: 1,
   };

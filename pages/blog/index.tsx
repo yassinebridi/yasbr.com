@@ -1,13 +1,13 @@
-import { ViewCount } from '@components';
 import { HomeLayout } from '@layouts';
 import { blogDatabaseId, getDatabase } from '@lib';
-import { dateFormat, PageExd } from '@utils';
+import { dateFormat, Page } from '@utils';
+import comma from 'comma-number';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
 export interface BlogsProps {
-  posts: PageExd[];
+  posts: Page[];
 }
 const Blogs: React.FC<BlogsProps> = ({ posts }) => {
   return (
@@ -17,25 +17,23 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
         <span className="text-gray-600">{posts.length} posts</span>
         <ol>
           {posts.map((post) => {
-            const titleProps = post?.properties.Title as any;
-            const title = titleProps.title[0]?.plain_text;
-            const slugProps = post?.properties.Slug as any;
-            const slug = slugProps.rich_text[0]?.plain_text;
-            const viewsProps = post?.properties.Views as any;
-            const views = viewsProps.number;
-            const date = dateFormat(post.last_edited_time);
+            const date = dateFormat(post.Date);
             return (
-              <li key={post.id}>
-                <h3>
-                  <Link href={`blog/${slug}`}>
+              <li key={post.id} className="p-4 my-4 border-2 border-black">
+                <span>{post.Type}</span>
+                <h3 className="mt-2">
+                  <Link href={`blog/${post.Slug}`}>
                     <a className="text-3xl font-semibold underline text-primary-800">
-                      {title}
+                      {post.Title}
                     </a>
                   </Link>
                 </h3>
+                <p>{post.Preview}</p>
 
-                <ViewCount views={views} />
-                <p className="font-light uppercase">{date}</p>
+                <div className="flex items-center justify-between mt-2">
+                  <p className="font-light uppercase">{date}</p>
+                  <p>{comma(post.Views)} Views</p>
+                </div>
               </li>
             );
           })}
@@ -48,11 +46,12 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 export default Blogs;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const database = await getDatabase(blogDatabaseId);
+  const table = await getDatabase(blogDatabaseId);
+  const posts = table.filter((post) => post.Published === true);
 
   return {
     props: {
-      posts: database,
+      posts,
     },
     revalidate: 1,
   };

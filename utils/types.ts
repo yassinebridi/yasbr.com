@@ -1,14 +1,10 @@
-import { Page } from '@notionhq/client/build/src/api-types';
-
-export type PageExd = Page & {
-  slug: string;
-  views: string;
-  created_time: Date;
-  last_edited_time: Date;
-};
-
-export type TagType = {
-  name: string;
-  desc: string;
-  color: string;
+export type Page = {
+  id: string;
+  Title: string;
+  Type: string;
+  Preview: string;
+  Views: number;
+  Slug: string;
+  Published: boolean;
+  Date: Date;
 };
