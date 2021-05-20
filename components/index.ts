@@ -14,8 +14,6 @@ import Services from './Services';
 import Skills from './Skills';
 import Testimonial from './Testimonial';
 import Uses from './Uses';
-import ViewCount from './ViewCount';
-import ViewCountWithPost from './ViewCountWithPost';
 
 export * from './header';
 export * from './List';
@@ -36,6 +34,4 @@ export {
   Banner,
   Testimonial,
   Contact,
-  ViewCount,
-  ViewCountWithPost,
 };
