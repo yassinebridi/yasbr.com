@@ -7,4 +7,13 @@ export type Page = {
   Slug: string;
   Published: boolean;
   Date: Date;
+  Authors: Author[];
+};
+
+export type Author = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  fullName: string;
+  profilePhoto: string;
 };

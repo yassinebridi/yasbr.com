@@ -4,6 +4,7 @@ import { dateFormat, Page } from '@utils';
 import comma from 'comma-number';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import Image from 'next/image';
 import React from 'react';
 import { BlockMapType, NotionRenderer } from 'react-notion';
 
@@ -29,6 +30,23 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
           <p>{comma(post.Views)} Views</p>
           <p className="font-light uppercase">{}</p>
           <h1 className="text-4xl font-bold">{post.Title}</h1>
+          <div className="flex space-x-3">
+            {post.Authors.map((author) => (
+              <div key={author.id} className="flex items-center space-x-2">
+                <Image
+                  src={author.profilePhoto}
+                  alt="Yassine Bridi's avatar"
+                  loader={(loader) => loader.src}
+                  height={23}
+                  width={23}
+                  className="rounded-full"
+                />
+                <span className="leading-3 text-sm text-gray-800">
+                  {author.fullName}
+                </span>
+              </div>
+            ))}
+          </div>
           <section className="mt-4">
             <NotionRenderer blockMap={blocks} />
           </section>
