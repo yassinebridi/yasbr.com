@@ -7,7 +7,7 @@ const Contact: React.FC<ContactProps> = () => {
       <div className="flex items-center max-w-4xl mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500">Contact Me</h3>
+            <h3 className="uppercase text-md text-primary-500">Contact</h3>
             <h2 id="contact" className="text-3xl font-extrabold">
               <a href="#contact" title="contact" className="ringify">
                 Get in touch

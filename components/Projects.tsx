@@ -21,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = () => {
       <div className="flex items-center max-w-4xl mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500">My Portfolio</h3>
+            <h3 className="uppercase text-md text-primary-500">Portfolio</h3>
             <h2 id="projects" className="text-3xl font-extrabold">
               <a href="#projects" title="projects" className="ringify">
                 Recent Works

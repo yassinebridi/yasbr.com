@@ -14,9 +14,9 @@ const Hero: React.FC<HeroProps> = () => {
               Yassine Bridi
             </h2>
             <p className="mt-2 text-sm font-light md:text-lg">
-              Freelance full stack developer
+              Freelance Full Stack Developer
             </p>
-            <div className="flex mt-4 space-x-4">
+            <div className="flex mt-8 space-x-4">
               <Link href="/#contact">
                 <a className="flex items-center btn btn-primary btn-lg">
                   <span>Contact Me</span>
@@ -35,8 +35,9 @@ const Hero: React.FC<HeroProps> = () => {
             <Image
               src="/static/images/avatar.jpeg"
               alt="Yassine Bridi's avatar"
-              height={200}
-              width={200}
+              quality={100}
+              height={300}
+              width={300}
               className="rounded-full"
             />
           </div>

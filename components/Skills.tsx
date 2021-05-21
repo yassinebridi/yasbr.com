@@ -9,11 +9,11 @@ const Skills: React.FC<SkillsProps> = () => {
         <div className="w-full">
           <div className="font-normal text-center">
             <h3 className="uppercase text-md text-primary-500">
-              What i'm good at
+              Expertise/Skills
             </h3>
             <h2 id="skills" className="text-3xl font-extrabold">
               <a href="#skills" title="skills" className="ringify">
-                My Expertise/Skills
+                What i'm good at
               </a>
             </h2>
           </div>

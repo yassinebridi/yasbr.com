@@ -9,7 +9,7 @@ export interface HeroInfoProps {}
 const HeroInfo: React.FC<HeroInfoProps> = () => {
   return (
     <div className="flex justify-center">
-      <div className="absolute py-10 bg-white rounded-full shadow-2xl -bottom-16">
+      <div className="absolute py-10 bg-white border-2 border-dashed border-primary-300 -bottom-16 hover:border-b-4">
         <div className="grid grid-cols-3 divide-x">
           <InfoCard
             title="5 Years job"

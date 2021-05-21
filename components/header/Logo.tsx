@@ -9,7 +9,7 @@ const Logo: React.FC<LogoProps> = () => {
     <Link href="/">
       <a className="flex flex-col items-center">
         <div className="hidden md:flex">
-          <span className="text-2xl font-normal text-black border-2 p-1.5 border-black">
+          <span className="text-2xl font-normal text-black border-2 p-1.5 border-black hover:bg-black hover:text-white transition">
             YB
           </span>
         </div>
