@@ -8,6 +8,7 @@ import Hero from './Hero';
 import HeroInfo from './HeroInfo';
 import Introduction from './Introduction';
 import List from './List';
+import Notion from './Notion';
 import Project from './Project';
 import Projects from './Projects';
 import Services from './Services';
@@ -34,4 +35,5 @@ export {
   Banner,
   Testimonial,
   Contact,
+  Notion,
 };

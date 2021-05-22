@@ -1,13 +1,13 @@
 import { HomeLayout } from '@layouts';
-import { blogDatabaseId, getDatabase } from '@lib';
-import { dateFormat, Page } from '@utils';
+import { databasesId, getDatabase } from '@lib';
+import { BlogPostType, dateFormat } from '@utils';
 import comma from 'comma-number';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
 export interface BlogsProps {
-  posts: Page[];
+  posts: BlogPostType[];
 }
 const Blogs: React.FC<BlogsProps> = ({ posts }) => {
   return (
@@ -46,7 +46,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
 export default Blogs;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const table = await getDatabase(blogDatabaseId);
+  const table = await getDatabase<BlogPostType>(databasesId.blog);
   const posts = table.filter((post) => post.Published === true);
 
   return {

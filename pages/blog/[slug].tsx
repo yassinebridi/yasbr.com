@@ -1,15 +1,16 @@
+import { Notion } from '@components';
 import { HomeLayout } from '@layouts';
-import { blogDatabaseId, getBlocks, getPage, updatePage } from '@lib';
-import { dateFormat, Page } from '@utils';
+import { databasesId, getBlocks, getBlogPost, updatePage } from '@lib';
+import { BlogPostType, dateFormat } from '@utils';
 import comma from 'comma-number';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import React from 'react';
-import { BlockMapType, ContentValueType, NotionRenderer } from 'react-notion';
+import { BlockMapType } from 'react-notion';
 
 export interface BlogPostProps {
-  post: Page;
+  post: BlogPostType;
   blocks: BlockMapType;
 }
 const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
@@ -48,52 +49,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
             ))}
           </div>
           <section className="mt-4">
-            <NotionRenderer
-              blockMap={blocks}
-              mapImageUrl={(img, block) => {
-                const value = block.value as ContentValueType;
-                const format = value.format;
-                const width = format.block_width;
-                const height = format.block_height;
-                const resolution =
-                  width === undefined || height === undefined
-                    ? 'w_400'
-                    : `w_${width},h_${height}`;
-                return `https://res.cloudinary.com/yasbr/image/fetch/f_auto,c_limit,${resolution}/${img}`;
-              }}
-              // customBlockComponents={{
-              //   image: (props) => {
-              //     const value = props.blockValue as ContentValueType;
-              //     const format = value.format;
-              //     const width = format.block_width;
-              //     const height = format.block_height;
-              //     const resolution =
-              //       width === undefined || height === undefined
-              //         ? 'w_400'
-              //         : `w_${width},h_${height}`;
-              //     const src = value.format.display_source;
-              //     return (
-              //       <div
-              //         style={{
-              //           position: 'relative',
-              //           width: `${width}px`,
-              //           height: `${height}px`,
-              //         }}
-              //       >
-              //         <Image
-              //           src={src}
-              //           alt="Yassine Bridi's avatar"
-              //           loader={(loader) =>
-              //             `https://res.cloudinary.com/yasbr/image/fetch/f_auto,c_limit,${resolution}/${loader.src}`
-              //           }
-              //           layout="fill"
-              //           objectFit="cover"
-              //         />
-              //       </div>
-              //     );
-              //   },
-              // }}
-            />
+            <Notion blocks={blocks} />
           </section>
         </article>
       </div>
@@ -112,7 +68,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params;
-  const post = await getPage(blogDatabaseId, slug as string);
+  const post = await getBlogPost(databasesId.blog, slug as string);
   const blocks = await getBlocks(post.id);
 
   await updatePage({

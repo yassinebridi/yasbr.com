@@ -1,7 +1,17 @@
-import { Page } from '@utils';
+import { BlogPostType } from '@utils';
 import { PagesUpdateParameters, WithAuth } from 'notion';
+import { BlockMapType } from 'react-notion';
 
-export const blogDatabaseId = process.env.BLOG_DATABASE_ID;
+export const databasesId = {
+  blog: process.env.BLOG_DATABASE_ID,
+  sections: {
+    intro: process.env.INTO_DATABASE_ID,
+    skills: process.env.SKILLS_DATABASE_ID,
+    services: process.env.SERVICES_DATABASE_ID,
+    projects: process.env.PROJECTS_DATABASE_ID,
+    testims: process.env.TESTIMS_DATABASE_ID,
+  },
+};
 const myNotionBaseApi = 'https://notion.yasbr.com/v1';
 const notionBaseApi = 'https://api.notion.com/v1';
 
@@ -18,7 +28,7 @@ const fetchConfig: RequestInit = {
   },
 };
 
-export const getDatabase = async (databaseId: string): Promise<Page[]> => {
+export const getDatabase = async <T>(databaseId: string): Promise<T[]> => {
   const res = await fetch(
     `${myNotionBaseApi}/table/${databaseId}`,
     myNotionFetchConfig
@@ -27,17 +37,17 @@ export const getDatabase = async (databaseId: string): Promise<Page[]> => {
   return data;
 };
 
-export const getPage = async (
+export const getBlogPost = async (
   databaseId: string,
   slug: string
-): Promise<Page> => {
-  const posts = await getDatabase(databaseId);
+): Promise<BlogPostType> => {
+  const posts = await getDatabase<BlogPostType>(databaseId);
 
   const post = posts.find((post) => post.Slug === slug);
   return post;
 };
 
-export const getBlocks = async (pageId: string) => {
+export const getBlocks = async (pageId: string): Promise<BlockMapType> => {
   const res = await fetch(
     `${myNotionBaseApi}/page/${pageId}`,
     myNotionFetchConfig

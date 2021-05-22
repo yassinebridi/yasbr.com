@@ -1,9 +1,12 @@
-import { servicesItems, ServicesType } from '@data';
+import { cloudinaryLoader, originalLoader, ServicesType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
+import Image from 'next/image';
 
-export interface ServicesProps {}
-const Services: React.FC<ServicesProps> = () => {
+export interface ServicesProps {
+  items: ServicesType[];
+}
+const Services: React.FC<ServicesProps> = ({ items }) => {
   return (
     <div className="py-16">
       <div className="flex items-center max-w-4xl mx-auto">
@@ -19,7 +22,7 @@ const Services: React.FC<ServicesProps> = () => {
 
           <div className="mt-12">
             <ul className="grid grid-cols-3 gap-8">
-              {servicesItems.map((item, i) => {
+              {items.map((item, i) => {
                 return <ServiceCard key={i} item={item} />;
               })}
             </ul>
@@ -43,18 +46,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
       )}
     >
       <span className="absolute -top-6">
-        {typeof item.icon === 'string'
-          ? item.icon
-          : React.createElement(item.icon, {
-              className:
-                'w-12 h-12 p-3 text-white rounded-full bg-primary-400 group-hover:bg-white group-hover:text-primary-400 group-hover:shadow-md',
-            })}
+        <div className="w-12 h-12 p-3 text-white rounded-full bg-primary-400 group-hover:bg-white group-hover:text-primary-400 group-hover:shadow-md">
+          <Image
+            alt={item.Title}
+            src={item.Icon[0].url}
+            loader={originalLoader}
+            width={23}
+            height={23}
+          />
+        </div>
       </span>
       <span className="mt-3 font-extrabold text-gray-900 text-md group-hover:text-white">
-        {item.title}
+        {item.Title}
       </span>
       <span className="mt-2 text-sm text-gray-800 group-hover:text-white">
-        {item.desc}
+        {item.Desc}
       </span>
     </li>
   );

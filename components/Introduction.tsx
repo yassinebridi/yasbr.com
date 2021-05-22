@@ -1,9 +1,11 @@
-import { focusItems, valueItems } from '@data';
+import { Notion } from '@components';
 import React from 'react';
-import List from './List';
+import { BlockMapType } from 'react-notion';
 
-export interface IntroductionProps {}
-const Introduction: React.FC<IntroductionProps> = () => {
+export interface IntroductionProps {
+  blocks: BlockMapType;
+}
+const Introduction: React.FC<IntroductionProps> = ({ blocks }) => {
   return (
     <div className="flex items-center justify-between max-w-3xl py-16 mx-auto mt-16">
       <div className="w-full">
@@ -16,27 +18,8 @@ const Introduction: React.FC<IntroductionProps> = () => {
           </h2>
         </div>
 
-        <div className="mt-8 text-gray-700">
-          <p className="mt-2">Hey, I'm Yassine Bridi 👋</p>
-
-          <p className="mt-2">
-            I’m a developer who also designs, with a keen interest in web and
-            mobile technology.
-          </p>
-
-          <p className="mt-2">
-            I enjoy sharing my knowledge and helping others adopt the
-            technologies I’m passionate about. I do this by blogging about my
-            work, and developing open-source projects.
-          </p>
-        </div>
-
         <div className="mt-6">
-          <List title="I'm usually focused on:" items={focusItems} />
-        </div>
-
-        <div className="mt-6">
-          <List title="In my work, I value:" items={valueItems} />
+          <Notion blocks={blocks} />
         </div>
       </div>
     </div>

@@ -1,8 +1,11 @@
-import { webStackItems } from '@data';
+import { cloudinaryLoader, originalLoader, SkillsType } from '@utils';
+import Image from 'next/image';
 import React from 'react';
 
-export interface SkillsProps {}
-const Skills: React.FC<SkillsProps> = () => {
+export interface SkillsProps {
+  items: SkillsType[];
+}
+const Skills: React.FC<SkillsProps> = ({ items }) => {
   return (
     <div className="py-16 bg-primary-50">
       <div className="flex items-center max-w-4xl mx-auto">
@@ -20,15 +23,17 @@ const Skills: React.FC<SkillsProps> = () => {
 
           <div className="mt-8">
             <ul className="grid grid-cols-2 gap-6">
-              {webStackItems.map((item, i) => {
+              {items.map((item, i) => {
                 return (
                   <li key={i} className="flex items-center">
-                    <span className="inline-block mr-2">
-                      {typeof item.icon === 'string'
-                        ? item.icon
-                        : React.createElement(item.icon, { cn: 'h-8 w-8' })}
-                    </span>
-                    <span>{item.desc}</span>
+                    <Image
+                      alt={item.Title}
+                      src={item.Icon[0].url}
+                      loader={originalLoader}
+                      width={30}
+                      height={30}
+                    />
+                    <span className="ml-2">{item.Title}</span>
                   </li>
                 );
               })}

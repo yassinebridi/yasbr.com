@@ -1,10 +1,14 @@
 import { TestimonialItem, testimonialsItems } from '@data/testimonials';
-import React from 'react';
-import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/solid';
+import { TestimsType } from '@utils';
+import Image from 'next/image';
+import React from 'react';
 
-export interface TestimonialProps {}
-const Testimonial: React.FC<TestimonialProps> = () => {
+export interface TestimonialProps {
+  items: TestimsType[];
+}
+const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
+  console.log('items: ayyyyyy', items);
   return (
     <div className="py-16 bg-primary-50">
       <div className="flex items-center max-w-4xl mx-auto">
@@ -20,7 +24,7 @@ const Testimonial: React.FC<TestimonialProps> = () => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-2 gap-16">
-              {testimonialsItems.map((item, i) => {
+              {items.map((item, i) => {
                 return <TestimonialCard key={i} item={item} />;
               })}
             </ul>
@@ -34,7 +38,7 @@ const Testimonial: React.FC<TestimonialProps> = () => {
 export default Testimonial;
 
 export interface TestimonialCardProps {
-  item: TestimonialItem;
+  item: TestimsType;
 }
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
   return (
@@ -43,14 +47,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
         <div className="flex items-center space-x-4">
           <Image
             src="/static/images/avatar.jpeg"
-            alt={item.person.name}
+            alt={item.Name}
             height={70}
             width={70}
             className="rounded-full"
           />
           <div className="flex flex-col">
-            <span className="font-semibold">{item.person.name}</span>
-            <span className="text-sm font-light">{item.person.role}</span>
+            <span className="font-semibold">{item.Name}</span>
+            <span className="text-sm font-light">{item.Role}</span>
           </div>
         </div>
         <div className="flex">
@@ -59,7 +63,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
           ))}
         </div>
       </div>
-      <p className="text-sm leading-6">{item.text}</p>
+      <p className="text-sm leading-6">{item.Text}</p>
     </div>
   );
 };

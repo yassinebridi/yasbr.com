@@ -1,4 +1,4 @@
-export type Page = {
+export type BlogPostType = {
   id: string;
   Title: string;
   Type: string;
@@ -16,4 +16,41 @@ export type Author = {
   lastName: string;
   fullName: string;
   profilePhoto: string;
+};
+
+export type ImageType = {
+  name: string;
+  url: string;
+  rawUrl: string;
+};
+
+export type SkillsType = {
+  id: string;
+  Title: string;
+  Icon: ImageType[];
+};
+
+export type ServicesType = {
+  id: string;
+  Title: string;
+  Desc: string;
+  Icon: ImageType[];
+};
+
+export type ProjectsType = {
+  id: string;
+  Name: string;
+  Slug: string;
+  Desc: string;
+  Url: string;
+  Type: string;
+  Image: ImageType[];
+};
+
+export type TestimsType = {
+  id: string;
+  Name: string;
+  Text: string;
+  Role: string;
+  Avatar: ImageType[];
 };

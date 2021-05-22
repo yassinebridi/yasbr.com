@@ -1,20 +1,20 @@
 import { Project } from '@components';
-import { projectsItems } from '@data';
+import { ProjectsType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
 
 type ProjectType = 'all' | 'os' | 'client';
-export interface ProjectsProps {}
-const Projects: React.FC<ProjectsProps> = () => {
+export interface ProjectsProps {
+  items: ProjectsType[];
+}
+const Projects: React.FC<ProjectsProps> = ({ items }) => {
   const [selected, setSelected] = React.useState<ProjectType>('all');
 
   const handleClick = (type: ProjectType) => {
     setSelected(type);
   };
-  const items =
-    selected === 'all'
-      ? projectsItems
-      : projectsItems.filter((item) => item.type === selected);
+  const selectedItems =
+    selected === 'all' ? items : items.filter((item) => item.Type === selected);
 
   return (
     <div className="py-16 bg-primary-50">
@@ -70,7 +70,7 @@ const Projects: React.FC<ProjectsProps> = () => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-3 gap-6">
-              {items.map((item, i) => {
+              {selectedItems.map((item, i) => {
                 return <Project key={i} projectItem={item} />;
               })}
             </ul>
