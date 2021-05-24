@@ -1,6 +1,6 @@
 import { TestimonialItem, testimonialsItems } from '@data/testimonials';
 import { StarIcon } from '@heroicons/react/solid';
-import { TestimsType } from '@utils';
+import { originalLoader, TestimsType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
@@ -46,8 +46,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Image
-            src="/static/images/avatar.jpeg"
+            src={item.Avatar[0].url}
             alt={item.Name}
+            loader={originalLoader}
             height={70}
             width={70}
             className="rounded-full"

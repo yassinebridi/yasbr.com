@@ -33,7 +33,7 @@ html {
   @apply text-primary-600 hover:bg-primary-100 hover:border-solid;
 }
 .btn-secondary {
-  @apply text-white bg-secondary-500 hover:bg-secondary-600 ring-secondary-500;
+  @apply text-white border-2 border-white border-dashed hover:bg-white hover:text-black;
 }
 .btn-ol-secondary {
   @apply text-secondary-600 bg-secondary-200 hover:bg-secondary-300 ring-secondary-500;

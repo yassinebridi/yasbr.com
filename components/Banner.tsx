@@ -1,34 +1,25 @@
-import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 
 export interface BannerProps {}
 const Banner: React.FC<BannerProps> = () => {
   return (
-    <div className="py-16 bg-primary-400">
-      <div className="flex max-w-4xl mx-auto grid grid-cols-5">
-        <div className="py-12 font-normal col-span-3">
-          <h3 className="text-3xl font-bold text-white">
+    <div className="py-16 bg-primary-900">
+      <div className="flex w-full max-w-4xl mx-auto">
+        <div className="w-full font-normal text-center">
+          <h3 className="text-3xl font-bold text-primary-50">
             Have a project on your mind
           </h3>
-          <p className="text-primary-100">
+          <p className="mt-3 text-primary-300">
             Maecenas faucibus neque tellus, egestas tincidunt arcu iaculis id.
+            <br />
             Maecenas faucibus neque tellus
           </p>
-          <div className="mt-5">
+          <div className="mt-10">
             <Link href="/#contact">
-              <a className="btn btn-lg btn-white">Contact Me</a>
+              <a className="btn btn-lg btn-secondary">Contact Me</a>
             </Link>
           </div>
-        </div>
-
-        <div className="relative py-12 -mb-2 col-span-2">
-          <Image
-            className=""
-            src="/static/images/manag.svg"
-            alt="Yassine Bridi's avatar"
-            layout="fill"
-          />
         </div>
       </div>
     </div>
