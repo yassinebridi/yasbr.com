@@ -32,7 +32,7 @@ const Tags: React.FC<TagsProps> = ({ posts, tag }) => {
                 <p>{post.Preview}</p>
                 <div className="flex space-x-2">
                   {post.TagsField.map((tag) => (
-                    <Link href={`/blog/tags/${tag.Slug}`}>
+                    <Link key={tag.id} href={`/blog/tags/${tag.Slug}`}>
                       <a className="">{tag.Name}</a>
                     </Link>
                   ))}
