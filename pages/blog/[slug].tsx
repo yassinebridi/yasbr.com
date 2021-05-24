@@ -1,19 +1,27 @@
 import { Notion } from '@components';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks, getBlogPost, updatePage } from '@lib';
-import { BlogPostType, dateFormat } from '@utils';
+import {
+  databasesId,
+  getBlocks,
+  getPageBySlug,
+  getDatabase,
+  updatePage,
+} from '@lib';
+import { BlogPostType, dateFormat, TagType } from '@utils';
 import comma from 'comma-number';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { BlockMapType } from 'react-notion';
 
 export interface BlogPostProps {
   post: BlogPostType;
+  tags: TagType[];
   blocks: BlockMapType;
 }
-const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
+const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
   if (!post || !blocks) {
     return <div />;
   }
@@ -48,6 +56,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, blocks }) => {
               </div>
             ))}
           </div>
+          <div className="flex space-x-2">
+            {tags.map((tag) => (
+              <Link href={`/blog/tags/${tag.Slug}`}>
+                <a className="">{tag.Name}</a>
+              </Link>
+            ))}
+          </div>
           <section className="mt-4">
             <Notion blocks={blocks} />
           </section>
@@ -68,7 +83,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params;
-  const post = await getBlogPost(databasesId.blog, slug as string);
+  const post = await getPageBySlug<BlogPostType>(
+    databasesId.posts,
+    slug as string
+  );
+  const tagsTable = await getDatabase<TagType>(databasesId.tags);
+  const tags = tagsTable.filter((tag) => post.Tags.includes(tag.id));
   const blocks = await getBlocks(post.id);
 
   await updatePage({
@@ -79,6 +99,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       post,
+      tags,
       blocks,
     },
     revalidate: 1,

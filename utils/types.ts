@@ -2,6 +2,8 @@ export type BlogPostType = {
   id: string;
   Title: string;
   Type: string;
+  Tags: string[];
+  TagsField: TagType[] | null;
   Preview: string;
   Views: number;
   Slug: string;
@@ -16,6 +18,14 @@ export type Author = {
   lastName: string;
   fullName: string;
   profilePhoto: string;
+};
+
+export type TagType = {
+  id: string;
+  Name: string;
+  Slug: string;
+  Posts: string[];
+  PostsField: BlogPostType[] | null;
 };
 
 export type ImageType = {

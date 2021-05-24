@@ -8,7 +8,6 @@ export interface TestimonialProps {
   items: TestimsType[];
 }
 const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
-  console.log('items: ayyyyyy', items);
   return (
     <div className="py-16 bg-primary-50">
       <div className="flex items-center max-w-4xl mx-auto">

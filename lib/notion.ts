@@ -1,9 +1,9 @@
-import { BlogPostType } from '@utils';
 import { PagesUpdateParameters, WithAuth } from 'notion';
 import { BlockMapType } from 'react-notion';
 
 export const databasesId = {
-  blog: process.env.BLOG_DATABASE_ID,
+  posts: process.env.POSTS_DATABASE_ID,
+  tags: process.env.TAGS_DATABASE_ID,
   sections: {
     intro: process.env.INTO_DATABASE_ID,
     skills: process.env.SKILLS_DATABASE_ID,
@@ -37,14 +37,14 @@ export const getDatabase = async <T>(databaseId: string): Promise<T[]> => {
   return data;
 };
 
-export const getBlogPost = async (
+export const getPageBySlug = async <T>(
   databaseId: string,
   slug: string
-): Promise<BlogPostType> => {
-  const posts = await getDatabase<BlogPostType>(databaseId);
+): Promise<T> => {
+  const items: any = await getDatabase<T>(databaseId);
 
-  const post = posts.find((post) => post.Slug === slug);
-  return post;
+  const item = items.find((post) => post.Slug === slug);
+  return item;
 };
 
 export const getBlocks = async (pageId: string): Promise<BlockMapType> => {
