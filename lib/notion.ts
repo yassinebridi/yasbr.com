@@ -5,7 +5,7 @@ export const databasesId = {
   posts: process.env.POSTS_DATABASE_ID,
   tags: process.env.TAGS_DATABASE_ID,
   sections: {
-    intro: process.env.INTO_DATABASE_ID,
+    intro: process.env.INTRO_DATABASE_ID,
     skills: process.env.SKILLS_DATABASE_ID,
     services: process.env.SERVICES_DATABASE_ID,
     projects: process.env.PROJECTS_DATABASE_ID,
