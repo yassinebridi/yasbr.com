@@ -14,6 +14,7 @@ import Projects from './Projects';
 import Services from './Services';
 import Skills from './Skills';
 import Testimonial from './Testimonial';
+import ThemeChanger from './ThemeChanger';
 import Uses from './Uses';
 
 export * from './header';
@@ -36,4 +37,5 @@ export {
   Testimonial,
   Contact,
   Notion,
+  ThemeChanger,
 };

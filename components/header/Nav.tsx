@@ -1,3 +1,4 @@
+import { ThemeChanger } from '@components';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,6 +13,7 @@ const Nav: React.FC<NavProps> = () => {
       <NavLink path="/#projects" name="Projects" />
       <NavLink path="/#testimonial" name="Testimonial" />
       <NavLink path="/blog" name="Blog" />
+      <ThemeChanger />
       <Link href="/#contact">
         <a className="btn btn-lg btn-primary">Hire me</a>
       </Link>
