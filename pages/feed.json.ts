@@ -60,10 +60,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     const posts = await getAllPosts();
 
     const feed = buildFeed(posts);
-    res.setHeader(
-      'Cache-Control',
-      's-maxage=86400, stale-while-revalidate=86400'
-    );
+    // res.setHeader(
+    //   'Cache-Control',
+    //   's-maxage=86400, stale-while-revalidate=86400'
+    // );
     res.setHeader('content-type', 'text/json');
     res.write(feed.json1());
     res.end();
