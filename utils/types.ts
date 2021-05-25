@@ -1,6 +1,7 @@
 export type BlogPostType = {
   id: string;
   Title: string;
+  Image: ImageType;
   Type: string;
   Tags: string[];
   TagsField: TagType[] | null;

@@ -14,7 +14,7 @@ const ThemeChanger: React.FC<ThemeChangerProps> = () => {
 
   return (
     <button
-      className={clsx('p-2 py-1 rounded-full leading-none')}
+      className={clsx('p-2 py-1 leading-none ringify')}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle color mode"
       title="Toggle color mode"

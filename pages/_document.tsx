@@ -45,6 +45,9 @@ export default class MyDocument extends Document<DocumentInitialProps> {
             sizes="16x16"
             type="image/png"
           />
+          <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+          <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
+          <link rel="alternate" type="application/json" href="/feed.json" />
         </Head>
         <body className="">
           <Main />
