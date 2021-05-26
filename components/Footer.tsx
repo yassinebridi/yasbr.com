@@ -4,34 +4,25 @@ import React from 'react';
 export interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
-    <div className="px-6 py-4 bg-primary-300">
-      <div className="flex items-center justify-between">
-        <div className="flex">
-          <p className="mr-2 font-light">Follow me on: </p>
-          <ul className="flex space-x-2">
-            <li className="flex items-center">
-              <span className="mr-1">
-                <TwitterIcon cn="h-3 w-3" />
-              </span>
-              <span className="font-bold">
-                <a href="https://yasbr.com/twitter" target="_blank">
-                  Twitter
-                </a>
-              </span>
-            </li>
-            <li className="flex items-center">
-              <span className="mr-1">
-                <GithubIcon cn="h-3 w-3" />
-              </span>
-              <span className="font-bold">
-                <a href="https://yasbr.com/github" target="_blank">
-                  Github
-                </a>
-              </span>
-            </li>
-          </ul>
+    <div className="relative w-full text-primary-700 dark:bg-primary-900 dark:text-primary-200">
+      <div className="flex items-center justify-between max-w-4xl py-6 mx-auto border-t dark:border-primary-800 border-primary-200">
+        <div className="flex items-center space-x-8">
+          <a
+            href="https://yasbr.com/twitter"
+            target="_blank"
+            className="text-sm uppercase dark:hover:text-gray-100 hover:text-gray-900 ringify"
+          >
+            Twitter
+          </a>
+          <a
+            href="https://yasbr.com/github"
+            target="_blank"
+            className="text-sm uppercase dark:hover:text-gray-100 hover:text-gray-900 ringify"
+          >
+            Github
+          </a>
         </div>
-        <p className="text-sm font-light">© 2021 Yassine Bridi.</p>
+        <p className="text-sm font-normal">© 2021 Yassine Bridi</p>
       </div>
     </div>
   );

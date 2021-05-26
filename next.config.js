@@ -18,6 +18,10 @@ module.exports = {
       destination: 'https://twitter.com/yassinebridi',
     },
     {
+      source: '/dribbble',
+      destination: 'https://dribbble.com/yassinebridi',
+    },
+    {
       source: '/sitemap.xml',
       destination: '/api/sitemap',
     },

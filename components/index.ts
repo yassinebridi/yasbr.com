@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Hero from './Hero';
 import HeroInfo from './HeroInfo';
+import Home from './Home';
 import Introduction from './Introduction';
 import List from './List';
 import Notion from './Notion';
@@ -25,6 +26,7 @@ export {
   Footer,
   Header,
   Hero,
+  Home,
   Introduction,
   List,
   Project,

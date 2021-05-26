@@ -1,78 +1,31 @@
-import {
-  Banner,
-  Contact,
-  Hero,
-  HeroInfo,
-  Introduction,
-  Projects,
-  Services,
-  Skills,
-  Testimonial,
-} from '@components';
+import { Home } from '@components';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks, getDatabase } from '@lib';
-import { ProjectsType, ServicesType, SkillsType, TestimsType } from '@utils';
+import { databasesId, getBlocks } from '@lib';
 import { GetStaticProps } from 'next';
 import React from 'react';
 import { BlockMapType } from 'react-notion';
 
-export interface HomeProps {
-  introPage: BlockMapType;
-  skillsTable: SkillsType[];
-  servicesTable: ServicesType[];
-  projectsTable: ProjectsType[];
-  testimsTable: TestimsType[];
+export interface IndexProps {
+  homePage: BlockMapType;
 }
-const Home: React.FC<HomeProps> = ({
-  introPage,
-  skillsTable,
-  servicesTable,
-  projectsTable,
-  testimsTable,
-}) => {
+const Index: React.FC<IndexProps> = ({ homePage }) => {
   return (
     <HomeLayout>
-      <div className="">
-        <div className="relative">
-          <Hero />
-          <HeroInfo />
-        </div>
-        <Introduction blocks={introPage} />
-        <Skills items={skillsTable} />
-        <Services items={servicesTable} />
-        <Projects items={projectsTable} />
-        <Banner />
-        <Testimonial items={testimsTable} />
-        <Contact />
+      <div className="py-6">
+        <Home blocks={homePage} />
       </div>
     </HomeLayout>
   );
 };
 
-export default Home;
+export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const introPage = await getBlocks(databasesId.sections.intro);
-  const skillsTable = await getDatabase<SkillsType>(
-    databasesId.sections.skills
-  );
-  const servicesTable = await getDatabase<ServicesType>(
-    databasesId.sections.services
-  );
-  const projectsTable = await getDatabase<ProjectsType>(
-    databasesId.sections.projects
-  );
-  const testimsTable = await getDatabase<TestimsType>(
-    databasesId.sections.testims
-  );
+  const homePage = await getBlocks(databasesId.sections.home);
 
   return {
     props: {
-      introPage,
-      skillsTable,
-      servicesTable,
-      projectsTable,
-      testimsTable,
+      homePage,
     },
     revalidate: 1,
   };

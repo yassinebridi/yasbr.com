@@ -1,7 +1,6 @@
 .notion {
   font-size: 16px;
   line-height: 1.5;
-  color: rgb(55, 53, 47);
   caret-color: rgb(55, 53, 47);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
     'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
@@ -217,6 +216,10 @@ img.notion-page-icon-offset {
   word-break: break-word;
   text-decoration: underline;
   text-decoration-color: inherit;
+}
+.notion-link:hover {
+  background-color: #18181b;
+  color: #ffffff;
 }
 .notion-blank {
   min-height: 1rem;

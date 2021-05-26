@@ -21,13 +21,13 @@ html {
   @apply px-4 py-2 text-sm;
 }
 .btn-lg {
-  @apply px-7 py-3 text-sm;
+  @apply py-3 text-sm px-7;
 }
 .btn-white {
   @apply bg-white text-primary-500 hover:text-primary-600 ring-primary-500;
 }
 .btn-primary {
-  @apply text-black border-2 border-black border-dashed hover:bg-black hover:text-white;
+  @apply border-2 border-dashed text-primary-900 border-primary-900 dark:border-white dark:text-white dark:hover:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white;
 }
 .btn-ol-primary {
   @apply text-primary-600 hover:bg-primary-100 hover:border-solid;
@@ -48,5 +48,5 @@ html {
 }
 
 .ringify {
-  @apply ring-black focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-4;
+  @apply ring-black focus:outline-none focus:ring-2 dark:ring-white dark:ring-offset-black ring-offset-white focus:ring-offset-4;
 }

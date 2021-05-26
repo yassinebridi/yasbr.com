@@ -36,7 +36,7 @@ const Container: React.FC<ContainerProps> = ({ children, customMeta }) => {
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
       </Head>
-      <div>{children}</div>
+      <>{children}</>
     </>
   );
 };
