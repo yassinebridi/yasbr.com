@@ -1,11 +1,11 @@
 import { TestimonialItem, testimonialsItems } from '@data/testimonials';
 import { StarIcon } from '@heroicons/react/solid';
-import { originalLoader, TestimsType } from '@utils';
+import { originalLoader, TestimType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
 export interface TestimonialProps {
-  items: TestimsType[];
+  items: TestimType[];
 }
 const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
   return (
@@ -37,7 +37,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
 export default Testimonial;
 
 export interface TestimonialCardProps {
-  item: TestimsType;
+  item: TestimType;
 }
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
   return (

@@ -1,9 +1,9 @@
-import { originalLoader, SkillsType } from '@utils';
+import { originalLoader, SkillType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
 export interface SkillsProps {
-  items: SkillsType[];
+  items: SkillType[];
 }
 const Skills: React.FC<SkillsProps> = ({ items }) => {
   return (

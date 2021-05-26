@@ -35,20 +35,20 @@ export type ImageType = {
   rawUrl: string;
 };
 
-export type SkillsType = {
+export type SkillType = {
   id: string;
   Title: string;
   Icon: ImageType[];
 };
 
-export type ServicesType = {
+export type ServiceType = {
   id: string;
   Title: string;
   Desc: string;
   Icon: ImageType[];
 };
 
-export type ProjectsType = {
+export type ProjectType = {
   id: string;
   Name: string;
   Slug: string;
@@ -58,7 +58,7 @@ export type ProjectsType = {
   Image: ImageType[];
 };
 
-export type TestimsType = {
+export type TestimType = {
   id: string;
   Name: string;
   Text: string;

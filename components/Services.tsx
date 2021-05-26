@@ -1,10 +1,10 @@
-import { cloudinaryLoader, originalLoader, ServicesType } from '@utils';
+import { originalLoader, ServiceType } from '@utils';
 import clsx from 'clsx';
-import React from 'react';
 import Image from 'next/image';
+import React from 'react';
 
 export interface ServicesProps {
-  items: ServicesType[];
+  items: ServiceType[];
 }
 const Services: React.FC<ServicesProps> = ({ items }) => {
   return (
@@ -36,7 +36,7 @@ const Services: React.FC<ServicesProps> = ({ items }) => {
 export default Services;
 
 export interface ServiceCardProps {
-  item: ServicesType;
+  item: ServiceType;
 }
 const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
   return (

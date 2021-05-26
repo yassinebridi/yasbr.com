@@ -1,16 +1,16 @@
 import { Project } from '@components';
-import { ProjectsType } from '@utils';
+import { ProjectType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
 
-type ProjectType = 'all' | 'os' | 'client';
+type ProjectKind = 'all' | 'os' | 'client';
 export interface ProjectsProps {
-  items: ProjectsType[];
+  items: ProjectType[];
 }
 const Projects: React.FC<ProjectsProps> = ({ items }) => {
-  const [selected, setSelected] = React.useState<ProjectType>('all');
+  const [selected, setSelected] = React.useState<ProjectKind>('all');
 
-  const handleClick = (type: ProjectType) => {
+  const handleClick = (type: ProjectKind) => {
     setSelected(type);
   };
   const selectedItems =

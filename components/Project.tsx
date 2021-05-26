@@ -1,11 +1,11 @@
 import { ArrowRightIcon } from '@heroicons/react/outline';
-import { originalLoader, ProjectsType } from '@utils';
+import { originalLoader, ProjectType } from '@utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 export interface ProjectProps {
-  projectItem: ProjectsType;
+  projectItem: ProjectType;
 }
 const Project: React.FC<ProjectProps> = ({ projectItem }) => {
   return (

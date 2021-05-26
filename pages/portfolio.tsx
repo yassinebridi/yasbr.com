@@ -11,17 +11,17 @@ import {
 } from '@components';
 import { HomeLayout } from '@layouts';
 import { databasesId, getBlocks, getDatabase } from '@lib';
-import { ProjectsType, ServicesType, SkillsType, TestimsType } from '@utils';
+import { ProjectType, ServiceType, SkillType, TestimType } from '@utils';
 import { GetStaticProps } from 'next';
 import React from 'react';
 import { BlockMapType } from 'react-notion';
 
 export interface PortfolioProps {
   introPage: BlockMapType;
-  skillsTable: SkillsType[];
-  servicesTable: ServicesType[];
-  projectsTable: ProjectsType[];
-  testimsTable: TestimsType[];
+  skillsTable: SkillType[];
+  servicesTable: ServiceType[];
+  projectsTable: ProjectType[];
+  testimsTable: TestimType[];
 }
 const Portfolio: React.FC<PortfolioProps> = ({
   introPage,
@@ -53,16 +53,14 @@ export default Portfolio;
 
 export const getStaticProps: GetStaticProps = async () => {
   const introPage = await getBlocks(databasesId.sections.intro);
-  const skillsTable = await getDatabase<SkillsType>(
-    databasesId.sections.skills
-  );
-  const servicesTable = await getDatabase<ServicesType>(
+  const skillsTable = await getDatabase<SkillType>(databasesId.sections.skills);
+  const servicesTable = await getDatabase<ServiceType>(
     databasesId.sections.services
   );
-  const projectsTable = await getDatabase<ProjectsType>(
+  const projectsTable = await getDatabase<ProjectType>(
     databasesId.sections.projects
   );
-  const testimsTable = await getDatabase<TestimsType>(
+  const testimsTable = await getDatabase<TestimType>(
     databasesId.sections.testims
   );
 
