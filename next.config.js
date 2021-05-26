@@ -12,14 +12,17 @@ module.exports = {
     {
       source: '/twitter',
       destination: 'https://twitter.com/yassinebridi',
+      permanent: true,
     },
     {
       source: '/github',
       destination: 'https://github.com/yassinebridi',
+      permanent: true,
     },
     {
       source: '/dribbble',
       destination: 'https://dribbble.com/yassinebridi',
+      permanent: true,
     },
   ],
   rewrites: async () => [
