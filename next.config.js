@@ -8,6 +8,24 @@ module.exports = {
     turboMode: true,
     eslint: true,
   },
+  rewrites: async () => [
+    {
+      source: '/twitter',
+      destination: 'https://twitter.com/yassinebridi',
+    },
+    {
+      source: '/github',
+      destination: 'https://twitter.com/yassinebridi',
+    },
+    {
+      source: '/sitemap.xml',
+      destination: '/api/sitemap',
+    },
+    {
+      source: '/rss.xml',
+      destination: '/api/rss',
+    },
+  ],
   async headers() {
     return [
       {
