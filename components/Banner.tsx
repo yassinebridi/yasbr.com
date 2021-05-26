@@ -11,9 +11,9 @@ const Banner: React.FC<BannerProps> = () => {
             Have a project on your mind
           </h3>
           <p className="mt-3 text-primary-300">
-            Maecenas faucibus neque tellus, egestas tincidunt arcu iaculis id.
+            You like what you see, and want something similar?
             <br />
-            Maecenas faucibus neque tellus
+            Let's have a chat.
           </p>
           <div className="mt-10">
             <Link href="#contact">
