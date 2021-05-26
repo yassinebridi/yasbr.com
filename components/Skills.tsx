@@ -1,4 +1,4 @@
-import { cloudinaryLoader, originalLoader, SkillsType } from '@utils';
+import { originalLoader, SkillsType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
