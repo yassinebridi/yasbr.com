@@ -16,7 +16,7 @@ const Skills: React.FC<SkillsProps> = ({ items }) => {
             </h3>
             <h2 id="skills" className="text-3xl font-extrabold">
               <a href="#skills" title="skills" className="ringify">
-                What i'm good at
+                What I'm good at
               </a>
             </h2>
           </div>

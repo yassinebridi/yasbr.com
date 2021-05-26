@@ -8,19 +8,21 @@ module.exports = {
     turboMode: true,
     eslint: true,
   },
-  rewrites: async () => [
+  redirects: async () => [
     {
       source: '/twitter',
       destination: 'https://twitter.com/yassinebridi',
     },
     {
       source: '/github',
-      destination: 'https://twitter.com/yassinebridi',
+      destination: 'https://github.com/yassinebridi',
     },
     {
       source: '/dribbble',
       destination: 'https://dribbble.com/yassinebridi',
     },
+  ],
+  rewrites: async () => [
     {
       source: '/sitemap.xml',
       destination: '/api/sitemap',
@@ -30,14 +32,12 @@ module.exports = {
       destination: '/api/rss',
     },
   ],
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ];
-  },
+  headers: async () => [
+    {
+      source: '/(.*)',
+      headers: securityHeaders,
+    },
+  ],
   webpack: (config, { dev, isServer }) => {
     // if (isServer) {
     //   require('./scripts/generate-sitemap');
