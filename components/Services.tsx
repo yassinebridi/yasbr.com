@@ -15,7 +15,7 @@ const Services: React.FC<ServicesProps> = ({ items }) => {
             <h3 className="uppercase text-md text-primary-500">Services</h3>
             <h2 id="services" className="text-3xl font-extrabold">
               <a href="#services" title="services" className="ringify">
-                What i offer
+                What I offer
               </a>
             </h2>
           </div>

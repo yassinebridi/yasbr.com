@@ -16,7 +16,7 @@ const Banner: React.FC<BannerProps> = () => {
             Maecenas faucibus neque tellus
           </p>
           <div className="mt-10">
-            <Link href="/#contact">
+            <Link href="#contact">
               <a className="btn btn-lg btn-secondary">Contact Me</a>
             </Link>
           </div>

@@ -17,12 +17,12 @@ const Hero: React.FC<HeroProps> = () => {
               Freelance Full Stack Developer
             </p>
             <div className="flex mt-8 space-x-4">
-              <Link href="/#contact">
+              <Link href="#contact">
                 <a className="flex items-center btn btn-primary btn-lg">
                   <span>Contact Me</span>
                 </a>
               </Link>
-              <Link href="/#projects">
+              <Link href="#projects">
                 <a className="flex items-center btn btn-ol-primary btn-lg space-x-2">
                   <span>See projects</span>
                   <ArrowDownIcon className="w-4 h-4" />
@@ -38,7 +38,6 @@ const Hero: React.FC<HeroProps> = () => {
               quality={100}
               height={300}
               width={300}
-              className="rounded-full"
             />
           </div>
         </div>
