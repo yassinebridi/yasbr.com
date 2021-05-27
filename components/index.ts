@@ -1,5 +1,4 @@
 import Banner from './Banner';
-import CodeEditor from './CodeEditor';
 import Contact from './Contact';
 import Container from './Container';
 import Footer from './Footer';
@@ -16,12 +15,10 @@ import Services from './Services';
 import Skills from './Skills';
 import Testimonial from './Testimonial';
 import ThemeChanger from './ThemeChanger';
-import Uses from './Uses';
 
 export * from './header';
 export * from './List';
 export {
-  CodeEditor,
   Container,
   Footer,
   Header,
@@ -31,7 +28,6 @@ export {
   List,
   Project,
   Projects,
-  Uses,
   HeroInfo,
   Skills,
   Services,

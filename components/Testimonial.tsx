@@ -1,4 +1,3 @@
-import { TestimonialItem, testimonialsItems } from '@data/testimonials';
 import { StarIcon } from '@heroicons/react/solid';
 import { originalLoader, TestimType } from '@utils';
 import Image from 'next/image';
