@@ -20,7 +20,7 @@ const Contact: React.FC<ContactProps> = () => {
               <span>You can always DM on</span>{' '}
               <a
                 target="_blank"
-                href="https://twitter.com/messages/compose?recipient_id=895843232"
+                href="https://yasbr.com/DM"
                 className="inline-flex items-center font-bold underline hover:bg-black hover:text-white space-x-1"
               >
                 <span>twitter</span>

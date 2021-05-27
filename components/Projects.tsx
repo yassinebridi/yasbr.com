@@ -34,6 +34,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('all')}
                 className={clsx(
+                  'rounded-none',
                   selected === 'all' &&
                     'text-gray-700 underline text-primary-600',
                   'text-sm font-semibold uppercase ringify'
@@ -46,6 +47,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('client')}
                 className={clsx(
+                  'rounded-none',
                   selected === 'client' &&
                     'text-gray-700 underline text-primary-600',
                   'text-sm font-semibold uppercase ringify'
@@ -58,6 +60,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('os')}
                 className={clsx(
+                  'rounded-none',
                   selected === 'os' &&
                     'text-gray-700 underline text-primary-600',
                   'text-sm font-semibold uppercase ringify'

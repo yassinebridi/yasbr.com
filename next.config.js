@@ -10,6 +10,12 @@ module.exports = {
   },
   redirects: async () => [
     {
+      source: '/DM',
+      destination:
+        'https://twitter.com/messages/compose?recipient_id=895843232',
+      permanent: true,
+    },
+    {
       source: '/twitter',
       destination: 'https://twitter.com/yassinebridi',
       permanent: true,
