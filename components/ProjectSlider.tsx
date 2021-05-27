@@ -14,10 +14,8 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
       <div className={clsx('px-4')}>
         <img
           src={img.url}
-          width="800px"
-          height="100%"
           alt={project.Name}
-          className={clsx('shadow-lg')}
+          className={clsx('shadow-lg h-full w-[800px]')}
           key={i}
         />
       </div>
