@@ -5,6 +5,7 @@ import React from 'react';
 import '../styles/globals.css';
 import '../styles/prism-coldark.css';
 import '../styles/react-notion.css';
+import '../styles/slider.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

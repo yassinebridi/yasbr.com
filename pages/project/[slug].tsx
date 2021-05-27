@@ -3,9 +3,16 @@ import { HomeLayout } from '@layouts';
 import { databasesId, getBlocks, getPageBySlug } from '@lib';
 import { ProjectType } from '@utils';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import React from 'react';
 import { BlockMapType } from 'react-notion';
+
+const ProjectSlider = dynamic(
+  () => {
+    return import('../../components/ProjectSlider');
+  },
+  { ssr: false }
+);
 
 export interface ProjectProps {
   project: ProjectType;
@@ -18,20 +25,26 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
 
   return (
     <HomeLayout>
-      <div>
-        <Head>
-          <title>{project.Name}</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <article className="max-w-4xl py-3 mx-auto">
-          <h1 className="text-4xl font-bold">{project.Name}</h1>
-          <div className="flex space-x-3"></div>
-          <section className="mt-4">
-            <Notion blocks={blocks} />
-          </section>
-        </article>
-      </div>
+      <article className="max-w-4xl py-3 mx-auto">
+        <h1 className="text-4xl font-bold text-center">{project.Name}</h1>
+        <h1 className="text-center text-md">{project.Desc}</h1>
+        <ul className="flex justify-center mt-3 space-x-3">
+          {project.Kind.map((kind, i) => (
+            <li
+              key={i}
+              className="px-3 py-1 text-sm bg-gray-100 dark:bg-primary-800"
+            >
+              {kind}
+            </li>
+          ))}
+        </ul>
+        <div>
+          <ProjectSlider project={project} />
+        </div>
+        <section className="mt-4">
+          <Notion blocks={blocks} />
+        </section>
+      </article>
     </HomeLayout>
   );
 };

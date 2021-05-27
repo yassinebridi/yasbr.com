@@ -11,6 +11,7 @@ import List from './List';
 import Notion from './Notion';
 import Project from './Project';
 import Projects from './Projects';
+import ProjectSlider from './ProjectSlider';
 import Services from './Services';
 import Skills from './Skills';
 import Testimonial from './Testimonial';
@@ -36,4 +37,5 @@ export {
   Contact,
   Notion,
   ThemeChanger,
+  ProjectSlider,
 };

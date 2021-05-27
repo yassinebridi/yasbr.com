@@ -3,14 +3,13 @@ import { HomeLayout } from '@layouts';
 import {
   databasesId,
   getBlocks,
-  getPageBySlug,
   getDatabase,
+  getPageBySlug,
   updatePage,
 } from '@lib';
 import { BlogPostType, dateFormat, TagType } from '@utils';
 import comma from 'comma-number';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -28,46 +27,39 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
   const date = dateFormat(post.Date);
   return (
     <HomeLayout>
-      <div>
-        <Head>
-          <title>{post.Title}</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <article className="max-w-3xl py-3 mx-auto">
-          <p className="font-light uppercase">{date}</p>
-          <p>{comma(post.Views)} Views</p>
-          <p className="font-light uppercase">{}</p>
-          <h1 className="text-4xl font-bold">{post.Title}</h1>
-          <div className="flex space-x-3">
-            {post.Authors.map((author) => (
-              <div key={author.id} className="flex items-center space-x-2">
-                <Image
-                  src={author.profilePhoto}
-                  alt="Yassine Bridi's avatar"
-                  loader={(loader) => loader.src}
-                  height={23}
-                  width={23}
-                  className="rounded-full"
-                />
-                <span className="text-sm text-gray-800 leading-3">
-                  {author.fullName}
-                </span>
-              </div>
-            ))}
-          </div>
-          <div className="flex space-x-2">
-            {tags.map((tag) => (
-              <Link key={tag.id} href={`/blog/tags/${tag.Slug}`}>
-                <a className="">{tag.Name}</a>
-              </Link>
-            ))}
-          </div>
-          <section className="mt-4">
-            <Notion blocks={blocks} />
-          </section>
-        </article>
-      </div>
+      <article className="max-w-3xl py-3 mx-auto">
+        <p className="font-light uppercase">{date}</p>
+        <p>{comma(post.Views)} Views</p>
+        <p className="font-light uppercase">{}</p>
+        <h1 className="text-4xl font-bold">{post.Title}</h1>
+        <div className="flex space-x-3">
+          {post.Authors.map((author) => (
+            <div key={author.id} className="flex items-center space-x-2">
+              <Image
+                src={author.profilePhoto}
+                alt="Yassine Bridi's avatar"
+                loader={(loader) => loader.src}
+                height={23}
+                width={23}
+                className="rounded-full"
+              />
+              <span className="text-sm text-gray-800 leading-3">
+                {author.fullName}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="flex space-x-2">
+          {tags.map((tag) => (
+            <Link key={tag.id} href={`/blog/tags/${tag.Slug}`}>
+              <a className="">{tag.Name}</a>
+            </Link>
+          ))}
+        </div>
+        <section className="mt-4">
+          <Notion blocks={blocks} />
+        </section>
+      </article>
     </HomeLayout>
   );
 };

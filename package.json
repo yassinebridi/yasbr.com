@@ -14,13 +14,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.4",
+    "@egjs/react-flicking": "^3.7.1",
     "@headlessui/react": "^1.1.1",
     "@heroicons/react": "^1.0.1",
     "clsx": "^1.1.1",
     "comma-number": "^2.1.0",
     "feed": "^4.2.2",
     "focus-visible": "^5.2.0",
-    "framer-motion": "^4.1.11",
     "next": "10.2.0",
     "next-themes": "^0.0.14",
     "preact": "^10.5.13",

@@ -55,6 +55,7 @@ export type ProjectType = {
   Desc: string;
   Url: string;
   Type: string;
+  Kind: string[];
   Image: ImageType[];
 };
 
