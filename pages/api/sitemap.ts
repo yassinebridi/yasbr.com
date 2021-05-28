@@ -50,5 +50,10 @@ const getUserGeneratedPages = async () => {
   const tagsTable = await getDatabase<TagType>(databasesId.tags);
   tagsTable.map((tag) => slugs.push(`/blog/tags/${tag.Slug}`));
 
+  const projectsTable = await getDatabase<TagType>(
+    databasesId.sections.projects
+  );
+  projectsTable.map((project) => slugs.push(`/project/${project.Slug}`));
+
   return slugs;
 };
