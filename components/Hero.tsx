@@ -33,7 +33,7 @@ const Hero: React.FC<HeroProps> = () => {
 
           <div className="">
             <Image
-              src="/static/images/avatar.jpeg"
+              src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
               alt="Yassine Bridi's avatar"
               quality={100}
               height={300}
