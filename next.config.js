@@ -8,6 +8,9 @@ module.exports = {
     turboMode: true,
     eslint: true,
   },
+  images: {
+    domains: ['media.yasbr.com', 'pbs.twimg.com'],
+  },
   redirects: async () => [
     {
       source: '/DM',
