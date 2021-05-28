@@ -46,10 +46,8 @@ export default class MyDocument extends Document<DocumentInitialProps> {
             type="image/png"
           />
           <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
-          <link rel="alternate" type="application/atom+xml" href="/atom.xml" />
-          <link rel="alternate" type="application/json" href="/feed.json" />
         </Head>
-        <body className="">
+        <body className="dark:bg-primary-900 bg-white">
           <Main />
           <NextScript />
         </body>

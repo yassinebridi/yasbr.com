@@ -1,4 +1,4 @@
-import { PagesUpdateParameters, WithAuth } from 'notion';
+import { PagesCreateParameters, PagesUpdateParameters, WithAuth } from 'notion';
 import { BlockMapType } from 'react-notion';
 
 export const databasesId = {
@@ -11,6 +11,7 @@ export const databasesId = {
     services: process.env.SERVICES_DATABASE_ID,
     projects: process.env.PROJECTS_DATABASE_ID,
     testims: process.env.TESTIMS_DATABASE_ID,
+    contact: process.env.CONTACT_DATABASE_ID,
   },
 };
 const myNotionBaseApi = 'https://notion.yasbr.com/v1';
@@ -68,6 +69,22 @@ export const updatePage = async (
     },
     method: 'patch',
     body: JSON.stringify({ properties: args.properties }),
+  });
+  const data = await res.json();
+  return data;
+};
+
+export const createPage = async (
+  args: WithAuth<PagesCreateParameters>
+): Promise<PagesCreateParameters> => {
+  const res = await fetch(`${notionBaseApi}/pages`, {
+    ...fetchConfig,
+    headers: {
+      ...fetchConfig.headers,
+      'Content-Type': 'application/json',
+    },
+    method: 'post',
+    body: JSON.stringify(args),
   });
   const data = await res.json();
   return data;

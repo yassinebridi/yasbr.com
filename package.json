@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
-    "@egjs/react-flicking": "^3.7.1",
     "@headlessui/react": "^1.1.1",
     "@heroicons/react": "^1.0.1",
     "clsx": "^1.1.1",
@@ -34,7 +33,6 @@
     "zustand": "^3.4.2"
   },
   "devDependencies": {
-    "@tailwindcss/jit": "^0.1.18",
     "@tailwindcss/typography": "^0.4.0",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
