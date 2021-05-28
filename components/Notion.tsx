@@ -1,3 +1,4 @@
+import { imageTransformer } from '@utils';
 import React from 'react';
 import { BlockMapType, NotionRenderer } from 'react-notion';
 
@@ -5,7 +6,14 @@ export interface NotionProps {
   blocks: BlockMapType;
 }
 const Notion: React.FC<NotionProps> = ({ blocks }) => {
-  return <NotionRenderer blockMap={blocks} />;
+  return (
+    <NotionRenderer
+      blockMap={blocks}
+      mapImageUrl={(img) => {
+        return imageTransformer(img, 'f_auto,q_auto');
+      }}
+    />
+  );
 };
 
 export default Notion;

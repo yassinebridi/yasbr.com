@@ -1,4 +1,4 @@
-import { originalLoader, ServiceType } from '@utils';
+import { cloudinaryLoader, ServiceType } from '@utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
@@ -49,8 +49,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
         <div className="w-12 h-12 p-3 text-white rounded-full bg-primary-100 group-hover:bg-white group-hover:text-primary-400 group-hover:shadow-md">
           <Image
             alt={item.Title}
-            src={item.Icon[0].url}
-            loader={originalLoader}
+            src={item.Icon[0].rawUrl}
+            loader={cloudinaryLoader}
             width={23}
             height={23}
           />

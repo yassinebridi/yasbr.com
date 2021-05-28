@@ -1,4 +1,4 @@
-import { originalLoader, SkillType } from '@utils';
+import { cloudinaryLoader, imageTransformer, SkillType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
@@ -26,12 +26,10 @@ const Skills: React.FC<SkillsProps> = ({ items }) => {
               {items.map((item, i) => {
                 return (
                   <li key={i} className="flex items-center">
-                    <Image
+                    <img
                       alt={item.Title}
-                      src={item.Icon[0].url}
-                      loader={originalLoader}
-                      width={30}
-                      height={30}
+                      src={imageTransformer(item.Icon[0].rawUrl, 'f_auto')}
+                      className="w-[30px]"
                     />
                     <span className="ml-2">{item.Title}</span>
                   </li>

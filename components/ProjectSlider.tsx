@@ -1,6 +1,6 @@
 import Carousel, { arrowsPlugin, Dots } from '@brainhubeu/react-carousel';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/outline';
-import { ProjectType } from '@utils';
+import { imageTransformer, ProjectType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -9,31 +9,33 @@ export interface ProjectSliderProps {
 }
 const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
   const slides = [];
-  project.Image.map((img, i) =>
+  project.Image.map((img, i) => {
+    const rawUrl = imageTransformer(img.rawUrl, 'q_90,f_auto');
     slides.push(
       <div className={clsx('px-4')}>
         <img
-          src={img.url}
+          src={rawUrl}
           alt={project.Name}
           className={clsx('shadow-lg h-full w-[800px]')}
           key={i}
         />
       </div>
-    )
-  );
+    );
+  });
   const thumbnails = [];
-  project.Image.map((img, i) =>
+  project.Image.map((img, i) => {
+    const rawUrl = imageTransformer(img.rawUrl, 'q_auto,f_auto,w_200');
     thumbnails.push(
       <img
         key={i}
-        src={img.url}
+        src={rawUrl}
         alt={project.Name}
         width={100}
         height={100}
         className={clsx('object-cover border-2 border-gray-200')}
       />
-    )
-  );
+    );
+  });
   const [carState, setCarState] = React.useState<{
     value: number;
     slides?: any[];
@@ -60,7 +62,7 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
             resolve: arrowsPlugin,
             options: {
               arrowLeft: (
-                <button className="p-2 mr-3 text-white dark:bg-primary-700 bg-primary-400 rounded-none shadow-xl shadow-sm ringify">
+                <button className="p-2 mr-3 text-white rounded-none shadow-xl dark:bg-primary-700 bg-primary-400 shadow-sm ringify">
                   <ArrowLeftIcon className="w-5 h-5" />
                 </button>
               ),

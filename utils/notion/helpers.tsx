@@ -1,5 +1,4 @@
 import { ImageLoaderProps } from 'next/image';
-import { MapImageUrl } from 'react-notion';
 
 export const dateFormat = (date: Date) => {
   return new Date(date).toLocaleString('en-US', {
@@ -9,12 +8,11 @@ export const dateFormat = (date: Date) => {
   });
 };
 
-export const cloudinaryLoader = (loader: ImageLoaderProps) => {
-  return `https://res.cloudinary.com/yasbr/image/fetch/f_auto,c_limit/${loader.src}`;
-};
-
 export const originalLoader = (loader: ImageLoaderProps) => {
   return loader.src;
+};
+export const cloudinaryLoader = (loader: ImageLoaderProps) => {
+  return imageTransformer(loader.src, 'q_auto,f_auto');
 };
 
 export const getImageUrl = (image = '', block) => {
@@ -35,4 +33,11 @@ export const getImageUrl = (image = '', block) => {
   }
 
   return url.toString();
+};
+
+export const imageTransformer = (url: string, transformations: string) => {
+  return url.replace(
+    'res.cloudinary.com/yasbr/image/upload',
+    `media.yasbr.com/upload/${transformations}`
+  );
 };

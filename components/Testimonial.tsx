@@ -1,5 +1,5 @@
 import { StarIcon } from '@heroicons/react/solid';
-import { originalLoader, TestimType } from '@utils';
+import { cloudinaryLoader, TestimType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
 
@@ -44,9 +44,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <Image
-            src={item.Avatar[0].url}
+            src={item.Avatar[0].rawUrl}
             alt={item.Name}
-            loader={originalLoader}
+            loader={cloudinaryLoader}
             height={70}
             width={70}
             className="rounded-full"
