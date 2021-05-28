@@ -6,10 +6,10 @@ const rssApi = async (_, res) => {
   const posts = await getAllPosts();
   const feed = buildFeed(posts);
 
-  // res.setHeader(
-  //   'Cache-Control',
-  //   's-maxage=86400, stale-while-revalidate=86400'
-  // );
+  res.setHeader(
+    'Cache-Control',
+    's-maxage=86400, stale-while-revalidate=86400'
+  );
 
   res.setHeader('content-type', 'text/xml');
   res.write(feed.rss2());
