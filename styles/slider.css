@@ -17,6 +17,7 @@
 html.dark .BrainhubCarouselItem {
   background-color: #202023;
 }
+
 .BrainhubCarouselItem.BrainhubCarouselItem--clickable {
   cursor: pointer;
 }

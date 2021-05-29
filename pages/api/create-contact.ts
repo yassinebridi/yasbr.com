@@ -5,7 +5,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const body = req.body;
+  const { Name, Email, Company, Content, Deadline, Brief } = req.body;
   const newContact = await createPage({
     parent: { database_id: databasesId.sections.contact },
     properties: {
@@ -13,7 +13,7 @@ export default async function handler(
         title: [
           {
             text: {
-              content: 'Tuscan Kale',
+              content: Name,
             },
           },
         ],
@@ -22,7 +22,7 @@ export default async function handler(
         rich_text: [
           {
             text: {
-              content: 'yassine@yasbr.com',
+              content: Email,
             },
           },
         ],
@@ -31,31 +31,26 @@ export default async function handler(
         rich_text: [
           {
             text: {
-              content: 'yasbr',
+              content: Company,
             },
           },
         ],
-      },
-      CompanyType: {
-        select: {
-          name: 'startup',
-        },
       },
       Content: {
         rich_text: [
           {
             text: {
-              content: 'I want to make an eCommerce site',
+              content: Content,
             },
           },
         ],
       },
       Deadline: {
         select: {
-          name: 'three',
+          name: Deadline,
         },
       },
-      Brief: { url: 'https://en.wikipedia.org/wiki/Lacinato_kale' },
+      Brief: { url: Brief },
     },
   });
 

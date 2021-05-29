@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = () => {
           <div className="flex items-center space-x-8">
             <ThemeChanger />
             <Link href="/portfolio">
-              <a className="btn btn-lg btn-primary">Hire me</a>
+              <a className="btn btn-lg btn-primary ringify">Hire me</a>
             </Link>
           </div>
           <HumMenu />

@@ -66,3 +66,12 @@ export type TestimType = {
   Role: string;
   Avatar: ImageType[];
 };
+
+export type CreateContactData = {
+  Name: string;
+  Email: string;
+  Company: string;
+  Content: string;
+  Deadline: string;
+  Brief: string;
+};
