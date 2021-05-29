@@ -10,10 +10,10 @@ import * as z from 'zod';
 const schema = z.object({
   Name: z.string().nonempty(),
   Email: z.string().email(),
-  Company: z.string(),
+  Company: z.string().optional().default('null'),
   Content: z.string().nonempty(),
   Deadline: z.string().nonempty(),
-  Brief: z.string(),
+  Brief: z.string().optional().default('null'),
 });
 
 export interface ContactProps {}
