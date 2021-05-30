@@ -17,7 +17,7 @@ const Hero: React.FC<HeroProps> = () => {
               Freelance Full Stack Developer
             </p>
             <div className="flex mt-8 space-x-4">
-              <Link href="#contact">
+              <Link href="/contact">
                 <a className="flex items-center btn btn-primary btn-lg">
                   <span>Contact Me</span>
                 </a>
