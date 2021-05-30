@@ -17,11 +17,13 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
     selected === 'all' ? items : items.filter((item) => item.Type === selected);
 
   return (
-    <div className="py-16 bg-primary-50">
-      <div className="flex items-center max-w-4xl mx-auto">
+    <div className="py-16 bg-primary-50 dark:bg-primary-800">
+      <div className="flex items-center max-w-4xl px-4 mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500">Portfolio</h3>
+            <h3 className="uppercase text-md text-primary-500 text-primary-400">
+              Portfolio
+            </h3>
             <h2 id="projects" className="text-3xl font-extrabold">
               <a href="#projects" title="projects" className="ringify">
                 Recent Works
@@ -34,10 +36,10 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('all')}
                 className={clsx(
-                  'rounded-none',
-                  selected === 'all' &&
-                    'text-gray-700 underline text-primary-600',
-                  'text-sm font-semibold uppercase ringify'
+                  selected === 'all'
+                    ? 'dark:text-primary-50 text-primary-900 underline'
+                    : 'dark:text-primary-400 text-primary-500',
+                  'rounded-none text-sm font-semibold uppercase ringify'
                 )}
               >
                 All
@@ -47,10 +49,10 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('client')}
                 className={clsx(
-                  'rounded-none',
-                  selected === 'client' &&
-                    'text-gray-700 underline text-primary-600',
-                  'text-sm font-semibold uppercase ringify'
+                  selected === 'client'
+                    ? 'dark:text-primary-50 text-primary-900 underline'
+                    : 'dark:text-primary-400 text-primary-500',
+                  'rounded-none text-sm font-semibold uppercase ringify'
                 )}
               >
                 For Clients
@@ -60,10 +62,10 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
               <button
                 onClick={() => handleClick('os')}
                 className={clsx(
-                  'rounded-none',
-                  selected === 'os' &&
-                    'text-gray-700 underline text-primary-600',
-                  'text-sm font-semibold uppercase ringify'
+                  selected === 'os'
+                    ? 'dark:text-primary-100 text-primary-900 underline'
+                    : 'dark:text-primary-400 text-primary-500',
+                  'rounded-none text-sm font-semibold uppercase ringify'
                 )}
               >
                 Open Source
@@ -72,7 +74,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
           </ul>
 
           <div className="mt-6">
-            <ul className="grid grid-cols-3 gap-6">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {selectedItems.map((item, i) => {
                 return <Project key={i} projectItem={item} />;
               })}

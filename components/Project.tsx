@@ -14,7 +14,7 @@ export interface ProjectProps {
 const Project: React.FC<ProjectProps> = ({ projectItem }) => {
   return (
     <div>
-      <div className="relative shadow-lg h-44 group">
+      <div className="relative h-56 shadow-lg sm:h-48 md:h-44 group">
         <Image
           src={projectItem.Image[0].rawUrl}
           layout="fill"
@@ -30,7 +30,7 @@ const Project: React.FC<ProjectProps> = ({ projectItem }) => {
           </p>
         </div>
         <Link href={`project/${projectItem.Slug}`}>
-          <a className="flex items-center justify-center mt-3 btn btn-ol-primary hover:bg-primary-200 bg-primary-100 btn-md space-x-2">
+          <a className="flex items-center justify-center mt-3 btn btn-ol-primary hover:bg-primary-200 dark:hover:bg-primary-700 dark:bg-primary-900 bg-primary-100 btn-md space-x-2 ringify">
             <span>See More</span>
             <ArrowRightIcon className="w-4 h-4" />
           </a>
