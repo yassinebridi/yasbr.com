@@ -8,12 +8,17 @@ export interface TestimonialProps {
 }
 const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
   return (
-    <div className="py-16 bg-primary-50">
-      <div className="flex items-center max-w-4xl mx-auto">
+    <div className="py-16 bg-primary-50 dark:bg-primary-800">
+      <div className="flex items-center max-w-4xl px-6 mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500">Testimonials</h3>
-            <h2 id="testimonial" className="text-3xl font-extrabold">
+            <h3 className="uppercase text-md text-primary-500 text-primary-400">
+              Testimonials
+            </h3>
+            <h2
+              id="testimonial"
+              className="text-2xl sm:text-3xl font-extrabold"
+            >
               <a href="#testimonial" title="testimonial" className="ringify">
                 What my clients are saying.
               </a>
@@ -21,7 +26,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
           </div>
 
           <div className="mt-6">
-            <ul className="grid grid-cols-2 gap-16">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-16">
               {items.map((item, i) => {
                 return <TestimonialCard key={i} item={item} />;
               })}
@@ -62,7 +67,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
           ))}
         </div>
       </div>
-      <p className="text-sm leading-6">{item.Text}</p>
+      <p className="px-2 text-sm leading-6">{item.Text}</p>
     </div>
   );
 };
