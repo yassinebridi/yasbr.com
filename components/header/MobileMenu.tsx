@@ -49,7 +49,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
               <div className="-mr-2">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center p-1 text-black bg-white rounded-none dark:text-white dark:bg-black ringify"
+                  className="inline-flex items-center justify-center p-1 text-black bg-white rounded-none dark:text-white dark:bg-primary-900 ringify"
                   onClick={handleCloseMenu}
                 >
                   <span className="sr-only">Close menu</span>

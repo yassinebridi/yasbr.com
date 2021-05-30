@@ -6,14 +6,14 @@ import React from 'react';
 export interface HeroProps {}
 const Hero: React.FC<HeroProps> = () => {
   return (
-    <div className="relative w-full text-gray-900 bg-gray-50">
-      <div className="max-w-3xl py-24 mx-auto">
-        <div className="flex items-center justify-between w-full">
+    <div className="relative w-full text-primary-900 dark:bg-primary-900 dark:text-white bg-primary-50">
+      <div className="max-w-3xl px-4 pt-12 pb-32 mx-auto sm:py-24">
+        <div className="flex flex-col-reverse items-center justify-between w-full sm:flex-row">
           <div className="">
-            <h2 className="text-2xl font-extrabold text-black-900 md:text-5xl">
+            <h2 className="text-3xl font-extrabold mt-4 md:mt-0 text-center text-black-900 sm:text-left sm:text-4xl md:text-5xl">
               Yassine Bridi
             </h2>
-            <p className="mt-2 text-sm font-light md:text-lg">
+            <p className="mt-2 text-sm font-light text-center sm:text-lg sm:text-left">
               Freelance Full Stack Developer
             </p>
             <div className="flex mt-8 space-x-4">
@@ -32,13 +32,24 @@ const Hero: React.FC<HeroProps> = () => {
           </div>
 
           <div className="">
-            <Image
-              src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
-              alt="Yassine Bridi's avatar"
-              quality={100}
-              height={300}
-              width={300}
-            />
+            <div className="hidden sm:block">
+              <Image
+                src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
+                alt="Yassine Bridi's avatar"
+                quality={100}
+                height={270}
+                width={270}
+              />
+            </div>
+            <div className="block sm:hidden">
+              <Image
+                src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
+                alt="Yassine Bridi's avatar"
+                quality={100}
+                height={200}
+                width={200}
+              />
+            </div>
           </div>
         </div>
       </div>

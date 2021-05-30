@@ -13,7 +13,7 @@ const HumMenu: React.FC<HumMenuProps> = () => {
     <div className="flex items-center space-x-4 sm:hidden">
       <button
         type="button"
-        className="inline-flex items-center justify-center p-1 dark:text-white dark:bg-black text-black bg-white rounded-none ringify"
+        className="inline-flex items-center justify-center p-1 dark:text-white dark:bg-primary-900 text-black bg-white rounded-none ringify"
         aria-expanded="false"
         onClick={handleMenu}
       >
