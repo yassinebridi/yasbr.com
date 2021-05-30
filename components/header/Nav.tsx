@@ -4,7 +4,7 @@ import React from 'react';
 export interface NavProps {}
 const Nav: React.FC<NavProps> = () => {
   return (
-    <nav className="items-center justify-between hidden md:flex space-x-8">
+    <nav className="items-center justify-between hidden sm:flex space-x-8">
       <NavLink path="/" name="Home" />
       <NavLink path="/portfolio" name="Portfolio" />
       <NavLink path="/blog" name="Blog" />

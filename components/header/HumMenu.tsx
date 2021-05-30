@@ -10,15 +10,15 @@ const HumMenu: React.FC<HumMenuProps> = () => {
   };
 
   return (
-    <div className="flex items-center -my-2 -mr-2 space-x-4 md:hidden">
+    <div className="flex items-center space-x-4 sm:hidden">
       <button
         type="button"
-        className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+        className="inline-flex items-center justify-center p-1 dark:text-white dark:bg-black text-black bg-white rounded-none ringify"
         aria-expanded="false"
         onClick={handleMenu}
       >
         <span className="sr-only">Open menu</span>
-        <MenuIcon />
+        <MenuIcon className="w-7 h-7" />
       </button>
     </div>
   );

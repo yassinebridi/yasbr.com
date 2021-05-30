@@ -7,7 +7,7 @@ export interface HomeProps {
 }
 const Home: React.FC<HomeProps> = ({ blocks }) => {
   return (
-    <div className="flex items-center justify-between max-w-4xl mx-auto">
+    <div className="flex items-center justify-between max-w-md px-4 sm:max-w-4xl mx-auto">
       <Notion blocks={blocks} />
     </div>
   );

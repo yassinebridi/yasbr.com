@@ -20,19 +20,9 @@ const ThemeChanger: React.FC<ThemeChangerProps> = () => {
       title="Toggle color mode"
     >
       {theme === 'dark' ? (
-        <SunIcon
-          width="22px"
-          height="22px"
-          className="stroke-current"
-          aria-hidden="true"
-        />
+        <SunIcon className="w-6 h-6" />
       ) : (
-        <MoonIcon
-          width="22px"
-          height="22px"
-          className="fill-current"
-          aria-hidden="true"
-        />
+        <MoonIcon className="w-6 h-6" />
       )}
     </button>
   );

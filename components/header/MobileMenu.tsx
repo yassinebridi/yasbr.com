@@ -40,7 +40,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
       <div
         className={`absolute inset-x-0 z-50 top-0 p-2 transition transform origin-top-right md:hidden ${hideStatus}`}
       >
-        <div className="bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50">
+        <div className="bg-white rounded-none shadow-lg dark:bg-primary-900 ring-1 dark:text-white text-primary-900 ring-black ring-opacity-5 divide-y-2 divide-primary-50">
           <div className="px-5 pt-5 pb-6">
             <div className="flex items-center justify-between py-2">
               <div>
@@ -49,7 +49,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
               <div className="-mr-2">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  className="inline-flex items-center justify-center p-1 text-black bg-white rounded-none dark:text-white dark:bg-black ringify"
                   onClick={handleCloseMenu}
                 >
                   <span className="sr-only">Close menu</span>
@@ -59,21 +59,9 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
             </div>
             <div className="mt-6">
               <div className="grid gap-y-8">
-                <Link href="/marques">
-                  <a className="flex items-center justify-between p-3 -m-3 rounded-md hover:bg-gray-50">
-                    Marques
-                  </a>
-                </Link>
-                <Link href="/categories">
-                  <a className="flex items-center justify-between p-3 -m-3 rounded-md hover:bg-gray-50">
-                    Categories
-                  </a>
-                </Link>
-                <Link href="/offres?category=%20Supermarchés">
-                  <a className="flex items-center justify-between p-3 -m-3 rounded-md hover:bg-gray-50">
-                    Offres
-                  </a>
-                </Link>
+                {linkItems.map((item) => (
+                  <LinkItem title={item.title} path={item.path} />
+                ))}
               </div>
             </div>
           </div>
@@ -84,3 +72,35 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
 };
 
 export default MenuMobile;
+
+const linkItems = [
+  {
+    title: 'Home',
+    path: '',
+  },
+  {
+    title: 'Portfolio',
+    path: 'portfolio',
+  },
+  {
+    title: 'Blog',
+    path: 'blog',
+  },
+  {
+    title: 'Contact',
+    path: 'contact',
+  },
+];
+export interface LinkItemProps {
+  path: string;
+  title: string;
+}
+const LinkItem: React.FC<LinkItemProps> = ({ title, path }) => {
+  return (
+    <Link href={`/${path}`}>
+      <a className="flex items-center justify-between p-3 -m-3 rounded-none hover:bg-primary-50 dark:hover:bg-primary-800">
+        {title}
+      </a>
+    </Link>
+  );
+};

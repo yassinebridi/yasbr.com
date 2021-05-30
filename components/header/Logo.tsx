@@ -14,8 +14,9 @@ const Logo: React.FC<LogoProps> = () => {
           </span>
         </div>
         <div className="flex md:hidden">
-          <span className="text-2xl font-extrabold text-primary-800">Y</span>
-          <span className="text-2xl font-extrabold">B</span>
+          <span className="text-2xl font-bold dark:text-white text-primary-900 border-2 p-1.5 dark:border-white border-primary-900 dark:hover:bg-white dark:hover:bg-white hover:bg-primary-900 dark:hover:text-primary-900 hover:text-white transition">
+            YB
+          </span>
         </div>
       </a>
     </Link>
