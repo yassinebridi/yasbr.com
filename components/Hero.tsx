@@ -6,11 +6,11 @@ import React from 'react';
 export interface HeroProps {}
 const Hero: React.FC<HeroProps> = () => {
   return (
-    <div className="relative w-full text-primary-900 dark:bg-primary-900 dark:text-white bg-primary-50">
+    <div className="relative w-full text-primary-900 dark:bg-primary-800 dark:text-white bg-primary-50">
       <div className="max-w-3xl px-4 pt-12 pb-32 mx-auto sm:py-24">
         <div className="flex flex-col-reverse items-center justify-between w-full sm:flex-row">
           <div className="">
-            <h2 className="text-3xl font-extrabold mt-4 md:mt-0 text-center text-black-900 sm:text-left sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 text-3xl font-extrabold text-center md:mt-0 text-black-900 sm:text-left sm:text-4xl md:text-5xl">
               Yassine Bridi
             </h2>
             <p className="mt-2 text-sm font-light text-center sm:text-lg sm:text-left">
