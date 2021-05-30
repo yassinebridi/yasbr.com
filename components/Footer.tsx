@@ -5,7 +5,7 @@ export interface FooterProps {}
 const Footer: React.FC<FooterProps> = () => {
   return (
     <div className="relative w-full text-primary-700 dark:bg-primary-900 dark:text-primary-200">
-      <div className="flex items-center justify-between max-w-4xl py-6 mx-auto border-t dark:border-primary-800 border-primary-200">
+      <div className="flex items-center justify-between max-w-4xl px-4 py-6 mx-auto border-t dark:border-primary-800 border-primary-200">
         <div className="flex items-center space-x-8">
           <a
             href="https://yasbr.com/twitter"
