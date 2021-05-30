@@ -1,5 +1,4 @@
-import { cloudinaryLoader, imageTransformer, SkillType } from '@utils';
-import Image from 'next/image';
+import { imageTransformer, SkillType } from '@utils';
 import React from 'react';
 
 export interface SkillsProps {
@@ -7,11 +6,11 @@ export interface SkillsProps {
 }
 const Skills: React.FC<SkillsProps> = ({ items }) => {
   return (
-    <div className="py-16 bg-primary-50">
-      <div className="flex items-center max-w-4xl mx-auto">
+    <div className="py-16 bg-primary-50 dark:bg-primary-800">
+      <div className="flex items-center max-w-4xl px-4 mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500">
+            <h3 className="uppercase text-md text-primary-500 text-primary-400">
               Expertise/Skills
             </h3>
             <h2 id="skills" className="text-3xl font-extrabold">
@@ -29,9 +28,11 @@ const Skills: React.FC<SkillsProps> = ({ items }) => {
                     <img
                       alt={item.Title}
                       src={imageTransformer(item.Icon[0].rawUrl, 'f_auto')}
-                      className="w-[30px]"
+                      className="w-[20px] sm:w-[30px]"
                     />
-                    <span className="ml-2">{item.Title}</span>
+                    <span className="ml-2 text-xs sm:text-sm md:text-md">
+                      {item.Title}
+                    </span>
                   </li>
                 );
               })}
