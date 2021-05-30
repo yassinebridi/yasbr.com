@@ -52,12 +52,12 @@ const Contact: React.FC<ContactProps> = () => {
   };
   return (
     <HomeLayout>
-      <div className="flex flex-col items-center max-w-4xl py-8 mx-auto">
+      <div className="flex flex-col items-center max-w-4xl px-4 py-8 mx-auto">
         <div className="flex flex-col items-center">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-xl font-bold text-center sm:text-3xl">
             Hire me to help you realize your idea
           </h1>
-          <p className="mt-2 text-primary-600 dark:text-primary-300">
+          <p className="mt-2 text-sm text-primary-600 dark:text-primary-300 sm:text-lg">
             Let's get in touch today, I'm excited to hear from you!
           </p>
         </div>
@@ -71,7 +71,7 @@ const Contact: React.FC<ContactProps> = () => {
             <form className="" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-col items-center justify-center">
                 <div className="flex flex-col w-full space-y-4">
-                  <h1 className="text-xl font-normal">
+                  <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
                     Tell me about yourself
                   </h1>
                   <MyInput
@@ -101,14 +101,14 @@ const Contact: React.FC<ContactProps> = () => {
                     placeholder="Tell me about your project"
                     name="Content"
                   />
-                  <h1 className="text-xl font-normal">
+                  <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
                     What is your project's deadline
                   </h1>
                   <Selector
                     items={['1 Month', '3 Month', '6 Month', 'More']}
                     setValue={setValue}
                   />
-                  <h1 className="text-xl font-normal">
+                  <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
                     Upload your project brief (Optional)
                   </h1>
                   <FileDrop setValue={setValue} field="Brief" />
@@ -152,7 +152,7 @@ const Selector: React.FC<SelectorProps> = ({ items, setValue }) => {
           type="button"
           onClick={() => handlClick(item)}
           className={clsx(
-            'uppercase transition-all rounded-none px-4 py-2 text-sm border-2 text-primary-900 border-primary-900 dark:border-white dark:text-white dark:hover:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white ringify',
+            'uppercase transition-all rounded-none px-2 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-sm border-2 text-primary-900 border-primary-900 dark:border-white dark:text-white dark:hover:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white ringify',
             selected === item
               ? 'dark:text-primary-900 dark:bg-white text-white bg-primary-900'
               : ''

@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import React from 'react';
+import { linkItems } from './MobileMenu';
 
 export interface NavProps {}
 const Nav: React.FC<NavProps> = () => {
   return (
     <nav className="items-center justify-between hidden sm:flex space-x-8">
-      <NavLink path="/" name="Home" />
-      <NavLink path="/portfolio" name="Portfolio" />
-      <NavLink path="/blog" name="Blog" />
+      {linkItems.map((item) => (
+        <NavLink key={item.title} path={item.path} name={item.title} />
+      ))}
     </nav>
   );
 };

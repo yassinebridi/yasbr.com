@@ -60,7 +60,11 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
             <div className="mt-6">
               <div className="grid gap-y-8">
                 {linkItems.map((item) => (
-                  <LinkItem title={item.title} path={item.path} />
+                  <LinkItem
+                    key={item.title}
+                    title={item.title}
+                    path={item.path}
+                  />
                 ))}
               </div>
             </div>
@@ -73,7 +77,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
 
 export default MenuMobile;
 
-const linkItems = [
+export const linkItems = [
   {
     title: 'Home',
     path: '',
