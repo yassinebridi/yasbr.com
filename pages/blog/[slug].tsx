@@ -46,7 +46,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
             {/*       width={23} */}
             {/*       className="rounded-full" */}
             {/*     /> */}
-            {/*     <span className="text-sm text-gray-800 leading-3"> */}
+            {/*     <span className="text-sm text-primary-800 leading-3"> */}
             {/*       {author.fullName} */}
             {/*     </span> */}
             {/*   </div> */}

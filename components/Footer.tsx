@@ -10,14 +10,14 @@ const Footer: React.FC<FooterProps> = () => {
           <a
             href="https://yasbr.com/twitter"
             target="_blank"
-            className="text-sm uppercase dark:hover:text-gray-100 hover:text-gray-900 ringify"
+            className="text-sm uppercase dark:hover:text-primary-100 hover:text-primary-900 ringify"
           >
             Twitter
           </a>
           <a
             href="https://yasbr.com/github"
             target="_blank"
-            className="text-sm uppercase dark:hover:text-gray-100 hover:text-gray-900 ringify"
+            className="text-sm uppercase dark:hover:text-primary-100 hover:text-primary-900 ringify"
           >
             Github
           </a>

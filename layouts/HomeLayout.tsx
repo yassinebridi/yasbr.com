@@ -16,7 +16,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ children, cn }) => {
 
       {/* <ScrollToTop showUnder={160}> */}
       {/*   <button title="Go to top"> */}
-      {/*     <ChevronUpIcon className="w-12 h-12 p-2 bg-gray-800 rounded-full text-gray-50" /> */}
+      {/*     <ChevronUpIcon className="w-12 h-12 p-2 bg-primary-800 rounded-full text-primary-50" /> */}
       {/*   </button> */}
       {/* </ScrollToTop> */}
     </div>

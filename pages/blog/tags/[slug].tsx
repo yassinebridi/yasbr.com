@@ -14,7 +14,7 @@ const Tags: React.FC<TagsProps> = ({ posts, tag }) => {
     <HomeLayout>
       <div className="max-w-xl py-3 mx-auto">
         <h2 className="text-3xl font-bold text-center">#{tag.Name} Posts</h2>
-        {/* <span className="text-gray-600">{posts.length} posts</span> */}
+        {/* <span className="text-primary-600">{posts.length} posts</span> */}
         <div className="px-4 mt-8">
           {posts.map((post) => (
             <BlogPostCard post={post} />

@@ -32,7 +32,7 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
           {project.Kind.map((kind, i) => (
             <li
               key={i}
-              className="px-3 py-1 text-sm bg-gray-100 dark:bg-primary-800"
+              className="px-3 py-1 text-sm bg-primary-100 dark:bg-primary-800"
             >
               {kind}
             </li>

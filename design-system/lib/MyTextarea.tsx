@@ -26,7 +26,7 @@ const MyTextarea: FC<MyTextareaProps> = ({
       {label && (
         <label
           htmlFor={name}
-          className="mb-2 text-sm text-gray-600 dark:text-gray-300"
+          className="mb-2 text-sm text-primary-600 dark:text-primary-300"
         >
           {label}
         </label>

@@ -32,7 +32,7 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
         alt={project.Name}
         width={100}
         height={100}
-        className={clsx('object-cover border-2 border-gray-200')}
+        className={clsx('object-cover border-2 border-primary-200')}
       />
     );
   });
