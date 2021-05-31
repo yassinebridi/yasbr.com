@@ -18,12 +18,12 @@ const Hero: React.FC<HeroProps> = () => {
             </p>
             <div className="flex mt-8 space-x-4">
               <Link href="/contact">
-                <a className="flex items-center btn btn-primary btn-lg">
+                <a className="flex items-center btn btn-primary btn-md sm:btn-lg">
                   <span>Contact Me</span>
                 </a>
               </Link>
               <Link href="#projects">
-                <a className="flex items-center btn btn-ol-primary btn-lg space-x-2">
+                <a className="flex items-center btn btn-ol-primary btn-md sm:btn-lg space-x-2">
                   <span>See projects</span>
                   <ArrowDownIcon className="w-4 h-4" />
                 </a>

@@ -17,7 +17,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
             </h3>
             <h2
               id="testimonial"
-              className="text-2xl sm:text-3xl font-extrabold"
+              className="text-2xl font-extrabold sm:text-3xl"
             >
               <a href="#testimonial" title="testimonial" className="ringify">
                 What my clients are saying.
@@ -46,7 +46,7 @@ export interface TestimonialCardProps {
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
   return (
     <div className="flex flex-col space-y-3">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col justify-between sm:flex-row sm:items-center">
         <div className="flex items-center space-x-4">
           <Image
             src={item.Avatar[0].rawUrl}
@@ -61,13 +61,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
             <span className="text-sm font-light">{item.Role}</span>
           </div>
         </div>
-        <div className="flex">
+        <div className="flex mt-3 sm:mt-0">
           {Array.from({ length: 5 }).map((_, i) => (
             <StarIcon key={i} className="w-5 h-5 text-yellow-500" />
           ))}
         </div>
       </div>
-      <p className="px-2 text-sm leading-6">{item.Text}</p>
+      <p className="text-sm sm:px-2 leading-6">{item.Text}</p>
     </div>
   );
 };

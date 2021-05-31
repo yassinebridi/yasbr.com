@@ -44,7 +44,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
   return (
     <li
       className={clsx(
-        'relative flex flex-col p-6 border-2 border-dashed dark:border-primary-600 border-primary-300'
+        'relative flex flex-col px-3 pb-3 pt-4 sm:p-6 border-2 border-dashed dark:border-primary-600 border-primary-300'
       )}
     >
       <span className="absolute -top-6">
