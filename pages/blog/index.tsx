@@ -55,7 +55,7 @@ export const getStaticProps: GetStaticProps = async () => {
 export interface BlogPostCardProps {
   post: BlogPostType;
 }
-const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
+export const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   const date = dateFormat(post.Date);
   const router = useRouter();
   return (
