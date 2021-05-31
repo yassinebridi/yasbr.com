@@ -329,6 +329,7 @@ img.notion-page-icon {
   white-space: pre-wrap;
   caret-color: rgb(55, 53, 47);
   padding: 3px 2px;
+  line-height: 1.7rem;
 }
 .notion-block {
   padding: 3px 2px;

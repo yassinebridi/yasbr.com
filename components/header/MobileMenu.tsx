@@ -80,19 +80,19 @@ export default MenuMobile;
 export const linkItems = [
   {
     title: 'Home',
-    path: '',
+    path: '/',
   },
   {
     title: 'Portfolio',
-    path: 'portfolio',
+    path: '/portfolio',
   },
   {
     title: 'Blog',
-    path: 'blog',
+    path: '/blog',
   },
   {
     title: 'Contact',
-    path: 'contact',
+    path: '/contact',
   },
 ];
 export interface LinkItemProps {
@@ -101,7 +101,7 @@ export interface LinkItemProps {
 }
 const LinkItem: React.FC<LinkItemProps> = ({ title, path }) => {
   return (
-    <Link href={`/${path}`}>
+    <Link href={`${path}`}>
       <a className="flex items-center justify-between p-3 -m-3 rounded-none hover:bg-primary-50 dark:hover:bg-primary-800">
         {title}
       </a>
