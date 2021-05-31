@@ -10,7 +10,7 @@ const HeroInfo: React.FC<HeroInfoProps> = () => {
   return (
     <div className="flex justify-center">
       <div className="absolute py-6 bg-white border-2 border-dashed sm:py-10 dark:bg-primary-900 dark:border-primary-500 border-primary-300 sm:-bottom-16 -bottom-28 hover:border-b-4">
-        <div className="flex flex-col justify-between p-2 space-y-4 sm:space-y-0 sm:flex-row sm:p-0 divide-x-0 divide-x sm:divide-y-0 sm:divide-x dark:divide-primary-600">
+        <div className="flex flex-col justify-between p-2 space-y-4 sm:space-y-0 sm:flex-row sm:p-0 divide-x-0 divide-y sm:divide-y-0 sm:divide-x dark:divide-primary-600">
           <InfoCard
             title="5 Years job"
             subtitle="Experience"
