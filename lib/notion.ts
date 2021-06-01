@@ -12,6 +12,7 @@ export const databasesId = {
     projects: process.env.PROJECTS_DATABASE_ID,
     testims: process.env.TESTIMS_DATABASE_ID,
     contact: process.env.CONTACT_DATABASE_ID,
+    uses: process.env.USES_DATABASE_ID,
   },
 };
 const myNotionBaseApi = 'https://notion.yasbr.com/v1';
