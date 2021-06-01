@@ -52,10 +52,10 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
             <a
               target="_blank"
               href={project.Short}
-              className="flex items-center space-x-2 dark:bg-primary-800 bg-primary-100 px-3 py-1.5 text-sm dark:text-primary-400 text-primary-700"
+              className="flex items-center space-x-2 dark:bg-primary-800 bg-primary-100 px-4 py-1.5 text-sm dark:text-primary-300 text-primary-700"
             >
               <span>Visit link</span>
-              <LinkIcon className="w-5 h-4" />
+              <LinkIcon className="w-4 h-4" />
             </a>
           )}
         </div>
