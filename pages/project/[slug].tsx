@@ -44,7 +44,7 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
         </div>
         <div className="flex justify-center max-w-3xl mx-4 mt-4 md:mx-auto">
           {project.Short === 'null' ? (
-            <div className="flex items-center space-x-2 bg-gray-100 px-3 py-1.5 text-sm text-gray-700">
+            <div className="flex items-center space-x-2 bg-primary-100 px-3 py-1.5 text-sm text-primary-700">
               <span>UNAVAILABLE</span>
               <LinkIcon className="w-5 h-4" />
             </div>
@@ -52,7 +52,7 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
             <a
               target="_blank"
               href={project.Short}
-              className="flex items-center space-x-2 bg-gray-100 px-3 py-1.5 text-sm text-gray-700"
+              className="flex items-center space-x-2 dark:bg-primary-800 bg-primary-100 px-3 py-1.5 text-sm dark:text-primary-400 text-primary-700"
             >
               <span>Visit link</span>
               <LinkIcon className="w-5 h-4" />
