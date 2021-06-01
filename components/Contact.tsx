@@ -46,7 +46,7 @@ const Contact: React.FC<ContactProps> = () => {
               Or send me you project's details here:{' '}
             </p>
             <Link href="/contact">
-              <a className="mt-4 btn btn-md btn-secondary">Contact Me</a>
+              <a className="mt-4 btn btn-md btn-primary">Contact Me</a>
             </Link>
           </div>
         </div>
