@@ -12,7 +12,9 @@ const Header: React.FC<HeaderProps> = () => {
           <Nav />
 
           <div className="flex items-center space-x-8">
-            <ThemeChanger />
+            <div className="w-[40px] h-[32px]">
+              <ThemeChanger />
+            </div>
             <Link href="/portfolio">
               <a className="hidden btn btn-lg sm:flex btn-primary ringify">
                 Hire me

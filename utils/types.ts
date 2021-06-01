@@ -52,6 +52,7 @@ export type ProjectType = {
   id: string;
   Name: string;
   Slug: string;
+  Short: string;
   Desc: string;
   Url: string;
   Type: string;

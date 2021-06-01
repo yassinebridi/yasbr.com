@@ -1,4 +1,5 @@
 import { Notion } from '@components';
+import { LinkIcon } from '@heroicons/react/outline';
 import { HomeLayout } from '@layouts';
 import { databasesId, getBlocks, getPageBySlug } from '@lib';
 import { ProjectType } from '@utils';
@@ -28,11 +29,11 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
       <article className="max-w-4xl py-3 mx-auto">
         <h1 className="text-4xl font-bold text-center">{project.Name}</h1>
         <h1 className="text-center text-md">{project.Desc}</h1>
-        <ul className="flex justify-center mt-3 space-x-3">
+        <ul className="flex flex-wrap justify-center px-4 mt-3 overflow-hidden">
           {project.Kind.map((kind, i) => (
             <li
               key={i}
-              className="px-3 py-1 text-sm bg-primary-100 dark:bg-primary-800"
+              className="px-3 py-1 m-2 text-sm bg-primary-100 dark:bg-primary-800"
             >
               {kind}
             </li>
@@ -41,7 +42,24 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
         <div>
           <ProjectSlider project={project} />
         </div>
-        <section className="mt-4">
+        <div className="flex justify-center max-w-3xl mx-4 mt-4 md:mx-auto">
+          {project.Short === 'null' ? (
+            <div className="flex items-center space-x-2 bg-gray-100 px-3 py-1.5 text-sm text-gray-700">
+              <span>UNAVAILABLE</span>
+              <LinkIcon className="w-5 h-4" />
+            </div>
+          ) : (
+            <a
+              target="_blank"
+              href={project.Short}
+              className="flex items-center space-x-2 bg-gray-100 px-3 py-1.5 text-sm text-gray-700"
+            >
+              <span>Visit link</span>
+              <LinkIcon className="w-5 h-4" />
+            </a>
+          )}
+        </div>
+        <section className="flex max-w-3xl mx-4 my-4 md:mx-auto">
           <Notion blocks={blocks} />
         </section>
       </article>
