@@ -14,6 +14,7 @@ import Projects from './Projects';
 import ProjectSlider from './ProjectSlider';
 import Services from './Services';
 import Skills from './Skills';
+import Subscribe from './Subscribe';
 import Testimonial from './Testimonial';
 import ThemeChanger from './ThemeChanger';
 
@@ -38,4 +39,5 @@ export {
   Notion,
   ThemeChanger,
   ProjectSlider,
+  Subscribe,
 };

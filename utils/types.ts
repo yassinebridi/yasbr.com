@@ -76,3 +76,7 @@ export type CreateContactData = {
   Deadline: string;
   Brief: string;
 };
+
+export type SubscribeData = {
+  email: string;
+};

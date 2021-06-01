@@ -1,4 +1,4 @@
-import { Notion } from '@components';
+import { Notion, Subscribe } from '@components';
 import { HomeLayout } from '@layouts';
 import {
   databasesId,
@@ -65,6 +65,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
         <section className="mt-10 px-6">
           <Notion blocks={blocks} />
         </section>
+        <div className="px-6 my-10">
+          <Subscribe />
+        </div>
       </article>
     </HomeLayout>
   );
