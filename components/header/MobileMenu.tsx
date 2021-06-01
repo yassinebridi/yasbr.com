@@ -91,6 +91,10 @@ export const linkItems = [
     path: '/blog',
   },
   {
+    title: 'Uses',
+    path: '/uses',
+  },
+  {
     title: 'Contact',
     path: '/contact',
   },
