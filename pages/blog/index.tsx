@@ -22,7 +22,7 @@ const Blogs: React.FC<BlogsProps> = ({ posts }) => {
         {/* <span className="text-primary-600">{posts.length} posts</span> */}
         <div className="px-4 mt-8">
           {posts.map((post) => (
-            <BlogPostCard post={post} />
+            <BlogPostCard key={post.Slug} post={post} />
           ))}
         </div>
       </div>

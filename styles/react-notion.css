@@ -489,6 +489,11 @@ img.notion-page-icon {
   color: rgba(55, 53, 47, 0.6);
 }
 
+html.dark .notion-image-caption {
+  caret-color: #75786e;
+  color: #75786e;
+}
+
 .notion-callout {
   padding: 16px 16px 16px 12px;
   display: inline-flex;

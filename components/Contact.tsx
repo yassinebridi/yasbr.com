@@ -1,4 +1,5 @@
 import { ExternalLinkIcon } from '@heroicons/react/outline';
+import Link from 'next/link';
 import React from 'react';
 
 export interface ContactProps {}
@@ -28,18 +29,25 @@ const Contact: React.FC<ContactProps> = () => {
               </a>
             </div>
             <div>
-              <span>
-                Or if you are used to the old ways, you can email me at:{' '}
-              </span>
+              <span>Or email me at: </span>
               <a
                 target="_blank"
                 href="mailto:yassine@yasbr.com"
-                className="font-bold underline inline-flex items-center hover:bg-black hover:text-white space-x-1"
+                className="inline-flex items-center font-bold underline hover:bg-black hover:text-white space-x-1"
               >
                 <span>yassine@yasbr.com</span>
                 <ExternalLinkIcon className="w-4 h-4" />
               </a>
             </div>
+          </div>
+
+          <div className="flex flex-col items-center mt-6">
+            <p className="pt-3 border-t dark:border-primary-800 border-primary-200">
+              Or send me you project's details here:{' '}
+            </p>
+            <Link href="/contact">
+              <a className="mt-4 btn btn-md btn-secondary">Contact Me</a>
+            </Link>
           </div>
         </div>
       </div>
