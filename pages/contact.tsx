@@ -102,7 +102,7 @@ const Contact: React.FC<ContactProps> = () => {
                     name="Content"
                   />
                   <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
-                    What is your project's deadline
+                    What is your project's duration
                   </h1>
                   <Selector
                     items={['1 Month', '3 Month', '6 Month', 'More']}

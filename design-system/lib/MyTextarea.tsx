@@ -38,7 +38,7 @@ const MyTextarea: FC<MyTextareaProps> = ({
             'px-4 py-2 dark:text-primary-300 dark:bg-primary-800 text-primary-800 transition rounded-none focus:outline-none focus:ring-2 dark:ring-offset-primary-900 ring-offset-white focus:ring-offset-4',
             errors
               ? 'dark:bg-[#462a2a] bg-red-100 ring-red-300 placeholder-[#a56565] '
-              : 'bg-primary-200 dark:ring-white ring-black placeholder-primary-500 '
+              : 'bg-primary-100 dark:ring-white ring-black placeholder-primary-500 '
           )}
           {...register(name, { required: true })}
           {...props}

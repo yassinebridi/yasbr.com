@@ -43,7 +43,7 @@ const Contact: React.FC<ContactProps> = () => {
 
           <div className="flex flex-col items-center mt-6">
             <p className="pt-3 border-t dark:border-primary-800 border-primary-200">
-              Or send me you project's details here:{' '}
+              Or send me your project's details here:{' '}
             </p>
             <Link href="/contact">
               <a className="mt-4 btn btn-md btn-primary">Contact Me</a>

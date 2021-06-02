@@ -56,7 +56,7 @@ const FileDrop: React.FC<FileDropProps> = ({ setValue, field }) => {
         'p-8 cursor-pointer ringify transition',
         isDragActive
           ? 'bg-primary-300 dark:bg-primary-700'
-          : 'dark:bg-primary-800 bg-primary-200'
+          : 'dark:bg-primary-800 bg-primary-100'
       )}
     >
       <input {...getInputProps()} />
