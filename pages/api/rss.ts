@@ -55,7 +55,7 @@ const buildFeed = (posts: BlogPostType[]) => {
       title: post.Title,
       link: `${hostname}/blog/${post.Slug}`,
       author: authors,
-      image: post.Image.rawUrl,
+      image: post.Image[0].rawUrl,
       content: content,
       description: post.Preview,
       date: new Date(post.Date),
