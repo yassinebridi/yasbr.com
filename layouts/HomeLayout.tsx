@@ -1,4 +1,4 @@
-import { Container, Footer, Header } from '@components';
+import { Footer, Header } from '@components';
 import clsx from 'clsx';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const HomeLayout: React.FC<HomeLayoutProps> = ({ children, cn }) => {
     <div className="flex flex-col flex-1 w-full">
       <Header />
       <main className={clsx(cn, 'dark:bg-primary-900 dark:text-primary-200')}>
-        <Container>{children}</Container>
+        {children}
       </main>
       <Footer />
 

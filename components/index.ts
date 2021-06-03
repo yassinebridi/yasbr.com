@@ -1,6 +1,5 @@
 import Banner from './Banner';
 import Contact from './Contact';
-import Container from './Container';
 import Footer from './Footer';
 import Header from './Header';
 import Hero from './Hero';
@@ -21,7 +20,6 @@ import ThemeChanger from './ThemeChanger';
 export * from './header';
 export * from './List';
 export {
-  Container,
   Footer,
   Header,
   Hero,
