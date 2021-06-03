@@ -26,8 +26,6 @@ function getRequestParams(email) {
 
 export default async (req, res) => {
   const { email } = req.body;
-  console.log('req: ', req.body);
-  console.log('req: ', req.body['"email"']);
 
   if (!email || !email.length) {
     return res.status(400).json({

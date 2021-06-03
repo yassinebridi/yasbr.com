@@ -3,6 +3,7 @@ import { databasesId, getDatabase } from '@lib';
 import { BlogPostType, dateFormat, TagType } from '@utils';
 import comma from 'comma-number';
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -12,21 +13,33 @@ export interface BlogsProps {
 }
 const Blogs: React.FC<BlogsProps> = ({ posts }) => {
   return (
-    <HomeLayout>
-      <div className="max-w-xl py-3 mx-auto">
-        <h2 className="text-3xl font-bold text-center">Blog</h2>
-        <p className="px-4 mt-2 text-center dark:text-primary-300 text-primary-600">
-          Check out my blog, where i write mostly about web and mobile
-          development, startups, and life.
-        </p>
-        {/* <span className="text-primary-600">{posts.length} posts</span> */}
-        <div className="px-4 mt-8">
-          {posts.map((post) => (
-            <BlogPostCard key={post.Slug} post={post} />
-          ))}
+    <>
+      <NextSeo
+        title="Blog"
+        description="Blog Posts"
+        canonical="https://yasbr.com/blog"
+        openGraph={{
+          title: 'Blog',
+          description: 'Blog Posts',
+          url: 'https://yasbr.com/blog',
+        }}
+      />
+      <HomeLayout>
+        <div className="max-w-xl py-3 mx-auto">
+          <h2 className="text-3xl font-bold text-center">Blog</h2>
+          <p className="px-4 mt-2 text-center dark:text-primary-300 text-primary-600">
+            Check out my blog, where i write mostly about web and mobile
+            development, startups, and life.
+          </p>
+          {/* <span className="text-primary-600">{posts.length} posts</span> */}
+          <div className="px-4 mt-8">
+            {posts.map((post) => (
+              <BlogPostCard key={post.Slug} post={post} />
+            ))}
+          </div>
         </div>
-      </div>
-    </HomeLayout>
+      </HomeLayout>
+    </>
   );
 };
 

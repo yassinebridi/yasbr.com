@@ -35,9 +35,16 @@ export const getImageUrl = (image = '', block) => {
   return url.toString();
 };
 
-export const imageTransformer = (url: string, transformations: string) => {
-  return url.replace(
-    'res.cloudinary.com/yasbr/image/upload',
-    `media.yasbr.com/upload/${transformations}`
-  );
+export const imageTransformer = (url: string, transformations?: string) => {
+  if (transformations) {
+    return url.replace(
+      'res.cloudinary.com/yasbr/image/upload',
+      `media.yasbr.com/upload/${transformations}`
+    );
+  } else {
+    return url.replace(
+      'res.cloudinary.com/yasbr/image/upload',
+      `media.yasbr.com/upload`
+    );
+  }
 };
