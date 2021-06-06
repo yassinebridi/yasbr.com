@@ -18,7 +18,7 @@ const Contact: React.FC<ContactProps> = () => {
           </div>
           <div className="flex flex-col mt-6 text-center space-y-2">
             <div>
-              <span>You can always DM on</span>{' '}
+              <span>You can always DM me on</span>{' '}
               <a
                 target="_blank"
                 href="https://yasbr.com/DM"

@@ -1,7 +1,7 @@
 import { DefaultSeoProps } from 'next-seo';
 
 export const seoConfig: DefaultSeoProps = {
-  title: 'Yassine Bridi – Developer, Designer, Creator.',
+  title: 'Yassine Bridi – Developer, Designer, Writer.',
   titleTemplate: '%s | Yasbr.com',
   description:
     'Yassine Bridi, a developer who also designs, with a keen interest in web and mobile technology.',
@@ -11,11 +11,11 @@ export const seoConfig: DefaultSeoProps = {
     locale: 'en',
     url: 'https://yasbr.com',
     site_name: 'Yasbr',
-    title: 'Yassine Bridi – Developer, Designer, Creator.',
+    title: 'Yassine Bridi – Developer, Designer, Writer.',
     images: [
       {
         url: 'https://media.yasbr.com/upload/og/home.jpg',
-        alt: 'Yassine Bridi – Developer, Designer, Creator.',
+        alt: 'Yassine Bridi – Developer, Designer, Writer.',
       },
     ],
     description:
