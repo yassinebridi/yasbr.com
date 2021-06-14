@@ -85,19 +85,6 @@ const FileDrop: React.FC<FileDropProps> = ({ setValue, field }) => {
               </div>
             </div>
           </div>
-          {/* <button */}
-          {/*   type="button" */}
-          {/*   className="px-4 py-2 text-sm uppercase border-2 border-dashed rounded-none transition-all border-primary-900 hover:bg-primary-900 hover:text-white ring-black focus:outline-none focus:ring-2 ring-offset-white focus:ring-offset-4" */}
-          {/*   onClick={(e) => { */}
-          {/*     e.stopPropagation(); */}
-          {/*     cancelTokenSource.cancel('Upload cancelled'); */}
-          {/*     setIsUploaded(false); */}
-          {/*     setProgress(0); */}
-          {/*     console.log('cancel'); */}
-          {/*   }} */}
-          {/* > */}
-          {/*   Cancel */}
-          {/* </button> */}
         </div>
       ) : isUploaded ? (
         <div className="flex flex-col items-center text-center">
