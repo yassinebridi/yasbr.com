@@ -1,5 +1,6 @@
 import { seoConfig } from '@utils';
 import 'focus-visible/dist/focus-visible';
+import PlausibleProvider from 'next-plausible';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -11,10 +12,12 @@ import '../styles/slider.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
-      <DefaultSeo {...seoConfig} />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <PlausibleProvider domain="yasbr.com">
+      <ThemeProvider attribute="class">
+        <DefaultSeo {...seoConfig} />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </PlausibleProvider>
   );
 }
 
