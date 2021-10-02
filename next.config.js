@@ -43,6 +43,15 @@ module.exports = {
       source: '/rss.xml',
       destination: '/api/rss',
     },
+    // https://splitbee.io/docs/nextjs-proxy
+    {
+      source: '/bee.js',
+      destination: 'https://cdn.splitbee.io/sb.js',
+    },
+    {
+      source: '/_hive/:slug',
+      destination: 'https://hive.splitbee.io/:slug',
+    },
   ],
   headers: async () => [
     {
@@ -72,7 +81,7 @@ module.exports = {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com vitals.vercel-insights.com plausible.io;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com vitals.vercel-insights.com;
   child-src *.youtube.com *.google.com *.twitter.com;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;

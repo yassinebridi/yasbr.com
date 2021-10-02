@@ -1,6 +1,6 @@
+import splitbee from '@splitbee/web';
 import { seoConfig } from '@utils';
 import 'focus-visible/dist/focus-visible';
-import PlausibleProvider from 'next-plausible';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
@@ -10,14 +10,16 @@ import '../styles/prism-coldark.css';
 import '../styles/react-notion.css';
 import '../styles/slider.css';
 
+splitbee.init({
+  scriptUrl: '/bee.js',
+  apiUrl: '/_hive',
+});
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <PlausibleProvider domain="yasbr.com">
-      <ThemeProvider attribute="class">
-        <DefaultSeo {...seoConfig} />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </PlausibleProvider>
+    <ThemeProvider attribute="class">
+      <DefaultSeo {...seoConfig} />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 }
 

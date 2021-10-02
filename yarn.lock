@@ -151,6 +151,11 @@
   resolved "https://registry.yarnpkg.com/@opentelemetry/context-base/-/context-base-0.14.0.tgz#c67fc20a4d891447ca1a855d7d70fa79a3533001"
   integrity sha512-sDOAZcYwynHFTbLo6n8kIbLiVF3a3BLkrmehJUyEbT9F+Smbi47kLGS2gG2g0fjBLR/Lr1InPD7kXL7FaTqEkw==
 
+"@splitbee/web@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@splitbee/web/-/web-0.3.0.tgz#676ebe877b6d82a10ece6527a07f70b1994d242e"
+  integrity sha512-jNPDKg0GQGa4jCaBc6JQsv0NHmBA80WCwZE49nFyhcbo32WF0GyqXeice7ZApy7OUHI16bAUAzm4MOQw3gvxfQ==
+
 "@tailwindcss/typography@^0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.4.0.tgz#b80974ad6af93df7b06e1981cb4d79698b6ad5c7"
@@ -1558,11 +1563,6 @@ native-url@0.3.4:
   integrity sha512-6iM8R99ze45ivyH8vybJ7X0yekIcPf5GgLV5K0ENCbmRcaRIDoj37BC8iLEmaaBfqqb8enuZ5p0uhY+lVAbAcA==
   dependencies:
     querystring "^0.2.0"
-
-next-plausible@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/next-plausible/-/next-plausible-2.1.1.tgz#d64a1660840c93be50c3cdb96abc13758004fb1d"
-  integrity sha512-uua8WXHHnkQVTknSTBpCPN6fKCcOiSPgSWtFCUsgZS6nLP5Gj5W77I8n7hiNRpH6yw9tUbW8eF+fR/ch22pk8g==
 
 next-seo@^4.24.0:
   version "4.24.0"
