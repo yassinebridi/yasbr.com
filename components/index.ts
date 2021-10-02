@@ -17,7 +17,7 @@ import Subscribe from './Subscribe';
 import Testimonial from './Testimonial';
 import ThemeChanger from './ThemeChanger';
 
-export * from './header';
+export * from './header-comps';
 export * from './List';
 export {
   Footer,
