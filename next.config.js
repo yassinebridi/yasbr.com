@@ -1,14 +1,7 @@
 module.exports = {
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true,
-  },
-  reactStrictMode: true,
-  experimental: {
-    turboMode: true,
-    eslint: true,
-  },
+  swcMinify: true,
   images: {
+    formats: ['image/avif', 'image/webp'],
     domains: ['media.yasbr.com', 'pbs.twimg.com'],
   },
   redirects: async () => [
