@@ -1,6 +1,5 @@
 export const pageview = (url: string) => {
   if (typeof window?.gtag !== 'undefined') {
-    console.log('window: ', window.gtag);
     window?.gtag('config', process.env.NEXT_PUBLIC_GA_ID, {
       page_path: url,
     });
