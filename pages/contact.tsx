@@ -1,6 +1,5 @@
 import { FileDrop, MyInput, MyTextarea } from '@design-system';
 import { HomeLayout } from '@layouts';
-import splitbee from '@splitbee/web';
 import { CreateContactData } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
@@ -31,7 +30,6 @@ const Contact: React.FC<ContactProps> = () => {
 
   const onSubmit = async (data: CreateContactData) => {
     setIsLoading(true);
-    splitbee.track('Send Contact Form');
     try {
       const res = await fetch('/api/create-contact', {
         body: JSON.stringify(data),
