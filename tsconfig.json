@@ -2,21 +2,49 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": ["components"],
-      "@components/*": ["components/*"],
-      "@layouts": ["layouts"],
-      "@layouts/*": ["layouts/*"],
-      "@design-system": ["design-system"],
-      "@design-system/*": ["design-system/*"],
-      "@utils": ["utils"],
-      "@utils/*": ["utils/*"],
-      "@lib": ["lib"],
-      "@lib/*": ["lib/*"],
-      "@data": ["data"],
-      "@data/*": ["data/*"]
+      "@components": [
+        "components"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@layouts": [
+        "layouts"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@design-system": [
+        "design-system"
+      ],
+      "@design-system/*": [
+        "design-system/*"
+      ],
+      "@utils": [
+        "utils"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@lib": [
+        "lib"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@data": [
+        "data"
+      ],
+      "@data/*": [
+        "data/*"
+      ]
     },
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -27,8 +55,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

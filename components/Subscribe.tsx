@@ -1,6 +1,6 @@
 import { MyInput } from '@design-system';
 import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { SubscribeData } from '@utils';
 import React from 'react';
 import { useForm } from 'react-hook-form';

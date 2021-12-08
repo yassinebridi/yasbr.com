@@ -1,5 +1,5 @@
 import { FileDrop, MyInput, MyTextarea } from '@design-system';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { HomeLayout } from '@layouts';
 import splitbee from '@splitbee/web';
 import { CreateContactData } from '@utils';
