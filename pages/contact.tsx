@@ -1,21 +1,19 @@
 import { FileDrop, MyInput, MyTextarea } from '@design-system';
-import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { HomeLayout } from '@layouts';
 import splitbee from '@splitbee/web';
 import { CreateContactData } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
 import { useForm, UseFormSetValue } from 'react-hook-form';
-import * as z from 'zod';
 
-const schema = z.object({
-  Name: z.string().nonempty(),
-  Email: z.string().email(),
-  Company: z.string().optional().default('null'),
-  Content: z.string().nonempty(),
-  Deadline: z.string().nonempty(),
-  Brief: z.string().optional().default('null'),
-});
+// const schema = z.object({
+//   Name: z.string().nonempty(),
+//   Email: z.string().email(),
+//   Company: z.string().optional().default('null'),
+//   Content: z.string().nonempty(),
+//   Deadline: z.string().nonempty(),
+//   Brief: z.string().optional().default('null'),
+// });
 
 export interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
@@ -29,7 +27,6 @@ const Contact: React.FC<ContactProps> = () => {
     formState: { errors },
   } = useForm<CreateContactData>({
     reValidateMode: 'onBlur',
-    resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: CreateContactData) => {
@@ -154,7 +151,7 @@ const Selector: React.FC<SelectorProps> = ({ items, setValue }) => {
           type="button"
           onClick={() => handlClick(item)}
           className={clsx(
-            'uppercase transition-all rounded-none px-2 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-sm border-2 text-primary-900 border-primary-900 dark:border-white dark:text-white dark:hover:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white ringify',
+            'uppercase transition-all rounded-none px-2 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-sm border-2 text-primary-900 border-primary-900 dark:border-white dark:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white ringify',
             selected === item
               ? 'dark:text-primary-900 dark:bg-white text-white bg-primary-900'
               : ''

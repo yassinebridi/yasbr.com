@@ -1,14 +1,12 @@
 import { MyInput } from '@design-system';
 import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
-import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
 import { SubscribeData } from '@utils';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
-const schema = z.object({
-  email: z.string().email(),
-});
+// const schema = z.object({
+//   email: z.string().email(),
+// });
 
 export interface SubscribeProps {}
 const Subscribe: React.FC<SubscribeProps> = () => {
@@ -23,7 +21,6 @@ const Subscribe: React.FC<SubscribeProps> = () => {
     formState: { errors },
   } = useForm<SubscribeData>({
     reValidateMode: 'onBlur',
-    resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: SubscribeData) => {
