@@ -11,18 +11,9 @@ FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
-RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
-
-# Production image, copy all the files and run next
-FROM node:alpine AS runner
-WORKDIR /app
-
-ENV NODE_ENV production
 
 ARG MY_NOTION_TOKEN=${MY_NOTION_TOKEN}
 ARG NOTION_TOKEN=${NOTION_TOKEN}
-
-# Notion Database IDs
 ARG POSTS_DATABASE_ID=${POSTS_DATABASE_ID}
 ARG TAGS_DATABASE_ID=${TAGS_DATABASE_ID}
 ARG HOME_DATABASE_ID=${HOME_DATABASE_ID}
@@ -33,6 +24,14 @@ ARG PROJECTS_DATABASE_ID=${PROJECTS_DATABASE_ID}
 ARG TESTIMS_DATABASE_ID=${TESTIMS_DATABASE_ID}
 ARG CONTACT_DATABASE_ID=${CONTACT_DATABASE_ID}
 ARG USES_DATABASE_ID=${USES_DATABASE_ID}
+
+RUN yarn build && yarn install --production --ignore-scripts --prefer-offline
+
+# Production image, copy all the files and run next
+FROM node:alpine AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
 
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
