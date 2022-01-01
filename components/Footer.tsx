@@ -1,4 +1,3 @@
-import { GithubIcon, TwitterIcon } from '@design-system';
 import React from 'react';
 
 export interface FooterProps {}
@@ -22,7 +21,9 @@ const Footer: React.FC<FooterProps> = () => {
             Github
           </a>
         </div>
-        <p className="text-sm font-normal">© 2021 Yassine Bridi</p>
+        <p className="text-sm font-normal">
+          © {new Date().getFullYear()} Yassine Bridi
+        </p>
       </div>
     </div>
   );
