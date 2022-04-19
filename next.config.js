@@ -30,11 +30,11 @@ const config = {
   rewrites: async () => [
     {
       source: '/js/script.js',
-      destination: 'https://a.yasbr.com/js/plausible.js',
+      destination: 'https://anitics.xyz/js/plausible.js',
     },
     {
       source: '/api/event',
-      destination: 'https://a.yasbr.com/api/event',
+      destination: 'https://anitics.xyz/api/event',
     },
     {
       source: '/sitemap.xml',
