@@ -4,6 +4,10 @@ const config = {
     formats: ['image/avif', 'image/webp'],
     domains: ['media.yasbr.com', 'pbs.twimg.com'],
   },
+  experimental: {
+    esmExternals: true,
+    outputStandalone: true,
+  },
   redirects: async () => [
     {
       source: '/DM',

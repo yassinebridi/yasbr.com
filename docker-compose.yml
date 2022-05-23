@@ -1,11 +1,11 @@
 version: '3.7'
 services:
-  egd-web:
-    container_name: egd-web
+  yasbr:
+    container_name: yasbr
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - "${PORT}:${PORT}"
     env_file:
       - .env
