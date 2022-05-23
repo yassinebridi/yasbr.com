@@ -10,7 +10,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "docker": "docker compose --env-file .env up -d",
+    "docker:build": "docker compose --env-file .env build"
   },
   "dependencies": {
     "@brainhubeu/react-carousel": "^2.0.4",
