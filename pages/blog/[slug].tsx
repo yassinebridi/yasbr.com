@@ -52,7 +52,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
               <p>{comma(post.Views)} Views</p>
             </div>
             <p className="">{}</p>
-            <h1 className="text-4xl font-extrabold">{post.Title}</h1>
+            <h1 className="text-4xl text-center font-extrabold">
+              {post.Title}
+            </h1>
             <div className="flex space-x-3">
               {/* {post.Authors.map((author) => ( */}
               {/*   <div key={author.id} className="flex items-center space-x-2"> */}

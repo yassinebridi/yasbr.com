@@ -55,7 +55,8 @@ export const getStaticProps: GetStaticProps = async () => {
       const tags = tagsTable.filter((tag) => tagsIds.includes(tag.id));
       post.TagsField = tags;
       return post;
-    });
+    })
+    .reverse();
 
   return {
     props: {
