@@ -1,7 +1,7 @@
 import { Logo } from '@components';
 import { Backdrop } from '@design-system';
 import { Transition } from '@headlessui/react';
-import { XIcon } from '@heroicons/react/solid';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 import { useMobileMenuStore } from '@utils';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -53,7 +53,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
                   onClick={handleCloseMenu}
                 >
                   <span className="sr-only">Close menu</span>
-                  <XIcon className="w-6 h-6" />
+                  <XMarkIcon className="w-6 h-6" />
                 </button>
               </div>
             </div>

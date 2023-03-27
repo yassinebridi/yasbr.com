@@ -1,5 +1,5 @@
 import { Notion } from '@components';
-import { LinkIcon } from '@heroicons/react/outline';
+import { LinkIcon } from '@heroicons/react/20/solid';
 import { HomeLayout } from '@layouts';
 import { databasesId, getBlocks, getPageBySlug } from '@lib';
 import { ProjectType } from '@utils';

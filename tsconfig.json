@@ -2,41 +2,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@components": [
-        "components"
-      ],
-      "@components/*": [
-        "components/*"
-      ],
-      "@layouts": [
-        "layouts"
-      ],
-      "@layouts/*": [
-        "layouts/*"
-      ],
-      "@design-system": [
-        "design-system"
-      ],
-      "@design-system/*": [
-        "design-system/*"
-      ],
-      "@utils": [
-        "utils"
-      ],
-      "@utils/*": [
-        "utils/*"
-      ],
-      "@lib": [
-        "lib"
-      ],
-      "@lib/*": [
-        "lib/*"
-      ],
-      "@data": [
-        "data"
-      ],
-      "@data/*": [
-        "data/*"
+      "@*": [
+        "./src/*"
       ]
     },
     "target": "es5",
@@ -48,6 +15,11 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,

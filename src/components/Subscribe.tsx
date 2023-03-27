@@ -1,5 +1,5 @@
 import { MyInput } from '@design-system';
-import { CheckIcon, ExclamationIcon } from '@heroicons/react/outline';
+import { CheckIcon, ExclamationCircleIcon } from '@heroicons/react/20/solid';
 import { SubscribeData } from '@utils';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -10,8 +10,9 @@ import { useForm } from 'react-hook-form';
 
 export interface SubscribeProps {}
 const Subscribe: React.FC<SubscribeProps> = () => {
-  const [state, setState] =
-    React.useState<'LOADING' | 'IDLE' | 'ERROR' | 'SUCCESS'>('IDLE');
+  const [state, setState] = React.useState<
+    'LOADING' | 'IDLE' | 'ERROR' | 'SUCCESS'
+  >('IDLE');
   const [errorMessage, setErrorMessage] = React.useState(null);
 
   const {
@@ -80,7 +81,7 @@ const Subscribe: React.FC<SubscribeProps> = () => {
       </form>
       {state === 'ERROR' && (
         <div className="flex items-center mt-2 text-red-500 space-x-1">
-          <ExclamationIcon className="w-5 h-5" />
+          <ExclamationCircleIcon className="w-5 h-5" />
           <p className="px-1">{errorMessage}</p>
         </div>
       )}

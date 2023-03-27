@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from '@heroicons/react/outline';
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { cloudinaryLoader, ProjectType } from '@utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ const Project: React.FC<ProjectProps> = ({ projectItem }) => {
       <div className="relative h-56 shadow-lg sm:h-48 md:h-44 group">
         <Image
           src={projectItem.Image[0].rawUrl}
-          layout="fill"
+          alt={projectItem.Name}
           className="object-cover"
           loader={cloudinaryLoader}
         />

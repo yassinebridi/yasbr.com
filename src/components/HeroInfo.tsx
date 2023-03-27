@@ -1,8 +1,8 @@
 import {
   BriefcaseIcon,
   CheckCircleIcon,
-  SupportIcon,
-} from '@heroicons/react/outline';
+  LifebuoyIcon,
+} from '@heroicons/react/20/solid';
 import React from 'react';
 
 export interface HeroInfoProps {}
@@ -29,7 +29,7 @@ const HeroInfo: React.FC<HeroInfoProps> = () => {
             title="Support"
             subtitle="Online 24/7"
             icon={
-              <SupportIcon className="w-8 h-8 p-1.5 text-white rounded-full sm:p-3 sm:w-12 sm:h-12 dark:bg-primary-500 bg-primary-400" />
+              <LifebuoyIcon className="w-8 h-8 p-1.5 text-white rounded-full sm:p-3 sm:w-12 sm:h-12 dark:bg-primary-500 bg-primary-400" />
             }
           />
         </div>

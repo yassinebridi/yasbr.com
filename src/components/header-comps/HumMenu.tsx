@@ -1,4 +1,4 @@
-import { MenuIcon } from '@heroicons/react/solid';
+import { Bars3Icon } from '@heroicons/react/20/solid';
 import { useMobileMenuStore } from '@utils';
 
 export interface HumMenuProps {}
@@ -18,7 +18,7 @@ const HumMenu: React.FC<HumMenuProps> = () => {
         onClick={handleMenu}
       >
         <span className="sr-only">Open menu</span>
-        <MenuIcon className="w-7 h-7" />
+        <Bars3Icon className="w-7 h-7" />
       </button>
     </div>
   );

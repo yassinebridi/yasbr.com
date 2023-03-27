@@ -1,8 +1,12 @@
+/** @type {import('next').NextConfig} */
 const config = {
   swcMinify: true,
+  experimental: {
+    appDir: true,
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: ['media.yasbr.com', 'pbs.twimg.com'],
+    domains: ['media.yasbr.com', 'pbs.twimg.com', 'strapi.yasbr.com'],
   },
   experimental: {
     esmExternals: true,
@@ -34,11 +38,11 @@ const config = {
   rewrites: async () => [
     {
       source: '/js/script.js',
-      destination: 'https://anitics.xyz/js/plausible.js',
+      destination: 'https://a.copyneed.com/js/plausible.js',
     },
     {
       source: '/api/event',
-      destination: 'https://anitics.xyz/api/event',
+      destination: 'https://a.copyneed.com/api/event',
     },
     {
       source: '/sitemap.xml',
@@ -49,29 +53,6 @@ const config = {
       destination: '/api/rss',
     },
   ],
-  // headers: async () => [
-  //   {
-  //     source: '/(.*)',
-  //     headers: securityHeaders,
-  //   },
-  // ],
-  webpack: (config, { dev, isServer }) => {
-    // if (isServer) {
-    //   require('./scripts/generate-sitemap');
-    //   require('./scripts/generate-rss');
-    // }
-
-    // Replace React with Preact only in client production build
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      });
-    }
-
-    return config;
-  },
 };
 
-module.exports = config;
+export default config;

@@ -1,4 +1,4 @@
-import { ExternalLinkIcon } from '@heroicons/react/outline';
+import { LinkIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import React from 'react';
 
@@ -25,7 +25,7 @@ const Contact: React.FC<ContactProps> = () => {
                 className="inline-flex items-center font-bold underline hover:bg-black hover:text-white space-x-1"
               >
                 <span>twitter</span>
-                <ExternalLinkIcon className="w-4 h-4" />
+                <LinkIcon className="w-4 h-4" />
               </a>
             </div>
             <div>
@@ -36,7 +36,7 @@ const Contact: React.FC<ContactProps> = () => {
                 className="inline-flex items-center font-bold underline hover:bg-black hover:text-white space-x-1"
               >
                 <span>yassine@yasbr.com</span>
-                <ExternalLinkIcon className="w-4 h-4" />
+                <LinkIcon className="w-4 h-4" />
               </a>
             </div>
           </div>

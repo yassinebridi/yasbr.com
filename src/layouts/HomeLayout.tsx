@@ -4,6 +4,7 @@ import React from 'react';
 
 export interface HomeLayoutProps {
   cn?: string;
+  children: React.ReactNode;
 }
 const HomeLayout: React.FC<HomeLayoutProps> = ({ children, cn }) => {
   return (

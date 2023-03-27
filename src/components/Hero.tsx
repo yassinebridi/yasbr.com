@@ -1,4 +1,4 @@
-import { ArrowDownIcon } from '@heroicons/react/solid';
+import { ArrowDownIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

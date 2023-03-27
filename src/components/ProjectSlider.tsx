@@ -1,5 +1,5 @@
 import Carousel, { arrowsPlugin, Dots } from '@brainhubeu/react-carousel';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/outline';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
 import { imageTransformer, ProjectType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';

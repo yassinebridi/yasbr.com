@@ -1,4 +1,4 @@
-import { MoonIcon, SunIcon } from '@heroicons/react/outline';
+import { SunIcon, MoonIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 import React from 'react';

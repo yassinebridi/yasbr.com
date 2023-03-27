@@ -1,4 +1,4 @@
-import { CheckCircleIcon, CloudIcon } from '@heroicons/react/outline';
+import { CheckCircleIcon, CloudIcon } from '@heroicons/react/20/solid';
 import { CreateContactData } from '@utils';
 import axios from 'axios';
 import clsx from 'clsx';

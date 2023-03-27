@@ -1,4 +1,4 @@
-import { StarIcon } from '@heroicons/react/solid';
+import { StarIcon } from '@heroicons/react/20/solid';
 import { cloudinaryLoader, TestimType } from '@utils';
 import Image from 'next/image';
 import React from 'react';
