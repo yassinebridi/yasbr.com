@@ -15,10 +15,11 @@ const Header: React.FC<HeaderProps> = () => {
             <div className="w-[40px] h-[32px]">
               <ThemeChanger />
             </div>
-            <Link href="/portfolio">
-              <a className="hidden btn btn-lg sm:flex btn-primary ringify">
-                Hire me
-              </a>
+            <Link
+              href="/portfolio"
+              className="hidden btn btn-lg sm:flex btn-primary ringify"
+            >
+              Hire me
             </Link>
           </div>
           <HumMenu />

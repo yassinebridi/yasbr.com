@@ -21,10 +21,11 @@ export interface NavLinkProps {
 }
 const NavLink: React.FC<NavLinkProps> = ({ name, path }) => {
   return (
-    <Link href={path}>
-      <a className="text-sm uppercase border-primary-500 dark:border-primary-300 hover:border-b-2 dark:hover:text-primary-100 hover:text-primary-900 ringify">
-        {name}
-      </a>
+    <Link
+      className="text-sm uppercase border-primary-500 dark:border-primary-300 hover:border-b-2 dark:hover:text-primary-100 hover:text-primary-900 ringify"
+      href={path}
+    >
+      {name}
     </Link>
   );
 };

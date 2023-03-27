@@ -1,16 +1,13 @@
 /** @type {import('next').NextConfig} */
 const config = {
   swcMinify: true,
-  experimental: {
-    appDir: true,
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
     domains: ['media.yasbr.com', 'pbs.twimg.com', 'strapi.yasbr.com'],
   },
+  output: 'standalone',
   experimental: {
-    esmExternals: true,
-    outputStandalone: true,
+    appDir: true,
   },
   redirects: async () => [
     {

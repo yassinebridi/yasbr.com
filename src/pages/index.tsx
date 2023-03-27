@@ -1,18 +1,17 @@
+import { getPages, Page } from '@adapters';
 import { Home } from '@components';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks } from '@lib';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 export interface IndexProps {
-  homePage: BlockMapType;
+  homePage: Page;
 }
 const Index: React.FC<IndexProps> = ({ homePage }) => {
   return (
     <HomeLayout>
       <div className="py-6">
-        <Home blocks={homePage} />
+        <Home page={homePage} />
       </div>
     </HomeLayout>
   );
@@ -21,11 +20,13 @@ const Index: React.FC<IndexProps> = ({ homePage }) => {
 export default Index;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const homePage = await getBlocks(databasesId.sections.home);
+  const home = await getPages({
+    filters: { slug: { eq: 'home' } },
+  });
 
   return {
     props: {
-      homePage,
+      homePage: home?.pages?.data[0].attributes,
     },
     revalidate: 1,
   };

@@ -105,10 +105,11 @@ export interface LinkItemProps {
 }
 const LinkItem: React.FC<LinkItemProps> = ({ title, path }) => {
   return (
-    <Link href={`${path}`}>
-      <a className="flex items-center justify-between p-3 -m-3 rounded-none hover:bg-primary-50 dark:hover:bg-primary-800">
-        {title}
-      </a>
+    <Link
+      className="flex items-center justify-between p-3 -m-3 rounded-none hover:bg-primary-50 dark:hover:bg-primary-800"
+      href={`${path}`}
+    >
+      {title}
     </Link>
   );
 };

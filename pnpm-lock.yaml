@@ -23,6 +23,7 @@ specifiers:
   graphql: ^16.6.0
   graphql-tag: ^2.12.6
   husky: ^8.0.3
+  markdown-to-jsx: ^7.2.0
   next: 13.2.4
   next-plausible: ^3.7.2
   next-seo: ^5.15.0
@@ -55,6 +56,7 @@ dependencies:
   focus-visible: 5.2.0
   graphql: 16.6.0
   graphql-tag: 2.12.6_graphql@16.6.0
+  markdown-to-jsx: 7.2.0_react@18.2.0
   next: 13.2.4_hrdbe576m4w26u2yfpqpvbxyky
   next-plausible: 3.7.2_ld2jel3hspngo3u5lti2kgl2sq
   next-seo: 5.15.0_ld2jel3hspngo3u5lti2kgl2sq
@@ -2851,6 +2853,15 @@ packages:
     resolution: {integrity: sha512-8y/eV9QQZCiyn1SprXSrCmqJN0yNRATe+PO8ztwqrvrbdRLA3eYJF0yaR0YayLWkMbsQSKWS9N2gPcGEc4UsZg==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /markdown-to-jsx/7.2.0_react@18.2.0:
+    resolution: {integrity: sha512-3l4/Bigjm4bEqjCR6Xr+d4DtM1X6vvtGsMGSjJYyep8RjjIvcWtrXBS8Wbfe1/P+atKNMccpsraESIaWVplzVg==}
+    engines: {node: '>= 10'}
+    peerDependencies:
+      react: '>= 0.14.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}

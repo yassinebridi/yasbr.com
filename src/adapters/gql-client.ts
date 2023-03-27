@@ -1,5 +1,5 @@
-import { strapiPublicToken, strapiToken } from "@/lib/utils";
-import { DocumentNode, print } from "graphql";
+import { strapiPublicToken, strapiToken } from '@utils';
+import { DocumentNode, print } from 'graphql';
 
 const endpointUrl = `${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`;
 
@@ -9,11 +9,11 @@ export const queryClientGraphql = async <TData, TVariables>(
 ): Promise<TData> => {
   try {
     const res = await fetch(endpointUrl, {
-      method: "POST",
+      method: 'POST',
       // next: { revalidate: globalRevalidateTiming },
       body: JSON.stringify({ query: print(query!), variables }),
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         Authorization: `Bearer ${strapiToken}`,
       },
     });
@@ -32,11 +32,11 @@ export const rqClient = <TData, TVariables>(
 ): (() => Promise<TData>) => {
   return async () => {
     const res = await fetch(endpointUrl, {
-      method: "POST",
+      method: 'POST',
       body: JSON.stringify({ query, variables }),
-      mode: "cors",
+      mode: 'cors',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json',
         Authorization: `Bearer ${strapiPublicToken}`,
       },
     });

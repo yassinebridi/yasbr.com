@@ -24,10 +24,6 @@ module.exports = {
             'h2,h3,h4': {
               'scroll-margin-top': spacing[32],
             },
-            p: {
-              color: '#ff00ff',
-            },
-            code: { color: theme('colors.pink.500') },
             'blockquote p:first-of-type::before': false,
             'blockquote p:last-of-type::after': false,
           },
