@@ -1,0 +1,67 @@
+query getArticles(
+  $filters: ArticleFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+  $publicationState: PublicationState = LIVE
+) {
+  articles(
+    filters: $filters
+    pagination: $pagination
+    sort: $sort
+    publicationState: $publicationState
+  ) {
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+        pageCount
+      }
+    }
+    data {
+      id
+      attributes {
+        title
+        desc
+        slug
+        content
+        views
+        publishedAt
+        createdAt
+        updatedAt
+        author {
+          data {
+            id
+            attributes {
+              name
+              about
+              slug
+              avatar {
+                data {
+                  id
+                  attributes {
+                    height
+                    width
+                    name
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+        cover {
+          data {
+            id
+            attributes {
+              height
+              width
+              name
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

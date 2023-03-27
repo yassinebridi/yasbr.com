@@ -12,6 +12,7 @@
     "build": "next build",
     "start": "next start",
     "docker": "docker compose --env-file .env up -d",
+    "gen": "graphql-codegen --config codegen.yml",
     "docker:build": "docker compose --env-file .env build"
   },
   "dependencies": {
@@ -24,6 +25,8 @@
     "comma-number": "^2.1.0",
     "feed": "^4.2.2",
     "focus-visible": "^5.2.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
     "next": "13.2.4",
     "next-plausible": "^3.7.2",
     "next-seo": "^5.15.0",
@@ -41,6 +44,10 @@
     "zustand": "^3.4.2"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^3.2.2",
+    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typescript-document-nodes": "^3.0.2",
+    "@graphql-codegen/typescript-operations": "^3.0.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/gtag.js": "^0.0.12",
     "@types/node": "^18.15.10",

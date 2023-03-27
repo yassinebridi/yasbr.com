@@ -1,0 +1,37 @@
+query getAuthors(
+  $filters: AuthorFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+) {
+  authors(filters: $filters, pagination: $pagination, sort: $sort) {
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+        pageCount
+      }
+    }
+    data {
+      id
+      attributes {
+        name
+        slug
+        about
+        createdAt
+        updatedAt
+        avatar {
+          data {
+            id
+            attributes {
+              name
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+}

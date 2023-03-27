@@ -1,0 +1,23 @@
+query getTags(
+  $filters: TagFiltersInput
+  $pagination: PaginationArg = {}
+  $sort: [String] = []
+) {
+  tags(filters: $filters, pagination: $pagination, sort: $sort) {
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+        pageCount
+      }
+    }
+    data {
+      id
+      attributes {
+        name
+        slug
+      }
+    }
+  }
+}
