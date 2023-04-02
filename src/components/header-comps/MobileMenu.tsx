@@ -17,6 +17,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
     if (mobileMenuProps.open) {
       setMobileMenuProps(!mobileMenuProps.open);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath]);
 
   const handleCloseMenu = () => {

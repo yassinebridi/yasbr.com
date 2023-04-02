@@ -1,7 +1,7 @@
-function getRequestParams(email) {
+function getRequestParams(email: any) {
   const API_KEY = process.env.MAILCHIMP_API_KEY;
   const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-  const DATACENTER = process.env.MAILCHIMP_API_KEY.split('-')[1];
+  const DATACENTER = process.env.MAILCHIMP_API_KEY?.split('-')[1];
 
   const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
 
@@ -24,7 +24,8 @@ function getRequestParams(email) {
   };
 }
 
-export default async (req, res) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async (req: any, res: any) => {
   const { email } = req.body;
 
   if (!email || !email.length) {

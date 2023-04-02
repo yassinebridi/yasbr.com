@@ -1,11 +1,11 @@
 import { createGzip } from 'zlib';
 import { SitemapStream } from 'sitemap';
-import { getDatabase, databasesId } from '@lib';
-import { BlogPostType, hostname, TagType } from '@utils';
+import { hostname } from '@utils';
+import { getArticles, getPortfolioPage } from '@adapters';
 
 const STATIC_URLS = ['/', '/about', '/portfolio', '/blog', '/newsletter'];
 
-const sitemapApi = async (_, res) => {
+const sitemapApi = async (_, res: any) => {
   // ensure response is XML & gzip encoded
 
   res.setHeader(
@@ -35,7 +35,7 @@ const sitemapApi = async (_, res) => {
   sitemapStream.end();
 
   // stream write the response
-  pipeline.pipe(res).on('error', (err) => {
+  pipeline.pipe(res).on('error', (err: any) => {
     throw err;
   });
 };
@@ -44,16 +44,14 @@ export default sitemapApi;
 
 const getUserGeneratedPages = async () => {
   const slugs: string[] = [];
-  const postsTable = await getDatabase<BlogPostType>(databasesId.posts);
-  postsTable.map((post) => slugs.push(`/blog/${post.Slug}`));
-
-  const tagsTable = await getDatabase<TagType>(databasesId.tags);
-  tagsTable.map((tag) => slugs.push(`/blog/tags/${tag.Slug}`));
-
-  const projectsTable = await getDatabase<TagType>(
-    databasesId.sections.projects
+  const posts = await getArticles();
+  posts.articles?.data.map((post) =>
+    slugs.push(`/blog/${post.attributes?.slug}`)
   );
-  projectsTable.map((project) => slugs.push(`/project/${project.Slug}`));
+
+  const portfolio = await getPortfolioPage();
+  const projects = portfolio?.portfolio?.data?.attributes?.Projects;
+  projects?.map((project) => slugs.push(`/project/${project?.slug}`));
 
   return slugs;
 };

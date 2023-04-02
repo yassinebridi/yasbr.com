@@ -65,19 +65,21 @@ const A = ({ children, href }: { children: React.ReactNode; href: string }) => {
 
 const MyMdImage = ({
   src,
+  alt,
 }: {
   children: React.ReactNode;
   src: string;
   className: string;
+  alt: string;
 }) => {
   const path = /^https?:\/\//i;
   if (path.test(src)) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} className="rounded-lg mt-2" />;
+    return <img src={src} className="rounded-lg mt-2" alt={alt} />;
   } else {
     return (
       // eslint-disable-next-line @next/next/no-img-element
-      <img src={src} className="rounded-lg mt-2" />
+      <img src={src} className="rounded-lg mt-2" alt={alt} />
     );
   }
 };
