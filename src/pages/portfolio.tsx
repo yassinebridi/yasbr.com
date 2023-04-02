@@ -18,9 +18,7 @@ export interface PortfolioProps {
   portfolio: GetPortfolioPageQuery;
 }
 const Portfolio: React.FC<PortfolioProps> = ({ portfolio }) => {
-  console.log('portfolio: ', portfolio);
   const portfolioData = portfolio.portfolio?.data?.attributes;
-  console.log('portfolioData: ', portfolioData);
   return (
     <HomeLayout>
       <div className="">

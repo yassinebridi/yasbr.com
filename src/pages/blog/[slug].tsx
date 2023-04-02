@@ -1,44 +1,36 @@
-import { Notion, Subscribe } from '@components';
+import { Article, getArticles, updateArticle } from '@adapters';
+import { Subscribe } from '@components';
 import { HomeLayout } from '@layouts';
-import {
-  databasesId,
-  getBlocks,
-  getDatabase,
-  getPageBySlug,
-  updatePage,
-} from '@lib';
-import { BlogPostType, dateFormat, imageTransformer, TagType } from '@utils';
+import { dateFormat, imageTransformer } from '@utils';
+import { overridesObj } from '@utils/markdown';
 import comma from 'comma-number';
+import Markdown from 'markdown-to-jsx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import Link from 'next/link';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 export interface BlogPostProps {
-  post: BlogPostType;
-  tags: TagType[];
-  blocks: BlockMapType;
+  post: Article | undefined;
 }
-const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
-  if (!post || !blocks) {
-    return <div />;
+const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
+  if (!post) {
+    return null;
   }
-  const date = dateFormat(post.Date);
+  const date = dateFormat(post.publishedAt);
   return (
     <>
       <NextSeo
-        title={post.Title}
-        description={post.Preview}
-        canonical={`https://yasbr.com/blog/${post.Slug}`}
+        title={post.title}
+        description={post.desc}
+        canonical={`https://yasbr.com/blog/${post.slug}`}
         openGraph={{
-          title: post.Title,
-          description: post.Preview,
-          url: `https://yasbr.com/blog/${post.Slug}`,
+          title: post.title,
+          description: post.desc,
+          url: `https://yasbr.com/blog/${post.slug}`,
           images: [
             {
-              url: imageTransformer(post.Image[0].rawUrl),
-              alt: post.Title,
+              url: imageTransformer(post?.cover?.data?.attributes?.url!),
+              alt: post.title,
             },
           ],
         }}
@@ -49,41 +41,31 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, tags, blocks }) => {
             <div className="flex font-light text-md">
               <p className="">{date}</p>
               <span className="mx-1">/</span>
-              <p>{comma(post.Views)} Views</p>
+              <p>{comma(post.views)} Views</p>
             </div>
             <p className="">{}</p>
             <h1 className="text-4xl text-center font-extrabold">
-              {post.Title}
+              {post.title}
             </h1>
-            <div className="flex space-x-3">
-              {/* {post.Authors.map((author) => ( */}
-              {/*   <div key={author.id} className="flex items-center space-x-2"> */}
-              {/*     <Image */}
-              {/*       src={author.profilePhoto} */}
-              {/*       alt="Yassine Bridi's avatar" */}
-              {/*       loader={(loader) => loader.src} */}
-              {/*       height={23} */}
-              {/*       width={23} */}
-              {/*       className="rounded-full" */}
-              {/*     /> */}
-              {/*     <span className="text-sm text-primary-800 leading-3"> */}
-              {/*       {author.fullName} */}
-              {/*     </span> */}
-              {/*   </div> */}
-              {/* ))} */}
-            </div>
-            <div className="flex mt-3 space-x-2">
-              {tags.map((tag) => (
-                <Link key={tag.id} href={`/blog/tags/${tag.Slug}`}>
-                  <a className="px-2 py-1 text-sm dark:bg-primary-800 bg-primary-100">
-                    #{tag.Name}
-                  </a>
-                </Link>
-              ))}
-            </div>
           </div>
           <section className="mt-10 px-6">
-            <Notion blocks={blocks} />
+            {post.content && (
+              <Markdown
+                options={{
+                  overrides: overridesObj,
+                  createElement(type, props, children) {
+                    return (
+                      <React.Fragment>
+                        {React.createElement(type, props, children)}
+                      </React.Fragment>
+                    );
+                  },
+                  forceBlock: true,
+                }}
+              >
+                {post.content}
+              </Markdown>
+            )}
           </section>
           <div className="px-6 my-10">
             <Subscribe />
@@ -104,25 +86,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params;
-  const post = await getPageBySlug<BlogPostType>(
-    databasesId.posts,
-    slug as string
-  );
-  const tagsTable = await getDatabase<TagType>(databasesId.tags);
-  const tags = tagsTable.filter((tag) => post.Tags.includes(tag.id));
-  const blocks = await getBlocks(post.id);
-
-  await updatePage({
-    page_id: post.id,
-    properties: { Views: { number: post.Views + 1 } },
+  const posts = await getArticles({
+    filters: { slug: { eq: context?.params?.slug as string } },
   });
+
+  const post = posts.articles?.data?.[0].attributes;
+  if (post) {
+    await updateArticle({
+      id: posts.articles?.data?.[0].id!,
+      data: {
+        views: post?.views! + 1,
+      },
+    });
+  }
 
   return {
     props: {
       post,
-      tags,
-      blocks,
     },
     revalidate: 1,
   };

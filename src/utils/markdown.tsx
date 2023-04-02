@@ -1,9 +1,7 @@
 import { MarkdownToJSX } from 'markdown-to-jsx';
-import { ImageProps } from 'next/image';
-import Image from 'next/image';
 import Link from 'next/link';
 
-export interface ExternalLinkProps {
+interface ExternalLinkProps {
   href: string;
   className?: string;
   children: React.ReactNode;
@@ -28,42 +26,25 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
   );
 };
 
-export default ExternalLink;
-export const Table = ({ children, ...rest }: { children: React.ReactNode }) => {
-  return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg  max-w-[350px] sm:max-w-full">
-      <table className="w-full" {...rest} style={undefined}>
-        {children}
-      </table>
-    </div>
-  );
-};
-
-export const Ol = ({ children }: { children: React.ReactNode }) => {
+const Ol = ({ children }: { children: React.ReactNode }) => {
   return (
     <ol className="list-decimal ml-8 leading-8 text-sm sm:text-[16px] py-2">
       {children}
     </ol>
   );
 };
-export const Ul = ({ children }: { children: React.ReactNode }) => {
+const Ul = ({ children }: { children: React.ReactNode }) => {
   return (
     <ul className="list-disc ml-8 leading-8 text-sm sm:text-[16px] py-2">
       {children}
     </ul>
   );
 };
-export const Li = ({ children }: { children: React.ReactNode }) => {
+const Li = ({ children }: { children: React.ReactNode }) => {
   return <li className="">{children}</li>;
 };
 
-export const A = ({
-  children,
-  href,
-}: {
-  children: React.ReactNode;
-  href: string;
-}) => {
+const A = ({ children, href }: { children: React.ReactNode; href: string }) => {
   const isLinkExternal = isExternal(href);
   const className =
     'text-black-500 underline transition-all hover:no-underline hover:text-black-700';
@@ -82,7 +63,7 @@ export const A = ({
   }
 };
 
-export const MyMdImage = ({
+const MyMdImage = ({
   src,
 }: {
   children: React.ReactNode;
@@ -101,100 +82,53 @@ export const MyMdImage = ({
   }
 };
 
-export const Paragraph = ({ children }: { children: React.ReactNode }) => {
+const Paragraph = ({ children }: { children: React.ReactNode }) => {
   return <p className="leading-8 text-sm sm:text-[16px] pb-3">{children}</p>;
 };
-export const NormalParagraph = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-  return <p className="leading-7 pb-3">{children}</p>;
-};
 
-export const BgParagraph = ({ children }: { children: React.ReactNode }) => {
+const H1 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <p className="text-[18px] pb-1 leading-8  sm:text-[18px]">{children}</p>
-  );
-};
-export const Blockquote = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <blockquote className=" text-white text-left pl-4 leading-8">
-      {children}
-    </blockquote>
-  );
-};
-
-export const MdImage = ({
-  url,
-  name,
-}: {
-  props: ImageProps;
-  url: string;
-  name: string;
-}) => {
-  return (
-    <div className="py-2">
-      <Image
-        src={url}
-        alt={name}
-        className="rounded-md object-cover w-full"
-        height={250}
-        width={430}
-      />
-    </div>
-  );
-};
-
-export const H1 = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <h1 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-5xl">
+    <h1 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-2xl">
       {children}
     </h1>
   );
 };
 
-export const H2 = ({
-  children,
-  id,
-}: {
-  children: React.ReactNode;
-  id: string;
-}) => {
+const H2 = ({ children, id }: { children: React.ReactNode; id: string }) => {
   return (
     <h2
       id={id}
-      className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-2xl"
+      className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-xl"
     >
       {children}
     </h2>
   );
 };
-export const H3 = ({ children }: { children: React.ReactNode }) => {
+const H3 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h3 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-xl">
+    <h3 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-lg">
       {children}
     </h3>
   );
 };
 
-export const H4 = ({ children }: { children: React.ReactNode }) => {
+const H4 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h4 className="py-2 text-primary-900 dark:text-white font-extrabold text-lg">
+    <h4 className="py-2 text-primary-900 dark:text-white font-extrabold text-md">
       {children}
     </h4>
   );
 };
 
-export const H5 = ({ children }: { children: React.ReactNode }) => {
+const H5 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h5 className="py-2 text-primary- dark:text-white900 font-extrabold text-md">
+    <h5 className="py-2 text-primary- dark:text-white900 font-extrabold text-base">
       {children}
     </h5>
   );
 };
 
-export const H6 = ({ children }: { children: React.ReactNode }) => {
+const H6 = ({ children }: { children: React.ReactNode }) => {
   return (
     <h6 className="py-2 text-primary-900 dark:text-white font-extrabold">
       {children}
@@ -202,7 +136,7 @@ export const H6 = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const Iframe = ({ src }: { src: string }) => {
+const Iframe = ({ src }: { src: string }) => {
   return (
     <iframe src={src} className="mx-auto my-2 w-full h-[200px] sm:h-[400px]" />
   );
@@ -210,7 +144,6 @@ export const Iframe = ({ src }: { src: string }) => {
 
 export const overridesObj: MarkdownToJSX.Options['overrides'] = {
   p: Paragraph,
-  blockquote: Blockquote,
   iframe: Iframe,
   ul: Ul,
   ol: Ol,
@@ -226,7 +159,7 @@ export const overridesObj: MarkdownToJSX.Options['overrides'] = {
 };
 
 // check if link is extenral
-export const isExternal = (url: string) => {
+const isExternal = (url: string) => {
   if (typeof window !== 'undefined') {
     const host = window.location.host;
 

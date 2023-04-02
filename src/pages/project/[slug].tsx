@@ -1,13 +1,12 @@
-import { Notion } from '@components';
+import { ComponentDynamicsProjectList, getPortfolioPage } from '@adapters';
 import { LinkIcon } from '@heroicons/react/20/solid';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks, getPageBySlug } from '@lib';
-import { ProjectType } from '@utils';
+import { overridesObj } from '@utils/markdown';
+import Markdown from 'markdown-to-jsx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 const ProjectSlider = dynamic(
   () => {
@@ -17,45 +16,34 @@ const ProjectSlider = dynamic(
 );
 
 export interface ProjectProps {
-  project: ProjectType;
-  blocks: BlockMapType;
+  project: ComponentDynamicsProjectList | undefined;
 }
-const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
-  if (!project || !blocks) {
-    return <div />;
+const Project: React.FC<ProjectProps> = ({ project }) => {
+  if (!project) {
+    return null;
   }
 
   return (
     <>
       <NextSeo
-        title={`${project.Name} Project`}
-        description={`Project details of "${project.Name}"`}
-        canonical={`https://yasbr.com/project/${project.Url}`}
+        title={`${project.name} Project`}
+        description={`Project details of "${project.name}"`}
+        canonical={`https://yasbr.com/project/${project.slug}`}
         openGraph={{
-          url: `https://yasbr.com/project/${project.Url}`,
-          title: `${project.Name} Project`,
-          description: `Project details of "${project.Name}"`,
+          url: `https://yasbr.com/project/${project.slug}`,
+          title: `${project.name} Project`,
+          description: `Project details of "${project.name}"`,
         }}
       />
       <HomeLayout>
         <article className="max-w-4xl py-3 mx-auto">
-          <h1 className="text-4xl font-bold text-center">{project.Name}</h1>
-          <h1 className="text-center text-md">{project.Desc}</h1>
-          <ul className="flex flex-wrap justify-center px-4 mt-3 overflow-hidden">
-            {project.Kind.map((kind, i) => (
-              <li
-                key={i}
-                className="px-3 py-1 m-2 text-sm bg-primary-100 dark:bg-primary-800"
-              >
-                {kind}
-              </li>
-            ))}
-          </ul>
+          <h1 className="text-4xl font-bold text-center">{project.name}</h1>
+          <h1 className="text-center text-md">{project.desc}</h1>
           <div>
             <ProjectSlider project={project} />
           </div>
           <div className="flex justify-center max-w-3xl mx-4 mt-4 md:mx-auto">
-            {project.Short === 'null' ? (
+            {!project.shortUrl ? (
               <div className="flex items-center space-x-2 dark:bg-primary-800 bg-primary-100 px-4 py-1.5 text-sm dark:text-primary-300 text-primary-700">
                 <span>UNAVAILABLE</span>
                 <LinkIcon className="w-4 h-4" />
@@ -63,7 +51,7 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
             ) : (
               <a
                 target="_blank"
-                href={project.Short}
+                href={project.shortUrl}
                 className="flex items-center space-x-2 dark:bg-primary-800 bg-primary-100 px-4 py-1.5 text-sm dark:text-primary-300 text-primary-700"
               >
                 <span>Visit link</span>
@@ -72,7 +60,23 @@ const Project: React.FC<ProjectProps> = ({ project, blocks }) => {
             )}
           </div>
           <section className="flex max-w-3xl mx-4 my-4 md:mx-auto">
-            <Notion blocks={blocks} />
+            {project.content && (
+              <Markdown
+                options={{
+                  overrides: overridesObj,
+                  createElement(type, props, children) {
+                    return (
+                      <React.Fragment>
+                        {React.createElement(type, props, children)}
+                      </React.Fragment>
+                    );
+                  },
+                  forceBlock: true,
+                }}
+              >
+                {project.content}
+              </Markdown>
+            )}
           </section>
         </article>
       </HomeLayout>
@@ -90,18 +94,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params;
-  const project = await getPageBySlug<ProjectType>(
-    databasesId.sections.projects,
-    slug as string
+  const portfolio = await getPortfolioPage();
+  const project = portfolio?.portfolio?.data?.attributes?.Projects?.find(
+    (project) => project?.slug === context.params?.slug
   );
-
-  const blocks = await getBlocks(project.id);
 
   return {
     props: {
       project,
-      blocks,
     },
     revalidate: 1,
   };

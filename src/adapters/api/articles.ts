@@ -5,6 +5,9 @@ import {
   GetAuthors,
   GetAuthorsQuery,
   GetAuthorsQueryVariables,
+  UpdateArticle,
+  UpdateArticleMutation,
+  UpdateArticleMutationVariables,
 } from '../generated';
 import { queryClientGraphql } from '../gql-client';
 
@@ -19,4 +22,11 @@ export const getAuthors = (variables?: GetAuthorsQueryVariables) => {
     variables,
     GetAuthors
   );
+};
+
+export const updateArticle = (variables?: UpdateArticleMutationVariables) => {
+  return queryClientGraphql<
+    UpdateArticleMutation,
+    UpdateArticleMutationVariables
+  >(variables, UpdateArticle);
 };
