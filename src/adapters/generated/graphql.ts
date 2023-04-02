@@ -182,38 +182,75 @@ export type ComponentDynamicsComponent = {
   input_type: Enum_Componentdynamicscomponent_Input_Type;
   label: Scalars['String'];
   label_desc?: Maybe<Scalars['String']>;
-  list_items?: Maybe<Array<Maybe<ComponentDynamicsList>>>;
   order: Scalars['Int'];
 };
 
+export type ComponentDynamicsProjectList = {
+  __typename?: 'ComponentDynamicsProjectList';
+  content: Scalars['String'];
+  desc: Scalars['String'];
+  id: Scalars['ID'];
+  images: UploadFileRelationResponseCollection;
+  name: Scalars['String'];
+  shortUrl?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
+  type: Enum_Componentdynamicsprojectlist_Type;
+  url: Scalars['String'];
+};
 
-export type ComponentDynamicsComponentList_ItemsArgs = {
-  filters?: InputMaybe<ComponentDynamicsListFiltersInput>;
+
+export type ComponentDynamicsProjectListImagesArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type ComponentDynamicsList = {
-  __typename?: 'ComponentDynamicsList';
-  id: Scalars['ID'];
-  label: Scalars['String'];
-  value: Scalars['String'];
+export type ComponentDynamicsProjectListFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentDynamicsProjectListFiltersInput>>>;
+  content?: InputMaybe<StringFilterInput>;
+  desc?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentDynamicsProjectListFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentDynamicsProjectListFiltersInput>>>;
+  shortUrl?: InputMaybe<StringFilterInput>;
+  slug?: InputMaybe<StringFilterInput>;
+  type?: InputMaybe<StringFilterInput>;
+  url?: InputMaybe<StringFilterInput>;
 };
 
-export type ComponentDynamicsListFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ComponentDynamicsListFiltersInput>>>;
-  label?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ComponentDynamicsListFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ComponentDynamicsListFiltersInput>>>;
-  value?: InputMaybe<StringFilterInput>;
+export type ComponentDynamicsProjectListInput = {
+  content?: InputMaybe<Scalars['String']>;
+  desc?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  images?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  name?: InputMaybe<Scalars['String']>;
+  shortUrl?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  type?: InputMaybe<Enum_Componentdynamicsprojectlist_Type>;
+  url?: InputMaybe<Scalars['String']>;
 };
 
-export type ComponentDynamicsPromptMessages = {
-  __typename?: 'ComponentDynamicsPromptMessages';
-  content: Scalars['String'];
+export type ComponentDynamicsTitleImage = {
+  __typename?: 'ComponentDynamicsTitleImage';
+  desc?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  name?: Maybe<Scalars['String']>;
-  role: Enum_Componentdynamicspromptmessages_Role;
+  image?: Maybe<UploadFileEntityResponse>;
+  title: Scalars['String'];
+};
+
+export type ComponentDynamicsTitleImageFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentDynamicsTitleImageFiltersInput>>>;
+  desc?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentDynamicsTitleImageFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentDynamicsTitleImageFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentDynamicsTitleImageInput = {
+  desc?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['ID']>;
+  image?: InputMaybe<Scalars['ID']>;
+  title?: InputMaybe<Scalars['String']>;
 };
 
 export type Contact = {
@@ -294,13 +331,7 @@ export enum Enum_Componentdynamicscomponent_Input_Type {
   Textarea = 'textarea'
 }
 
-export enum Enum_Componentdynamicspromptmessages_Role {
-  Assistant = 'assistant',
-  System = 'system',
-  User = 'user'
-}
-
-export enum Enum_Project_Type {
+export enum Enum_Componentdynamicsprojectlist_Type {
   Client = 'client',
   Os = 'os'
 }
@@ -335,7 +366,7 @@ export type FloatFilterInput = {
   startsWith?: InputMaybe<Scalars['Float']>;
 };
 
-export type GenericMorph = Article | Author | ComponentDynamicsComponent | ComponentDynamicsList | ComponentDynamicsPromptMessages | Contact | I18NLocale | Page | Project | Section | Service | Skill | Tag | Testimonial | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = Article | Author | ComponentDynamicsComponent | ComponentDynamicsProjectList | ComponentDynamicsTitleImage | Contact | I18NLocale | Page | Portfolio | UploadFile | UploadFolder | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type I18NLocale = {
   __typename?: 'I18NLocale';
@@ -453,12 +484,6 @@ export type Mutation = {
   createAuthor?: Maybe<AuthorEntityResponse>;
   createContact?: Maybe<ContactEntityResponse>;
   createPage?: Maybe<PageEntityResponse>;
-  createProject?: Maybe<ProjectEntityResponse>;
-  createSection?: Maybe<SectionEntityResponse>;
-  createService?: Maybe<ServiceEntityResponse>;
-  createSkill?: Maybe<SkillEntityResponse>;
-  createTag?: Maybe<TagEntityResponse>;
-  createTestimonial?: Maybe<TestimonialEntityResponse>;
   createUploadFile?: Maybe<UploadFileEntityResponse>;
   createUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Create a new role */
@@ -469,12 +494,7 @@ export type Mutation = {
   deleteAuthor?: Maybe<AuthorEntityResponse>;
   deleteContact?: Maybe<ContactEntityResponse>;
   deletePage?: Maybe<PageEntityResponse>;
-  deleteProject?: Maybe<ProjectEntityResponse>;
-  deleteSection?: Maybe<SectionEntityResponse>;
-  deleteService?: Maybe<ServiceEntityResponse>;
-  deleteSkill?: Maybe<SkillEntityResponse>;
-  deleteTag?: Maybe<TagEntityResponse>;
-  deleteTestimonial?: Maybe<TestimonialEntityResponse>;
+  deletePortfolio?: Maybe<PortfolioEntityResponse>;
   deleteUploadFile?: Maybe<UploadFileEntityResponse>;
   deleteUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Delete an existing role */
@@ -497,12 +517,7 @@ export type Mutation = {
   updateContact?: Maybe<ContactEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
   updatePage?: Maybe<PageEntityResponse>;
-  updateProject?: Maybe<ProjectEntityResponse>;
-  updateSection?: Maybe<SectionEntityResponse>;
-  updateService?: Maybe<ServiceEntityResponse>;
-  updateSkill?: Maybe<SkillEntityResponse>;
-  updateTag?: Maybe<TagEntityResponse>;
-  updateTestimonial?: Maybe<TestimonialEntityResponse>;
+  updatePortfolio?: Maybe<PortfolioEntityResponse>;
   updateUploadFile?: Maybe<UploadFileEntityResponse>;
   updateUploadFolder?: Maybe<UploadFolderEntityResponse>;
   /** Update an existing role */
@@ -537,36 +552,6 @@ export type MutationCreateContactArgs = {
 
 export type MutationCreatePageArgs = {
   data: PageInput;
-};
-
-
-export type MutationCreateProjectArgs = {
-  data: ProjectInput;
-};
-
-
-export type MutationCreateSectionArgs = {
-  data: SectionInput;
-};
-
-
-export type MutationCreateServiceArgs = {
-  data: ServiceInput;
-};
-
-
-export type MutationCreateSkillArgs = {
-  data: SkillInput;
-};
-
-
-export type MutationCreateTagArgs = {
-  data: TagInput;
-};
-
-
-export type MutationCreateTestimonialArgs = {
-  data: TestimonialInput;
 };
 
 
@@ -606,36 +591,6 @@ export type MutationDeleteContactArgs = {
 
 
 export type MutationDeletePageArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteProjectArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteSectionArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteServiceArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteSkillArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteTagArgs = {
-  id: Scalars['ID'];
-};
-
-
-export type MutationDeleteTestimonialArgs = {
   id: Scalars['ID'];
 };
 
@@ -730,39 +685,8 @@ export type MutationUpdatePageArgs = {
 };
 
 
-export type MutationUpdateProjectArgs = {
-  data: ProjectInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateSectionArgs = {
-  data: SectionInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateServiceArgs = {
-  data: ServiceInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateSkillArgs = {
-  data: SkillInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateTagArgs = {
-  data: TagInput;
-  id: Scalars['ID'];
-};
-
-
-export type MutationUpdateTestimonialArgs = {
-  data: TestimonialInput;
-  id: Scalars['ID'];
+export type MutationUpdatePortfolioArgs = {
+  data: PortfolioInput;
 };
 
 
@@ -871,69 +795,64 @@ export type PaginationArg = {
   start?: InputMaybe<Scalars['Int']>;
 };
 
-export type Project = {
-  __typename?: 'Project';
+export type Portfolio = {
+  __typename?: 'Portfolio';
+  Clients?: Maybe<Array<Maybe<ComponentDynamicsTitleImage>>>;
+  Intro: Scalars['String'];
+  Projects?: Maybe<Array<Maybe<ComponentDynamicsProjectList>>>;
+  Services?: Maybe<Array<Maybe<ComponentDynamicsTitleImage>>>;
+  Skills?: Maybe<Array<Maybe<ComponentDynamicsTitleImage>>>;
   createdAt?: Maybe<Scalars['DateTime']>;
-  desc: Scalars['String'];
-  image: UploadFileRelationResponseCollection;
-  kind: Scalars['String'];
-  name: Scalars['String'];
-  shortUrl: Scalars['String'];
-  slug: Scalars['String'];
-  type: Enum_Project_Type;
+  publishedAt?: Maybe<Scalars['DateTime']>;
   updatedAt?: Maybe<Scalars['DateTime']>;
-  url: Scalars['String'];
 };
 
 
-export type ProjectImageArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
+export type PortfolioClientsArgs = {
+  filters?: InputMaybe<ComponentDynamicsTitleImageFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type ProjectEntity = {
-  __typename?: 'ProjectEntity';
-  attributes?: Maybe<Project>;
+
+export type PortfolioProjectsArgs = {
+  filters?: InputMaybe<ComponentDynamicsProjectListFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type PortfolioServicesArgs = {
+  filters?: InputMaybe<ComponentDynamicsTitleImageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+
+export type PortfolioSkillsArgs = {
+  filters?: InputMaybe<ComponentDynamicsTitleImageFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PortfolioEntity = {
+  __typename?: 'PortfolioEntity';
+  attributes?: Maybe<Portfolio>;
   id?: Maybe<Scalars['ID']>;
 };
 
-export type ProjectEntityResponse = {
-  __typename?: 'ProjectEntityResponse';
-  data?: Maybe<ProjectEntity>;
+export type PortfolioEntityResponse = {
+  __typename?: 'PortfolioEntityResponse';
+  data?: Maybe<PortfolioEntity>;
 };
 
-export type ProjectEntityResponseCollection = {
-  __typename?: 'ProjectEntityResponseCollection';
-  data: Array<ProjectEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type ProjectFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  desc?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  kind?: InputMaybe<StringFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<ProjectFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
-  shortUrl?: InputMaybe<StringFilterInput>;
-  slug?: InputMaybe<StringFilterInput>;
-  type?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-  url?: InputMaybe<StringFilterInput>;
-};
-
-export type ProjectInput = {
-  desc?: InputMaybe<Scalars['String']>;
-  image?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  kind?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  shortUrl?: InputMaybe<Scalars['String']>;
-  slug?: InputMaybe<Scalars['String']>;
-  type?: InputMaybe<Enum_Project_Type>;
-  url?: InputMaybe<Scalars['String']>;
+export type PortfolioInput = {
+  Clients?: InputMaybe<Array<InputMaybe<ComponentDynamicsTitleImageInput>>>;
+  Intro?: InputMaybe<Scalars['String']>;
+  Projects?: InputMaybe<Array<InputMaybe<ComponentDynamicsProjectListInput>>>;
+  Services?: InputMaybe<Array<InputMaybe<ComponentDynamicsTitleImageInput>>>;
+  Skills?: InputMaybe<Array<InputMaybe<ComponentDynamicsTitleImageInput>>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
 };
 
 export enum PublicationState {
@@ -954,18 +873,7 @@ export type Query = {
   me?: Maybe<UsersPermissionsMe>;
   page?: Maybe<PageEntityResponse>;
   pages?: Maybe<PageEntityResponseCollection>;
-  project?: Maybe<ProjectEntityResponse>;
-  projects?: Maybe<ProjectEntityResponseCollection>;
-  section?: Maybe<SectionEntityResponse>;
-  sections?: Maybe<SectionEntityResponseCollection>;
-  service?: Maybe<ServiceEntityResponse>;
-  services?: Maybe<ServiceEntityResponseCollection>;
-  skill?: Maybe<SkillEntityResponse>;
-  skills?: Maybe<SkillEntityResponseCollection>;
-  tag?: Maybe<TagEntityResponse>;
-  tags?: Maybe<TagEntityResponseCollection>;
-  testimonial?: Maybe<TestimonialEntityResponse>;
-  testimonials?: Maybe<TestimonialEntityResponseCollection>;
+  portfolio?: Maybe<PortfolioEntityResponse>;
   uploadFile?: Maybe<UploadFileEntityResponse>;
   uploadFiles?: Maybe<UploadFileEntityResponseCollection>;
   uploadFolder?: Maybe<UploadFolderEntityResponse>;
@@ -1039,75 +947,8 @@ export type QueryPagesArgs = {
 };
 
 
-export type QueryProjectArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryProjectsArgs = {
-  filters?: InputMaybe<ProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QuerySectionArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QuerySectionsArgs = {
-  filters?: InputMaybe<SectionFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryServiceArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryServicesArgs = {
-  filters?: InputMaybe<ServiceFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QuerySkillArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QuerySkillsArgs = {
-  filters?: InputMaybe<SkillFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryTagArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryTagsArgs = {
-  filters?: InputMaybe<TagFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-
-export type QueryTestimonialArgs = {
-  id?: InputMaybe<Scalars['ID']>;
-};
-
-
-export type QueryTestimonialsArgs = {
-  filters?: InputMaybe<TestimonialFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+export type QueryPortfolioArgs = {
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 
@@ -1163,147 +1004,6 @@ export type ResponseCollectionMeta = {
   pagination: Pagination;
 };
 
-export type Section = {
-  __typename?: 'Section';
-  content: Scalars['String'];
-  createdAt?: Maybe<Scalars['DateTime']>;
-  name: Scalars['String'];
-  slug: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type SectionEntity = {
-  __typename?: 'SectionEntity';
-  attributes?: Maybe<Section>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type SectionEntityResponse = {
-  __typename?: 'SectionEntityResponse';
-  data?: Maybe<SectionEntity>;
-};
-
-export type SectionEntityResponseCollection = {
-  __typename?: 'SectionEntityResponseCollection';
-  data: Array<SectionEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type SectionFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<SectionFiltersInput>>>;
-  content?: InputMaybe<StringFilterInput>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<SectionFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<SectionFiltersInput>>>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type SectionInput = {
-  content?: InputMaybe<Scalars['String']>;
-  name?: InputMaybe<Scalars['String']>;
-  slug?: InputMaybe<Scalars['String']>;
-};
-
-export type Service = {
-  __typename?: 'Service';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  desc: Scalars['String'];
-  icon: UploadFileRelationResponseCollection;
-  title: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type ServiceIconArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type ServiceEntity = {
-  __typename?: 'ServiceEntity';
-  attributes?: Maybe<Service>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type ServiceEntityResponse = {
-  __typename?: 'ServiceEntityResponse';
-  data?: Maybe<ServiceEntity>;
-};
-
-export type ServiceEntityResponseCollection = {
-  __typename?: 'ServiceEntityResponseCollection';
-  data: Array<ServiceEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type ServiceFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<ServiceFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  desc?: InputMaybe<StringFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<ServiceFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<ServiceFiltersInput>>>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type ServiceInput = {
-  desc?: InputMaybe<Scalars['String']>;
-  icon?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  title?: InputMaybe<Scalars['String']>;
-};
-
-export type Skill = {
-  __typename?: 'Skill';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  icon: UploadFileRelationResponseCollection;
-  title: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type SkillIconArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type SkillEntity = {
-  __typename?: 'SkillEntity';
-  attributes?: Maybe<Skill>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type SkillEntityResponse = {
-  __typename?: 'SkillEntityResponse';
-  data?: Maybe<SkillEntity>;
-};
-
-export type SkillEntityResponseCollection = {
-  __typename?: 'SkillEntityResponseCollection';
-  data: Array<SkillEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type SkillFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<SkillFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  not?: InputMaybe<SkillFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<SkillFiltersInput>>>;
-  title?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type SkillInput = {
-  icon?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  title?: InputMaybe<Scalars['String']>;
-};
-
 export type StringFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
@@ -1326,100 +1026,6 @@ export type StringFilterInput = {
   null?: InputMaybe<Scalars['Boolean']>;
   or?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   startsWith?: InputMaybe<Scalars['String']>;
-};
-
-export type Tag = {
-  __typename?: 'Tag';
-  createdAt?: Maybe<Scalars['DateTime']>;
-  name: Scalars['String'];
-  slug: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-export type TagEntity = {
-  __typename?: 'TagEntity';
-  attributes?: Maybe<Tag>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type TagEntityResponse = {
-  __typename?: 'TagEntityResponse';
-  data?: Maybe<TagEntity>;
-};
-
-export type TagEntityResponseCollection = {
-  __typename?: 'TagEntityResponseCollection';
-  data: Array<TagEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type TagFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<TagFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<TagFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<TagFiltersInput>>>;
-  slug?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type TagInput = {
-  name?: InputMaybe<Scalars['String']>;
-  slug?: InputMaybe<Scalars['String']>;
-};
-
-export type Testimonial = {
-  __typename?: 'Testimonial';
-  avatar: UploadFileRelationResponseCollection;
-  createdAt?: Maybe<Scalars['DateTime']>;
-  name: Scalars['String'];
-  role: Scalars['String'];
-  text: Scalars['String'];
-  updatedAt?: Maybe<Scalars['DateTime']>;
-};
-
-
-export type TestimonialAvatarArgs = {
-  filters?: InputMaybe<UploadFileFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-};
-
-export type TestimonialEntity = {
-  __typename?: 'TestimonialEntity';
-  attributes?: Maybe<Testimonial>;
-  id?: Maybe<Scalars['ID']>;
-};
-
-export type TestimonialEntityResponse = {
-  __typename?: 'TestimonialEntityResponse';
-  data?: Maybe<TestimonialEntity>;
-};
-
-export type TestimonialEntityResponseCollection = {
-  __typename?: 'TestimonialEntityResponseCollection';
-  data: Array<TestimonialEntity>;
-  meta: ResponseCollectionMeta;
-};
-
-export type TestimonialFiltersInput = {
-  and?: InputMaybe<Array<InputMaybe<TestimonialFiltersInput>>>;
-  createdAt?: InputMaybe<DateTimeFilterInput>;
-  id?: InputMaybe<IdFilterInput>;
-  name?: InputMaybe<StringFilterInput>;
-  not?: InputMaybe<TestimonialFiltersInput>;
-  or?: InputMaybe<Array<InputMaybe<TestimonialFiltersInput>>>;
-  role?: InputMaybe<StringFilterInput>;
-  text?: InputMaybe<StringFilterInput>;
-  updatedAt?: InputMaybe<DateTimeFilterInput>;
-};
-
-export type TestimonialInput = {
-  avatar?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
-  name?: InputMaybe<Scalars['String']>;
-  role?: InputMaybe<Scalars['String']>;
-  text?: InputMaybe<Scalars['String']>;
 };
 
 export type UploadFile = {
@@ -1822,14 +1428,10 @@ export type GetPagesQueryVariables = Exact<{
 
 export type GetPagesQuery = { __typename?: 'Query', pages?: { __typename?: 'PageEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'PageEntity', id?: string | null, attributes?: { __typename?: 'Page', title: string, desc: string, slug: string, content: string, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, author?: { __typename?: 'AuthorEntityResponse', data?: { __typename?: 'AuthorEntity', id?: string | null, attributes?: { __typename?: 'Author', name: string, about: string, slug: string, avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', height?: number | null, width?: number | null, name: string, url: string } | null } | null } } | null } | null } | null } | null }> } | null };
 
-export type GetTagsQueryVariables = Exact<{
-  filters?: InputMaybe<TagFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
+export type GetPortfolioPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetTagsQuery = { __typename?: 'Query', tags?: { __typename?: 'TagEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'TagEntity', id?: string | null, attributes?: { __typename?: 'Tag', name: string, slug: string } | null }> } | null };
+export type GetPortfolioPageQuery = { __typename?: 'Query', portfolio?: { __typename?: 'PortfolioEntityResponse', data?: { __typename?: 'PortfolioEntity', id?: string | null, attributes?: { __typename?: 'Portfolio', Intro: string, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, Skills?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Services?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Projects?: Array<{ __typename?: 'ComponentDynamicsProjectList', id: string, name: string, slug: string, desc: string, url: string, shortUrl?: string | null, type: Enum_Componentdynamicsprojectlist_Type, content: string, images: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null> | null, Clients?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null } | null } | null } | null };
 
 export type GetAuthorsQueryVariables = Exact<{
   filters?: InputMaybe<AuthorFiltersInput>;
@@ -1839,51 +1441,6 @@ export type GetAuthorsQueryVariables = Exact<{
 
 
 export type GetAuthorsQuery = { __typename?: 'Query', authors?: { __typename?: 'AuthorEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'AuthorEntity', id?: string | null, attributes?: { __typename?: 'Author', name: string, slug: string, about: string, createdAt?: any | null, updatedAt?: any | null, avatar: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', name: string, url: string, width?: number | null, height?: number | null } | null } | null } } | null }> } | null };
-
-export type GetProjectsQueryVariables = Exact<{
-  filters?: InputMaybe<ProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
-
-
-export type GetProjectsQuery = { __typename?: 'Query', projects?: { __typename?: 'ProjectEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'ProjectEntity', id?: string | null, attributes?: { __typename?: 'Project', name: string, slug: string, desc: string, url: string, shortUrl: string, type: Enum_Project_Type, kind: string, image: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null }> } | null };
-
-export type GetSectionsQueryVariables = Exact<{
-  filters?: InputMaybe<SectionFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
-
-
-export type GetSectionsQuery = { __typename?: 'Query', sections?: { __typename?: 'SectionEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'SectionEntity', id?: string | null, attributes?: { __typename?: 'Section', name: string, slug: string, content: string } | null }> } | null };
-
-export type GetServicesQueryVariables = Exact<{
-  filters?: InputMaybe<ServiceFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
-
-
-export type GetServicesQuery = { __typename?: 'Query', services?: { __typename?: 'ServiceEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'ServiceEntity', id?: string | null, attributes?: { __typename?: 'Service', title: string, desc: string, icon: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null }> } | null };
-
-export type GetSkillsQueryVariables = Exact<{
-  filters?: InputMaybe<SkillFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
-
-
-export type GetSkillsQuery = { __typename?: 'Query', skills?: { __typename?: 'SkillEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'SkillEntity', id?: string | null, attributes?: { __typename?: 'Skill', title: string, icon: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null }> } | null };
-
-export type GetTestimonialsQueryVariables = Exact<{
-  filters?: InputMaybe<TestimonialFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
-}>;
-
-
-export type GetTestimonialsQuery = { __typename?: 'Query', testimonials?: { __typename?: 'TestimonialEntityResponseCollection', meta: { __typename?: 'ResponseCollectionMeta', pagination: { __typename?: 'Pagination', total: number, page: number, pageSize: number, pageCount: number } }, data: Array<{ __typename?: 'TestimonialEntity', id?: string | null, attributes?: { __typename?: 'Testimonial', name: string, text: string, role: string, avatar: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null }> } | null };
 
 export type UpdateArticleMutationVariables = Exact<{
   id: Scalars['ID'];
@@ -2019,22 +1576,73 @@ export const GetPages = gql`
   }
 }
     `;
-export const GetTags = gql`
-    query getTags($filters: TagFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  tags(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
+export const GetPortfolioPage = gql`
+    query getPortfolioPage {
+  portfolio {
     data {
       id
       attributes {
-        name
-        slug
+        Intro
+        Skills {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Services {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Projects {
+          id
+          name
+          slug
+          desc
+          url
+          shortUrl
+          type
+          content
+          images {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Clients {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        publishedAt
+        createdAt
+        updatedAt
       }
     }
   }
@@ -2067,145 +1675,6 @@ export const GetAuthors = gql`
               url
               width
               height
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetProjects = gql`
-    query getProjects($filters: ProjectFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  projects(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
-    data {
-      id
-      attributes {
-        name
-        slug
-        desc
-        url
-        shortUrl
-        type
-        kind
-        image {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetSections = gql`
-    query getSections($filters: SectionFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  sections(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
-    data {
-      id
-      attributes {
-        name
-        slug
-        content
-      }
-    }
-  }
-}
-    `;
-export const GetServices = gql`
-    query getServices($filters: ServiceFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  services(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
-    data {
-      id
-      attributes {
-        title
-        desc
-        icon {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetSkills = gql`
-    query getSkills($filters: SkillFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  skills(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
-    data {
-      id
-      attributes {
-        title
-        icon {
-          data {
-            attributes {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-}
-    `;
-export const GetTestimonials = gql`
-    query getTestimonials($filters: TestimonialFiltersInput, $pagination: PaginationArg = {}, $sort: [String] = []) {
-  testimonials(filters: $filters, pagination: $pagination, sort: $sort) {
-    meta {
-      pagination {
-        total
-        page
-        pageSize
-        pageCount
-      }
-    }
-    data {
-      id
-      attributes {
-        name
-        text
-        role
-        avatar {
-          data {
-            attributes {
-              url
             }
           }
         }

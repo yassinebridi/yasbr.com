@@ -1,3 +1,4 @@
+import { getPortfolioPage, GetPortfolioPageQuery } from '@adapters';
 import {
   Banner,
   Contact,
@@ -10,26 +11,16 @@ import {
   Testimonial,
 } from '@components';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks, getDatabase } from '@lib';
-import { ProjectType, ServiceType, SkillType, TestimType } from '@utils';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 export interface PortfolioProps {
-  introPage: BlockMapType;
-  skillsTable: SkillType[];
-  servicesTable: ServiceType[];
-  projectsTable: ProjectType[];
-  testimsTable: TestimType[];
+  portfolio: GetPortfolioPageQuery;
 }
-const Portfolio: React.FC<PortfolioProps> = ({
-  introPage,
-  skillsTable,
-  servicesTable,
-  projectsTable,
-  testimsTable,
-}) => {
+const Portfolio: React.FC<PortfolioProps> = ({ portfolio }) => {
+  console.log('portfolio: ', portfolio);
+  const portfolioData = portfolio.portfolio?.data?.attributes;
+  console.log('portfolioData: ', portfolioData);
   return (
     <HomeLayout>
       <div className="">
@@ -37,12 +28,18 @@ const Portfolio: React.FC<PortfolioProps> = ({
           <Hero />
           <HeroInfo />
         </div>
-        <Introduction blocks={introPage} />
-        <Skills items={skillsTable} />
-        <Services items={servicesTable} />
-        <Projects items={projectsTable} />
+        <Introduction content={portfolioData?.Intro} />
+        <Skills items={portfolio.portfolio?.data?.attributes?.Skills as any} />
+        <Services
+          items={portfolio.portfolio?.data?.attributes?.Services as any}
+        />
+        <Projects
+          items={portfolio.portfolio?.data?.attributes?.Projects as any}
+        />
         <Banner />
-        <Testimonial items={testimsTable} />
+        <Testimonial
+          items={portfolio.portfolio?.data?.attributes?.Clients as any}
+        />
         <Contact />
       </div>
     </HomeLayout>
@@ -52,25 +49,11 @@ const Portfolio: React.FC<PortfolioProps> = ({
 export default Portfolio;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const introPage = await getBlocks(databasesId.sections.intro);
-  const skillsTable = await getDatabase<SkillType>(databasesId.sections.skills);
-  const servicesTable = await getDatabase<ServiceType>(
-    databasesId.sections.services
-  );
-  const projectsTable = await getDatabase<ProjectType>(
-    databasesId.sections.projects
-  );
-  const testimsTable = await getDatabase<TestimType>(
-    databasesId.sections.testims
-  );
+  const portfolio = await getPortfolioPage();
 
   return {
     props: {
-      introPage,
-      skillsTable,
-      servicesTable,
-      projectsTable,
-      testimsTable,
+      portfolio,
     },
     revalidate: 1,
   };

@@ -41,14 +41,14 @@ export const Table = ({ children, ...rest }: { children: React.ReactNode }) => {
 
 export const Ol = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ol className="list-decimal ml-8 leading-8 text-md sm:text-lg py-2">
+    <ol className="list-decimal ml-8 leading-8 text-sm sm:text-[16px] py-2">
       {children}
     </ol>
   );
 };
 export const Ul = ({ children }: { children: React.ReactNode }) => {
   return (
-    <ul className="list-disc ml-8 leading-8 text-md sm:text-lg py-2">
+    <ul className="list-disc ml-8 leading-8 text-sm sm:text-[16px] py-2">
       {children}
     </ul>
   );
@@ -102,7 +102,7 @@ export const MyMdImage = ({
 };
 
 export const Paragraph = ({ children }: { children: React.ReactNode }) => {
-  return <p className="leading-8 text-md sm:text-lg pb-3">{children}</p>;
+  return <p className="leading-8 text-sm sm:text-[16px] pb-3">{children}</p>;
 };
 export const NormalParagraph = ({
   children,
@@ -148,7 +148,7 @@ export const MdImage = ({
 
 export const H1 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h1 className="py-2 mt-2 text-primary-900 font-extrabold text-5xl">
+    <h1 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-5xl">
       {children}
     </h1>
   );
@@ -162,14 +162,17 @@ export const H2 = ({
   id: string;
 }) => {
   return (
-    <h2 id={id} className="py-2 mt-2 text-primary-900 font-extrabold text-2xl">
+    <h2
+      id={id}
+      className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-2xl"
+    >
       {children}
     </h2>
   );
 };
 export const H3 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h3 className="py-2 mt-2 text-primary-900 font-extrabold text-xl">
+    <h3 className="py-2 mt-2 text-primary-900 dark:text-white font-extrabold text-xl">
       {children}
     </h3>
   );
@@ -177,18 +180,26 @@ export const H3 = ({ children }: { children: React.ReactNode }) => {
 
 export const H4 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h4 className="py-2 text-primary-900 font-extrabold text-lg">{children}</h4>
+    <h4 className="py-2 text-primary-900 dark:text-white font-extrabold text-lg">
+      {children}
+    </h4>
   );
 };
 
 export const H5 = ({ children }: { children: React.ReactNode }) => {
   return (
-    <h5 className="py-2 text-primary-900 font-extrabold text-md">{children}</h5>
+    <h5 className="py-2 text-primary- dark:text-white900 font-extrabold text-md">
+      {children}
+    </h5>
   );
 };
 
 export const H6 = ({ children }: { children: React.ReactNode }) => {
-  return <h6 className="py-2 text-primary-900 font-extrabold">{children}</h6>;
+  return (
+    <h6 className="py-2 text-primary-900 dark:text-white font-extrabold">
+      {children}
+    </h6>
+  );
 };
 
 export const Iframe = ({ src }: { src: string }) => {

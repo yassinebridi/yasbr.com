@@ -1,11 +1,11 @@
 overwrite: true
 schema:
-  - "http://localhost:1337/graphql"
+  - 'http://localhost:1337/graphql'
 documents:
-  - "src/adapters/graphql/**/*.graphql"
+  - 'src/adapters/graphql/**/*.graphql'
 generates:
   src/adapters/generated/graphql.ts:
     plugins:
-      - "typescript"
-      - "typescript-operations"
-      - "typescript-document-nodes"
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-document-nodes'

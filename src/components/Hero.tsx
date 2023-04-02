@@ -17,16 +17,18 @@ const Hero: React.FC<HeroProps> = () => {
               Freelance Full Stack Developer
             </p>
             <div className="flex mt-8 space-x-4">
-              <Link href="/contact">
-                <a className="flex items-center btn btn-primary btn-md sm:btn-lg">
-                  <span>Contact Me</span>
-                </a>
+              <Link
+                href="/contact"
+                className="flex items-center btn btn-primary btn-md sm:btn-lg"
+              >
+                <span>Contact Me</span>
               </Link>
-              <Link href="#projects">
-                <a className="flex items-center btn btn-ol-primary btn-md sm:btn-lg space-x-2">
-                  <span>See projects</span>
-                  <ArrowDownIcon className="w-4 h-4" />
-                </a>
+              <Link
+                href="#projects"
+                className="flex items-center btn btn-ol-primary btn-md sm:btn-lg space-x-2"
+              >
+                <span>See projects</span>
+                <ArrowDownIcon className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -34,7 +36,7 @@ const Hero: React.FC<HeroProps> = () => {
           <div className="">
             <div className="hidden sm:block">
               <Image
-                src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
+                src="https://media.yasbr.com/upload/v1679953673/large_299381000_5873707292644204_7330577753762653393_n_3bf9696d38.jpg"
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={270}
@@ -43,7 +45,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="block sm:hidden">
               <Image
-                src="https://media.yasbr.com/upload/f_auto,q_auto/v1622209779/sections/home/me.jpg"
+                src="https://media.yasbr.com/upload/v1679953673/large_299381000_5873707292644204_7330577753762653393_n_3bf9696d38.jpg"
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={200}

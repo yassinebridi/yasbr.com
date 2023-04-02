@@ -1,18 +1,16 @@
-import { Notion } from '@components';
+import { overridesObj } from '@utils/markdown';
+import Markdown from 'markdown-to-jsx';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 export interface IntroductionProps {
-  blocks: BlockMapType;
+  content: string | undefined;
 }
-const Introduction: React.FC<IntroductionProps> = ({ blocks }) => {
+const Introduction: React.FC<IntroductionProps> = ({ content }) => {
   return (
     <div className="flex items-center justify-between max-w-3xl px-4 py-16 mx-auto mt-16 bg-white dark:bg-primary-900">
       <div className="w-full">
         <div className="font-normal text-center">
-          <h3 className="uppercase text-md text-primary-500 text-primary-400">
-            Intro
-          </h3>
+          <h3 className="uppercase text-md text-primary-500 ">Intro</h3>
           <h2 id="introduction" className="text-3xl font-extrabold">
             <a href="#introduction" title="introduction" className="ringify">
               About Me
@@ -21,7 +19,23 @@ const Introduction: React.FC<IntroductionProps> = ({ blocks }) => {
         </div>
 
         <div className="mt-6">
-          <Notion blocks={blocks} />
+          {content && (
+            <Markdown
+              options={{
+                overrides: overridesObj,
+                createElement(type, props, children) {
+                  return (
+                    <React.Fragment>
+                      {React.createElement(type, props, children)}
+                    </React.Fragment>
+                  );
+                },
+                forceBlock: true,
+              }}
+            >
+              {content}
+            </Markdown>
+          )}
         </div>
       </div>
     </div>

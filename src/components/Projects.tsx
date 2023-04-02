@@ -1,11 +1,11 @@
+import { ComponentDynamicsProjectList } from '@adapters';
 import { Project } from '@components';
-import { ProjectType } from '@utils';
 import clsx from 'clsx';
 import React from 'react';
 
 type ProjectKind = 'all' | 'os' | 'client';
 export interface ProjectsProps {
-  items: ProjectType[];
+  items: ComponentDynamicsProjectList[] | undefined;
 }
 const Projects: React.FC<ProjectsProps> = ({ items }) => {
   const [selected, setSelected] = React.useState<ProjectKind>('all');
@@ -14,16 +14,16 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
     setSelected(type);
   };
   const selectedItems =
-    selected === 'all' ? items : items.filter((item) => item.Type === selected);
+    selected === 'all'
+      ? items
+      : items?.filter((item) => item.type === selected);
 
   return (
     <div className="py-16 bg-primary-50 dark:bg-primary-800">
       <div className="flex items-center max-w-4xl px-4 mx-auto">
         <div className="w-full">
           <div className="font-normal text-center">
-            <h3 className="uppercase text-md text-primary-500 text-primary-400">
-              Portfolio
-            </h3>
+            <h3 className="uppercase text-md text-primary-500">Portfolio</h3>
             <h2 id="projects" className="text-3xl font-extrabold">
               <a href="#projects" title="projects" className="ringify">
                 Recent Works
@@ -75,7 +75,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {selectedItems.map((item, i) => {
+              {selectedItems?.map((item, i) => {
                 return <Project key={i} projectItem={item} />;
               })}
             </ul>

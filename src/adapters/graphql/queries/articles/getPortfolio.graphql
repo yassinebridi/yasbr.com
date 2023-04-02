@@ -1,0 +1,70 @@
+query getPortfolioPage {
+  portfolio {
+    data {
+      id
+      attributes {
+        Intro
+        Skills {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Services {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Projects {
+          id
+          name
+          slug
+          desc
+          url
+          shortUrl
+          type
+          content
+          images {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        Clients {
+          id
+          title
+          desc
+          image {
+            data {
+              id
+              attributes {
+                url
+              }
+            }
+          }
+        }
+        publishedAt
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}

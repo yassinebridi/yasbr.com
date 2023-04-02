@@ -16,8 +16,8 @@ const Banner: React.FC<BannerProps> = () => {
             Let's have a chat.
           </p>
           <div className="mt-10">
-            <Link href="/contact">
-              <a className="btn btn-md btn-secondary">Contact Me</a>
+            <Link href="/contact" className="btn btn-md btn-secondary">
+              Contact Me
             </Link>
           </div>
         </div>
