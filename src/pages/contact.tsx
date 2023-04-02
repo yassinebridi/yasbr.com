@@ -1,18 +1,17 @@
-import { FileDrop, MyInput, MyTextarea } from '@design-system';
+import { MyInput, MyTextarea } from '@design-system';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { HomeLayout } from '@layouts';
 import { CreateContactData } from '@utils';
-import clsx from 'clsx';
 import React from 'react';
-import { useForm, UseFormSetValue } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import z from 'zod';
 
-// const schema = z.object({
-//   Name: z.string().nonempty(),
-//   Email: z.string().email(),
-//   Company: z.string().optional().default('null'),
-//   Content: z.string().nonempty(),
-//   Deadline: z.string().nonempty(),
-//   Brief: z.string().optional().default('null'),
-// });
+const schema = z.object({
+  name: z.string().nonempty(),
+  email: z.string().email(),
+  message: z.string().nonempty(),
+  number: z.string(),
+});
 
 export interface ContactProps {}
 const Contact: React.FC<ContactProps> = () => {
@@ -22,10 +21,10 @@ const Contact: React.FC<ContactProps> = () => {
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm<CreateContactData>({
     reValidateMode: 'onBlur',
+    resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data: CreateContactData) => {
@@ -73,42 +72,32 @@ const Contact: React.FC<ContactProps> = () => {
                   </h1>
                   <MyInput
                     register={register}
-                    errors={errors?.Name}
+                    errors={errors?.name}
                     type="text"
                     placeholder="What is you name"
-                    name="Name"
+                    name="name"
                   />
                   <MyInput
                     register={register}
-                    errors={errors?.Email}
+                    errors={errors?.email}
                     type="text"
                     placeholder="What is you email"
-                    name="Email"
-                  />
-                  <MyInput
-                    register={register}
-                    errors={errors?.Company}
-                    type="text"
-                    placeholder="Your company (Optional)"
-                    name="Company"
+                    name="email"
                   />
                   <MyTextarea
                     register={register}
-                    errors={errors?.Content}
-                    placeholder="Tell me about your project"
-                    name="Content"
+                    errors={errors?.message}
+                    placeholder="What is your message"
+                    name="message"
+                    rows={5}
                   />
-                  <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
-                    What is your project's duration
-                  </h1>
-                  <Selector
-                    items={['1 Month', '3 Month', '6 Month', 'More']}
-                    setValue={setValue}
+                  <MyInput
+                    register={register}
+                    errors={errors?.number}
+                    type="text"
+                    placeholder="What is you phone number(optional)"
+                    name="number"
                   />
-                  <h1 className="font-normal text-center sm:text-left text-md sm:text-xl">
-                    Upload your project brief (Optional)
-                  </h1>
-                  <FileDrop setValue={setValue} field="Brief" />
                   <button
                     type="submit"
                     className="btn btn-lg btn-primary ringify"
@@ -130,34 +119,3 @@ const Contact: React.FC<ContactProps> = () => {
 };
 
 export default Contact;
-
-export interface SelectorProps {
-  items: string[];
-  setValue: UseFormSetValue<CreateContactData>;
-}
-const Selector: React.FC<SelectorProps> = ({ items, setValue }) => {
-  const [selected, setSelected] = React.useState('');
-  const handlClick = (item: string) => {
-    setSelected(item);
-    setValue('Deadline', item);
-  };
-  return (
-    <div className="flex justify-between space-x-2">
-      {items.map((item) => (
-        <button
-          key={item}
-          type="button"
-          onClick={() => handlClick(item)}
-          className={clsx(
-            'uppercase transition-all rounded-none px-2 py-1.5 sm:px-4 sm:py-2 text-sm sm:text-sm border-2 text-primary-900 border-primary-900 dark:border-white dark:text-white hover:bg-primary-900 hover:text-white dark:hover:bg-white dark:hover:text-primary-900 dark:hover:border-white ringify',
-            selected === item
-              ? 'dark:text-primary-900 dark:bg-white text-white bg-primary-900'
-              : ''
-          )}
-        >
-          {item}
-        </button>
-      ))}
-    </div>
-  );
-};

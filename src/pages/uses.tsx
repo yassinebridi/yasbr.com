@@ -1,14 +1,14 @@
-import { Notion } from '@components';
+import { getPages, Page } from '@adapters';
 import { HomeLayout } from '@layouts';
-import { databasesId, getBlocks } from '@lib';
+import { overridesObj } from '@utils/markdown';
+import Markdown from 'markdown-to-jsx';
 import { GetStaticProps } from 'next';
 import React from 'react';
-import { BlockMapType } from 'react-notion';
 
 export interface UsesProps {
-  blocks: BlockMapType;
+  page: Page | undefined;
 }
-const Uses: React.FC<UsesProps> = ({ blocks }) => {
+const Uses: React.FC<UsesProps> = ({ page }) => {
   return (
     <HomeLayout>
       <div className="max-w-3xl px-6 py-6 mx-auto">
@@ -21,7 +21,23 @@ const Uses: React.FC<UsesProps> = ({ blocks }) => {
         </div>
 
         <div className="mt-8">
-          <Notion blocks={blocks} />
+          {page?.content && (
+            <Markdown
+              options={{
+                overrides: overridesObj,
+                createElement(type, props, children) {
+                  return (
+                    <React.Fragment>
+                      {React.createElement(type, props, children)}
+                    </React.Fragment>
+                  );
+                },
+                forceBlock: true,
+              }}
+            >
+              {page?.content}
+            </Markdown>
+          )}
         </div>
       </div>
     </HomeLayout>
@@ -31,11 +47,16 @@ const Uses: React.FC<UsesProps> = ({ blocks }) => {
 export default Uses;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const blocks = await getBlocks(databasesId.sections.uses);
+  const pages = await getPages({
+    filters: {
+      slug: { eq: 'uses' },
+    },
+  });
 
+  const page = pages.pages?.data?.[0].attributes;
   return {
     props: {
-      blocks,
+      page,
     },
     revalidate: 1,
   };

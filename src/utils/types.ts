@@ -69,12 +69,10 @@ export type TestimType = {
 };
 
 export type CreateContactData = {
-  Name: string;
-  Email: string;
-  Company: string;
-  Content: string;
-  Deadline: string;
-  Brief: string;
+  name: string;
+  email: string;
+  number: string;
+  message: string;
 };
 
 export type SubscribeData = {

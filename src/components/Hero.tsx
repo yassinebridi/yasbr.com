@@ -14,7 +14,7 @@ const Hero: React.FC<HeroProps> = () => {
               Yassine Bridi
             </h2>
             <p className="mt-2 text-sm font-light text-center sm:text-lg sm:text-left">
-              Freelance Full Stack Developer
+              Full Stack Developer
             </p>
             <div className="flex mt-8 space-x-4">
               <Link
