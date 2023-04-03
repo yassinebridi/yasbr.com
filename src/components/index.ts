@@ -1,7 +1,5 @@
 import Banner from './Banner';
 import Contact from './Contact';
-import Footer from './Footer';
-import Header from './Header';
 import Hero from './Hero';
 import HeroInfo from './HeroInfo';
 import Home from './Home';
@@ -15,13 +13,10 @@ import Services from './Services';
 import Skills from './Skills';
 import Subscribe from './Subscribe';
 import Testimonial from './Testimonial';
-import ThemeChanger from './ThemeChanger';
 
 export * from './header-comps';
 export * from './List';
 export {
-  Footer,
-  Header,
   Hero,
   Home,
   Introduction,
@@ -35,7 +30,6 @@ export {
   Testimonial,
   Contact,
   Notion,
-  ThemeChanger,
   ProjectSlider,
   Subscribe,
 };

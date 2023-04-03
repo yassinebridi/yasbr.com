@@ -5,7 +5,7 @@ import comma from 'comma-number';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 export interface BlogsProps {

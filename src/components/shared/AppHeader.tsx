@@ -1,14 +1,16 @@
-import { HumMenu, Logo, MenuMobile, Nav, ThemeChanger } from '@components';
+'use client';
+
+import { Nav, HumMenu, MenuMobile, MyLogo } from '@components/header-comps';
 import Link from 'next/link';
 import React from 'react';
 
-export interface HeaderProps {}
-const Header: React.FC<HeaderProps> = () => {
+export interface AppHeaderProps {}
+const AppHeader: React.FC<AppHeaderProps> = () => {
   return (
-    <div className="relative w-full px-4 bg-white text-primary-900 dark:bg-primary-900 dark:text-primary-200">
+    <header className="relative w-full px-4 bg-white text-primary-900 dark:bg-primary-900 dark:text-primary-200">
       <div className="max-w-4xl py-3 mx-auto">
         <div className="flex items-center justify-between py-3 md:space-x-10">
-          <Logo />
+          <MyLogo />
           <Nav />
 
           <div className="flex items-center space-x-8">
@@ -27,8 +29,8 @@ const Header: React.FC<HeaderProps> = () => {
       </div>
 
       <MenuMobile />
-    </div>
+    </header>
   );
 };
 
-export default Header;
+export default AppHeader;

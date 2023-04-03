@@ -1,3 +1,5 @@
+'use client';
+
 import { MyInput } from '@design-system';
 import { CheckIcon, ExclamationCircleIcon } from '@heroicons/react/20/solid';
 import { SubscribeData } from '@utils';

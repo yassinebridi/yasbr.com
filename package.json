@@ -44,6 +44,7 @@
     "react-notion": "^0.10.0",
     "react-scroll-up": "^1.4.0",
     "sitemap": "^7.1.1",
+    "tailwind-merge": "^1.11.0",
     "zlib": "^1.0.5",
     "zod": "^3.21.4",
     "zustand": "^3.4.2"

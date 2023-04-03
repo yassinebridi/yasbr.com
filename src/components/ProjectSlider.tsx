@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentDynamicsProjectList } from '@adapters';
 import Carousel, { arrowsPlugin, Dots } from '@brainhubeu/react-carousel';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';

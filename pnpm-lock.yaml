@@ -40,6 +40,7 @@ specifiers:
   react-notion: ^0.10.0
   react-scroll-up: ^1.4.0
   sitemap: ^7.1.1
+  tailwind-merge: ^1.11.0
   tailwindcss: ^3.2.7
   typescript: ^5.0.2
   zlib: ^1.0.5
@@ -73,6 +74,7 @@ dependencies:
   react-notion: 0.10.0_react@18.2.0
   react-scroll-up: 1.4.0_react@18.2.0
   sitemap: 7.1.1
+  tailwind-merge: 1.11.0
   zlib: 1.0.5
   zod: 3.21.4
   zustand: 3.7.2_react@18.2.0
@@ -4994,6 +4996,10 @@ packages:
     dependencies:
       '@pkgr/utils': 2.3.1
       tslib: 2.5.0
+    dev: false
+
+  /tailwind-merge/1.11.0:
+    resolution: {integrity: sha512-oG3/328Y7LrfPMfkgMNxoqEk1ZQdXBxdphf9FFrreo8q0EtVIHt3bQf2IyFhQuVt8puB57lCRBNbazGhYAyz9w==}
     dev: false
 
   /tailwindcss/3.2.7_postcss@8.4.21:

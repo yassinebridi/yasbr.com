@@ -1,30 +1,30 @@
-import { Logo } from '@components';
+'use client';
+
 import { Backdrop } from '@design-system';
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
 import { useMobileMenuStore } from '@utils';
-import clsx from 'clsx';
+import { cn } from '@utils/helpers';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import * as React from 'react';
+import MyLogo from './MyLogo';
 
 export interface MenuMobileProps {}
 const MenuMobile: React.FC<MenuMobileProps> = () => {
   const { mobileMenuProps, setMobileMenuProps } = useMobileMenuStore();
 
-  const router = useRouter();
   React.useEffect(() => {
     if (mobileMenuProps.open) {
       setMobileMenuProps(!mobileMenuProps.open);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.asPath]);
+  }, []);
 
   const handleCloseMenu = () => {
     setMobileMenuProps(false);
   };
 
-  const hideStatus = clsx(mobileMenuProps.open ? null : 'hidden');
+  const hideStatus = cn(mobileMenuProps.open ? null : 'hidden');
 
   return (
     <Transition
@@ -45,7 +45,7 @@ const MenuMobile: React.FC<MenuMobileProps> = () => {
           <div className="px-5 pt-5 pb-6">
             <div className="flex items-center justify-between py-2">
               <div>
-                <Logo />
+                <MyLogo />
               </div>
               <div className="-mr-2">
                 <button

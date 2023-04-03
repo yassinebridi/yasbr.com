@@ -1,6 +1,6 @@
 import HumMenu from './HumMenu';
-import Logo from './Logo';
+import MyLogo from './MyLogo';
 import MenuMobile from './MobileMenu';
 import Nav from './Nav';
 
-export { Logo, Nav, HumMenu, MenuMobile };
+export { MyLogo, Nav, HumMenu, MenuMobile };

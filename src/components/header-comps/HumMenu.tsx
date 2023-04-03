@@ -1,3 +1,5 @@
+'use client';
+
 import { Bars3Icon } from '@heroicons/react/20/solid';
 import { useMobileMenuStore } from '@utils';
 

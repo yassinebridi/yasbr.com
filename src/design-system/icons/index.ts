@@ -1,6 +1,5 @@
 import AtomIcon from './atom';
 import BracketsIcon from './brackets';
-import Divider from './Divider';
 import FigmaIcon from './figma';
 import GithubIcon from './github';
 import GraphqlIcon from './graphql';
@@ -47,7 +46,6 @@ export {
   TypescriptIcon,
   VercelIcon,
   VscodeIcon,
-  Divider,
   TwitterIcon,
   LinkIcon,
 };
