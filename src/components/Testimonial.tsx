@@ -1,7 +1,5 @@
 import { ComponentDynamicsTitleImage } from '@adapters';
 import { StarIcon } from '@heroicons/react/20/solid';
-import { cloudinaryLoader } from '@utils';
-import Image from 'next/image';
 import React from 'react';
 
 export interface TestimonialProps {
@@ -47,10 +45,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
     <div className="flex flex-col space-y-3">
       <div className="flex flex-col justify-between sm:flex-row sm:items-center">
         <div className="flex items-center space-x-4">
-          <Image
+          <img
             src={item.image?.data?.attributes?.url!}
             alt={item.title}
-            loader={cloudinaryLoader}
             height={70}
             width={70}
             className="rounded-full"

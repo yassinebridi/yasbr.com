@@ -40,6 +40,7 @@ export interface ServiceCardProps {
   item: ComponentDynamicsTitleImage;
 }
 const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
+  'use server';
   return (
     <li
       className={clsx(
@@ -48,10 +49,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
     >
       <span className="absolute -top-6">
         <div className="w-12 h-12 p-3 text-white rounded-full dark:bg-primary-500 bg-primary-100 group-hover:bg-white group-hover:text-primary-400 group-hover:shadow-md">
-          <Image
+          <img
             alt={item.title}
             src={item.image?.data?.attributes?.url!}
-            loader={cloudinaryLoader}
             width={23}
             height={23}
           />

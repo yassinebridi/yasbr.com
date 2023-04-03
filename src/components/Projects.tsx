@@ -1,3 +1,5 @@
+'use client';
+
 import { ComponentDynamicsProjectList } from '@adapters';
 import { Project } from '@components';
 import clsx from 'clsx';
