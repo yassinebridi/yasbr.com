@@ -1,9 +1,11 @@
 import { ComponentDynamicsProjectList } from '@adapters';
-import ProjectSlider from '@components/ProjectSlider';
 import { LinkIcon } from '@heroicons/react/20/solid';
 import { overridesObj } from '@utils/markdown';
 import Markdown from 'markdown-to-jsx';
+import dynamic from 'next/dynamic';
 import React from 'react';
+
+const ProjectSlider = dynamic(() => import('../ProjectSlider'), { ssr: false });
 
 export interface ProjectSlugProps {
   project: ComponentDynamicsProjectList;

@@ -1,8 +1,17 @@
 import { getPages } from '@adapters';
+import { hostname } from '@utils';
 import { overridesObj } from '@utils/markdown';
 import Markdown from 'markdown-to-jsx';
+import { Metadata } from 'next';
 import React from 'react';
 
+export const metadata: Metadata = {
+  title: 'Uses',
+  description: 'What I use to build things',
+  alternates: {
+    canonical: `${hostname}/uses`,
+  },
+};
 export default async function PortfolioPage() {
   const { page } = await getData();
   return (

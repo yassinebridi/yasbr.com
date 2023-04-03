@@ -10,7 +10,16 @@ import {
   Skills,
   Testimonial,
 } from '@components';
+import { hostname } from '@utils';
+import { Metadata } from 'next';
 
+export const metadata: Metadata = {
+  title: 'Portfolio',
+  description: 'My portfolio',
+  alternates: {
+    canonical: `${hostname}/portfolio`,
+  },
+};
 export default async function PortfolioPage() {
   const { portfolio } = await getData();
   const portfolioData = portfolio.portfolio?.data?.attributes;
