@@ -5,6 +5,7 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
+import Script from 'next/script';
 
 export default class MyDocument extends Document<DocumentInitialProps> {
   render() {
@@ -49,6 +50,11 @@ export default class MyDocument extends Document<DocumentInitialProps> {
           <script defer data-domain="yasbr.com" src="/js/script.js"></script>
         </Head>
         <body className="dark:bg-primary-900 bg-white">
+          <Script
+            data-domain="yasbr.com"
+            src="/js/script.js"
+            strategy="afterInteractive"
+          ></Script>
           <Main />
           <NextScript />
         </body>
