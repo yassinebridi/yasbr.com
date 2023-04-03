@@ -30,7 +30,7 @@ query getPortfolioPage {
             }
           }
         }
-        Projects {
+        Projects(pagination: { limit: 100 }) {
           id
           name
           slug

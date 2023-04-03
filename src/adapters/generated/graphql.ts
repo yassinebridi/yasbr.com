@@ -195,7 +195,7 @@ export type ComponentDynamicsProjectList = {
   shortUrl?: Maybe<Scalars['String']>;
   slug: Scalars['String'];
   type: Enum_Componentdynamicsprojectlist_Type;
-  url: Scalars['String'];
+  url?: Maybe<Scalars['String']>;
 };
 
 
@@ -1431,7 +1431,7 @@ export type GetPagesQuery = { __typename?: 'Query', pages?: { __typename?: 'Page
 export type GetPortfolioPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPortfolioPageQuery = { __typename?: 'Query', portfolio?: { __typename?: 'PortfolioEntityResponse', data?: { __typename?: 'PortfolioEntity', id?: string | null, attributes?: { __typename?: 'Portfolio', Intro: string, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, Skills?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Services?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Projects?: Array<{ __typename?: 'ComponentDynamicsProjectList', id: string, name: string, slug: string, desc: string, url: string, shortUrl?: string | null, type: Enum_Componentdynamicsprojectlist_Type, content: string, images: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null> | null, Clients?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null } | null } | null } | null };
+export type GetPortfolioPageQuery = { __typename?: 'Query', portfolio?: { __typename?: 'PortfolioEntityResponse', data?: { __typename?: 'PortfolioEntity', id?: string | null, attributes?: { __typename?: 'Portfolio', Intro: string, publishedAt?: any | null, createdAt?: any | null, updatedAt?: any | null, Skills?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Services?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null, Projects?: Array<{ __typename?: 'ComponentDynamicsProjectList', id: string, name: string, slug: string, desc: string, url?: string | null, shortUrl?: string | null, type: Enum_Componentdynamicsprojectlist_Type, content: string, images: { __typename?: 'UploadFileRelationResponseCollection', data: Array<{ __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null }> } } | null> | null, Clients?: Array<{ __typename?: 'ComponentDynamicsTitleImage', id: string, title: string, desc?: string | null, image?: { __typename?: 'UploadFileEntityResponse', data?: { __typename?: 'UploadFileEntity', id?: string | null, attributes?: { __typename?: 'UploadFile', url: string } | null } | null } | null } | null> | null } | null } | null } | null };
 
 export type GetAuthorsQueryVariables = Exact<{
   filters?: InputMaybe<AuthorFiltersInput>;
@@ -1609,7 +1609,7 @@ export const GetPortfolioPage = gql`
             }
           }
         }
-        Projects {
+        Projects(pagination: {limit: 100}) {
           id
           name
           slug
