@@ -1,7 +1,7 @@
 'use client';
 
 import { ArticleEntity } from '@adapters';
-import { dateFormat } from '@utils';
+import { dateFormat } from '@utils/helpers';
 import comma from 'comma-number';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -31,7 +31,7 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
 
       <div className="flex items-center justify-between mt-4 text-sm font-light">
         <p className="">{date}</p>
-        <p>{comma(post.attributes?.views)} Views</p>
+        <p>{comma(post.attributes?.views!)} Views</p>
       </div>
     </div>
   );

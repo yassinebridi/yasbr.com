@@ -5,7 +5,6 @@ import HeroInfo from './HeroInfo';
 import Home from './Home';
 import Introduction from './Introduction';
 import List from './List';
-import Notion from './Notion';
 import Project from './Project';
 import Projects from './Projects';
 import ProjectSlider from './ProjectSlider';
@@ -29,7 +28,6 @@ export {
   Banner,
   Testimonial,
   Contact,
-  Notion,
   ProjectSlider,
   Subscribe,
 };

@@ -42,7 +42,7 @@ const ContactForm: React.FC<ContactFormProps> = () => {
         setMessage(true);
       }
     } catch (error) {
-      console.log('error: ', error);
+      console.error('contact error: ', error);
     }
     setIsLoading(false);
   };

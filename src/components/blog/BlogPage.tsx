@@ -1,6 +1,6 @@
 import { Article } from '@adapters';
 import Subscribe from '@components/Subscribe';
-import { dateFormat } from '@utils';
+import { dateFormat } from '@utils/helpers';
 import { overridesObj } from '@utils/markdown';
 import comma from 'comma-number';
 import Markdown from 'markdown-to-jsx';
@@ -17,7 +17,7 @@ const BlogSlug: React.FC<BlogSlugProps> = ({ post }) => {
         <div className="flex font-light text-md">
           <p className="">{date}</p>
           <span className="mx-1">/</span>
-          <p>{comma(post.views)} Views</p>
+          <p>{comma(post.views!)} Views</p>
         </div>
         <p className="">{}</p>
         <h1 className="text-4xl text-center font-extrabold">{post.title}</h1>

@@ -3,7 +3,7 @@
 import { ComponentDynamicsProjectList } from '@adapters';
 import Carousel, { arrowsPlugin, Dots } from '@brainhubeu/react-carousel';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
-import { imageTransformer } from '@utils';
+import { imageTransformer } from '@utils/helpers';
 import clsx from 'clsx';
 import React from 'react';
 

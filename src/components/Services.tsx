@@ -1,7 +1,5 @@
 import { ComponentDynamicsTitleImage } from '@adapters';
-import { cloudinaryLoader } from '@utils';
 import clsx from 'clsx';
-import Image from 'next/image';
 import React from 'react';
 
 export interface ServicesProps {

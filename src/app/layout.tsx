@@ -8,7 +8,6 @@ import 'focus-visible/dist/focus-visible';
 import Script from 'next/script';
 import '../styles/globals.css';
 import '../styles/prism-coldark.css';
-import '../styles/react-notion.css';
 import '../styles/slider.css';
 
 export const metadata: Metadata = {

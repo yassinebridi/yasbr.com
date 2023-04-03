@@ -55,6 +55,7 @@
     "@graphql-codegen/typescript-document-nodes": "^3.0.2",
     "@graphql-codegen/typescript-operations": "^3.0.2",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/comma-number": "^2.1.0",
     "@types/gtag.js": "^0.0.12",
     "@types/node": "^18.15.10",
     "@types/react": "^18.0.29",

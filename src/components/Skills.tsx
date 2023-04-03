@@ -1,5 +1,5 @@
 import { ComponentDynamicsTitleImage } from '@adapters';
-import { imageTransformer } from '@utils';
+import { imageTransformer } from '@utils/notion/helpers';
 import React from 'react';
 
 export interface SkillsProps {
