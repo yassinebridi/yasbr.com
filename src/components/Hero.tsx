@@ -23,13 +23,13 @@ const Hero: React.FC<HeroProps> = () => {
               >
                 <span>Contact Me</span>
               </Link>
-              <Link
+              <a
                 href="#projects"
                 className="flex items-center btn btn-ol-primary btn-md sm:btn-lg space-x-2"
               >
                 <span>See projects</span>
                 <ArrowDownIcon className="w-4 h-4" />
-              </Link>
+              </a>
             </div>
           </div>
 
