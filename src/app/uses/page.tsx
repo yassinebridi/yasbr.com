@@ -28,13 +28,6 @@ export default async function PortfolioPage() {
           <Markdown
             options={{
               overrides: overridesObj,
-              createElement(type, props, children) {
-                return (
-                  <React.Fragment>
-                    {React.createElement(type, props, children)}
-                  </React.Fragment>
-                );
-              },
               forceBlock: true,
             }}
           >

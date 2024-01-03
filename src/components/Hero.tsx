@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = () => {
           <div className="">
             <div className="hidden sm:block">
               <Image
-                src="https://media.yasbr.com/upload/v1691529753/IMG_4063_1x1_e0c6144cfa.png"
+                src="https://media.yasbr.com/upload/v1704222302/sections/home/Yassine%20Bridi.png"
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={270}
@@ -45,7 +45,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="block sm:hidden">
               <Image
-                src="https://media.yasbr.com/upload/v1691529753/IMG_4063_1x1_e0c6144cfa.png"
+                src="https://media.yasbr.com/upload/v1704222302/sections/home/Yassine%20Bridi.png"
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={200}
