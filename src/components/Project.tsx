@@ -2,6 +2,7 @@ import { ComponentDynamicsProjectList } from '@adapters';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 const projectKindMapper = {
   os: 'Open Source',
@@ -13,11 +14,13 @@ export interface ProjectProps {
 const Project: React.FC<ProjectProps> = ({ projectItem }) => {
   return (
     <div>
-      <div className="relative h-56 shadow-lg sm:h-48 md:h-44 group">
-        <img
+      <div className="relative shadow-lg group">
+        <Image
           src={projectItem.images.data?.[0]?.attributes?.url as any}
           alt={projectItem.name}
-          className="object-cover h-56 sm:h-48 md:h-44"
+          className="object-cover aspect-[5/3]"
+          width={500}
+          height={500}
         />
       </div>
       <div className="flex flex-col px-1 mt-3">
