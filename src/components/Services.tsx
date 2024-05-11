@@ -38,7 +38,6 @@ export interface ServiceCardProps {
   item: ComponentDynamicsTitleImage;
 }
 const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
-  'use server';
   return (
     <li
       className={clsx(

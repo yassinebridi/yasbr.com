@@ -10,9 +10,10 @@ import {
   Skills,
   Testimonial,
 } from '@components';
-import { hostname } from '@utils';
+import { globalRevalidateTiming, hostname } from '@utils';
 import { Metadata } from 'next';
 
+export const revalidate = globalRevalidateTiming;
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'My portfolio',

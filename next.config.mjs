@@ -11,9 +11,6 @@ const config = {
     ],
   },
   output: 'standalone',
-  experimental: {
-    appDir: true,
-  },
   redirects: async () => [
     {
       source: '/DM',

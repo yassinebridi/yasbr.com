@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   referrer: 'origin-when-cross-origin',
   keywords: ['yassine bridi'],
   authors: [{ name: 'Yassine Bridi', url: 'https://yasbr.com' }],
-  colorScheme: 'light',
   creator: 'Yassine Bridi',
   publisher: 'Yassine Bridi',
   alternates: {
@@ -72,10 +71,6 @@ export const metadata: Metadata = {
     shortcut: ['/static/favicons/favicon-32x32.png'],
     apple: [{ url: '/static/favicons/apple-touch-icon.png' }],
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'light' },
-    { media: '(prefers-color-scheme: dark)', color: 'dark' },
-  ],
 };
 
 const inter = Inter({ subsets: ['latin'] });
@@ -104,7 +99,7 @@ export default async function RootLayout({
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="manifest" href="/static/favicon/site.webmanifest" />
       </head>
 
       <body
