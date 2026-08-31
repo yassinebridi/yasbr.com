@@ -1,66 +1,46 @@
 'use client';
 
-import { ComponentDynamicsProjectList } from '@adapters';
+import type { Project } from '@/data/types';
 import Carousel, { arrowsPlugin, Dots } from '@brainhubeu/react-carousel';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid';
-import { imageTransformer } from '@utils/helpers';
 import clsx from 'clsx';
+import Image from 'next/image';
 import React from 'react';
 
 export interface ProjectSliderProps {
-  project: ComponentDynamicsProjectList;
+  project: Project;
 }
 const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
-  const slides: any = [];
-  project.images.data.map((img, i) => {
-    const rawUrl = imageTransformer(img?.attributes?.url!, 'q_90,f_auto');
-    slides.push(
-      <div className={clsx('px-4')}>
-        <img
-          src={rawUrl}
-          alt={project.name}
-          className={clsx('shadow-lg h-full w-[800px]')}
-          key={i}
-        />
-      </div>
-    );
-  });
-  const thumbnails: any = [];
-  project.images.data.map((img, i) => {
-    const rawUrl = imageTransformer(
-      img?.attributes?.url!,
-      'q_auto,f_auto,w_200'
-    );
-    thumbnails.push(
-      <img
-        key={i}
-        src={rawUrl}
-        alt={project.name}
-        width={100}
-        height={100}
-        className={clsx('object-cover border-2 border-primary-200')}
+  const slides = project.images.map((image, i) => (
+    <div className={clsx('px-4')} key={i}>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        className={clsx('shadow-lg h-full w-[800px]')}
       />
-    );
-  });
-  const [carState, setCarState] = React.useState<{
-    value: number;
-    slides?: any[];
-    thumbnails?: any[];
-  }>({
-    value: 0,
-    slides,
-    thumbnails,
-  });
+    </div>
+  ));
+  const thumbnails = project.images.map((image, i) => (
+    <Image
+      key={i}
+      src={image.src}
+      alt={image.alt}
+      width={100}
+      height={100}
+      className={clsx('object-cover border-2 border-primary-200')}
+    />
+  ));
+  const [carState, setCarState] = React.useState({ value: 0 });
 
   const handleChange = (value: number) => {
-    setCarState({ ...carState, value });
+    setCarState({ value });
   };
 
   return (
     <div className="flex flex-col w-full p-5">
       <Carousel
         value={carState.value}
-        slides={carState.slides}
+        slides={slides}
         onChange={handleChange}
         animationSpeed={300}
         plugins={[
@@ -93,8 +73,8 @@ const ProjectSlider: React.FC<ProjectSliderProps> = ({ project }) => {
         ]}
       />
       <Dots
-        number={carState?.thumbnails?.length}
-        thumbnails={carState.thumbnails}
+        number={thumbnails.length}
+        thumbnails={thumbnails}
         value={carState.value}
         onChange={handleChange}
       />

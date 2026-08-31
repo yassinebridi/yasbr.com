@@ -1,3 +1,4 @@
+import ogImage from '@/assets/og/Home.jpg';
 import { AppFooter, AppHeader } from '@/components/shared';
 import { hostname } from '@utils';
 import { cn } from '@utils/helpers';
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     siteName: 'Yassine Bridi',
     images: [
       {
-        url: `https://media.yasbr.com/upload/og/home.jpg`,
-        width: 800,
-        height: 600,
+        url: `${hostname}${ogImage.src}`,
+        width: ogImage.width,
+        height: ogImage.height,
       },
     ],
     locale: 'en-US',
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     description:
       'Yassine Bridi, a developer who also designs, with a keen interest in web and mobile technology.',
     creator: '@yassinebridi',
-    images: [`https://media.yasbr.com/upload/og/home.jpg`],
+    images: [`${hostname}${ogImage.src}`],
   },
   manifest: `${hostname}/static/favicons/site.webmanifest`,
   robots: {

@@ -1,24 +1,21 @@
-import { getPortfolioPage } from '@adapters';
 import ProjectSlug from '@components/project/ProjectPage';
+import { projects } from '@/data';
 import { hostname } from '@utils';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-export default async function ProjectPage({ params }: { params: ParamsType }) {
-  const { project } = await getData(params);
-  if (!project) return notFound();
-  return <ProjectSlug project={project as any} />;
+interface ParamsType {
+  slug: string;
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: ParamsType;
-}): Promise<Metadata> {
-  const portfolio = await getPortfolioPage();
-  const project = portfolio?.portfolio?.data?.attributes?.Projects?.find(
-    (project) => project?.slug === params?.slug
-  );
+export default function ProjectPage({ params }: { params: ParamsType }) {
+  const project = projects.find((project) => project.slug === params.slug);
+  if (!project) return notFound();
+  return <ProjectSlug project={project} />;
+}
+
+export function generateMetadata({ params }: { params: ParamsType }): Metadata {
+  const project = projects.find((project) => project.slug === params.slug);
   return {
     title: `${project?.name} Project`,
     description: `Project details of ${project?.name}`,
@@ -27,26 +24,7 @@ export async function generateMetadata({
     },
   };
 }
-export async function generateStaticParams(): Promise<ParamsType[]> {
-  const paths: ParamsType[] = [];
-  const portfolio = await getPortfolioPage();
-  const projects = portfolio?.portfolio?.data?.attributes?.Projects;
-  projects?.map((project) => {
-    paths.push({ slug: project?.slug! });
-  });
 
-  return paths;
-}
-interface ParamsType {
-  slug: string;
-}
-async function getData(params: ParamsType) {
-  const portfolio = await getPortfolioPage();
-  const project = portfolio?.portfolio?.data?.attributes?.Projects?.find(
-    (project) => project?.slug === params?.slug
-  );
-
-  return {
-    project,
-  };
+export function generateStaticParams(): ParamsType[] {
+  return projects.map((project) => ({ slug: project.slug }));
 }

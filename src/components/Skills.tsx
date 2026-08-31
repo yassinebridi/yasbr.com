@@ -1,9 +1,9 @@
-import { ComponentDynamicsTitleImage } from '@adapters';
-import { imageTransformer } from '@utils/notion/helpers';
+import type { Skill } from '@/data/types';
+import Image from 'next/image';
 import React from 'react';
 
 export interface SkillsProps {
-  items: ComponentDynamicsTitleImage[] | undefined;
+  items: Skill[];
 }
 const Skills: React.FC<SkillsProps> = ({ items }) => {
   return (
@@ -22,16 +22,13 @@ const Skills: React.FC<SkillsProps> = ({ items }) => {
           </div>
 
           <div className="mt-8">
-            <ul className="grid grid-cols-2 gap-6">
-              {items?.map((item, i) => {
+            <ul className="grid grid-cols-2 gap-6 justify-items-center">
+              {items.map((item) => {
                 return (
-                  <li key={i} className="flex items-center">
-                    <img
+                  <li key={item.id} className="flex items-center justify-center">
+                    <Image
                       alt={item.title}
-                      src={imageTransformer(
-                        item.image?.data?.attributes?.url!,
-                        'f_auto'
-                      )}
+                      src={item.image}
                       className="w-[20px] sm:w-[30px]"
                     />
                     <span className="ml-2 text-xs sm:text-sm md:text-md">

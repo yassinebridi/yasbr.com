@@ -1,3 +1,4 @@
+import heroImage from '@/assets/sections/home/Yassine_Bridi.png';
 import { ArrowDownIcon } from '@heroicons/react/20/solid';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -36,7 +37,7 @@ const Hero: React.FC<HeroProps> = () => {
           <div className="">
             <div className="hidden sm:block">
               <Image
-                src="https://media.yasbr.com/upload/v1704222302/sections/home/Yassine%20Bridi.png"
+                src={heroImage}
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={270}
@@ -45,7 +46,7 @@ const Hero: React.FC<HeroProps> = () => {
             </div>
             <div className="block sm:hidden">
               <Image
-                src="https://media.yasbr.com/upload/v1704222302/sections/home/Yassine%20Bridi.png"
+                src={heroImage}
                 alt="Yassine Bridi's avatar"
                 quality={100}
                 height={200}

@@ -3,12 +3,6 @@ const config = {
   swcMinify: true,
   images: {
     formats: ['image/avif', 'image/webp'],
-    domains: [
-      'media.yasbr.com',
-      'pbs.twimg.com',
-      'strapi.yasbr.com',
-      'res.cloudinary.com',
-    ],
   },
   output: 'standalone',
   redirects: async () => [

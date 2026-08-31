@@ -1,4 +1,3 @@
-import { getPortfolioPage } from '@adapters';
 import {
   Banner,
   Contact,
@@ -10,10 +9,10 @@ import {
   Skills,
   Testimonial,
 } from '@components';
-import { globalRevalidateTiming, hostname } from '@utils';
+import { portfolioContent, projects } from '@/data';
+import { hostname } from '@utils';
 import { Metadata } from 'next';
 
-export const revalidate = globalRevalidateTiming;
 export const metadata: Metadata = {
   title: 'Portfolio',
   description: 'My portfolio',
@@ -21,36 +20,20 @@ export const metadata: Metadata = {
     canonical: `${hostname}/portfolio`,
   },
 };
-export default async function PortfolioPage() {
-  const { portfolio } = await getData();
-  const portfolioData = portfolio.portfolio?.data?.attributes;
+export default function PortfolioPage() {
   return (
     <div className="">
       <div className="relative">
         <Hero />
         <HeroInfo />
       </div>
-      <Introduction content={portfolioData?.Intro} />
-      <Skills items={portfolio.portfolio?.data?.attributes?.Skills as any} />
-      <Services
-        items={portfolio.portfolio?.data?.attributes?.Services as any}
-      />
-      <Projects
-        items={portfolio.portfolio?.data?.attributes?.Projects as any}
-      />
+      <Introduction intro={portfolioContent.intro} />
+      <Skills items={portfolioContent.skills} />
+      <Services items={portfolioContent.services} />
+      <Projects items={projects} />
       <Banner />
-      <Testimonial
-        items={portfolio.portfolio?.data?.attributes?.Clients as any}
-      />
+      <Testimonial items={portfolioContent.testimonials} />
       <Contact />
     </div>
   );
-}
-
-async function getData() {
-  const portfolio = await getPortfolioPage();
-
-  return {
-    portfolio,
-  };
 }

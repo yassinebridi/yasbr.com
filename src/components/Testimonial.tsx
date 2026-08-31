@@ -1,9 +1,10 @@
-import { ComponentDynamicsTitleImage } from '@adapters';
+import type { Testimonial as TestimonialData } from '@/data/types';
 import { StarIcon } from '@heroicons/react/20/solid';
+import Image from 'next/image';
 import React from 'react';
 
 export interface TestimonialProps {
-  items: ComponentDynamicsTitleImage[] | undefined;
+  items: TestimonialData[];
 }
 const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
   return (
@@ -24,8 +25,8 @@ const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-16">
-              {items?.map((item, i) => {
-                return <TestimonialCard key={i} item={item} />;
+              {items.map((item) => {
+                return <TestimonialCard key={item.id} item={item} />;
               })}
             </ul>
           </div>
@@ -38,23 +39,23 @@ const Testimonial: React.FC<TestimonialProps> = ({ items }) => {
 export default Testimonial;
 
 export interface TestimonialCardProps {
-  item: ComponentDynamicsTitleImage;
+  item: TestimonialData;
 }
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
   return (
     <div className="flex flex-col space-y-3">
       <div className="flex flex-col justify-between sm:flex-row sm:items-center">
         <div className="flex items-center space-x-4">
-          <img
-            src={item.image?.data?.attributes?.url!}
-            alt={item.title}
+          <Image
+            src={item.avatar}
+            alt={item.name}
             height={70}
             width={70}
             className="rounded-full"
           />
           <div className="flex flex-col">
-            <span className="font-semibold">{item.title}</span>
-            <span className="text-sm font-light">Client</span>
+            <span className="font-semibold">{item.name}</span>
+            <span className="text-sm font-light">{item.role}</span>
           </div>
         </div>
         <div className="flex mt-3 sm:mt-0">
@@ -63,7 +64,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ item }) => {
           ))}
         </div>
       </div>
-      <p className="text-sm sm:px-2 leading-6">{item.desc}</p>
+      <p className="text-sm sm:px-2 leading-6">{item.quote}</p>
     </div>
   );
 };

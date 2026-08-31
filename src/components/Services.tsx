@@ -1,9 +1,9 @@
-import { ComponentDynamicsTitleImage } from '@adapters';
+import type { Service } from '@/data/types';
 import clsx from 'clsx';
 import React from 'react';
 
 export interface ServicesProps {
-  items: ComponentDynamicsTitleImage[] | undefined;
+  items: Service[];
 }
 const Services: React.FC<ServicesProps> = ({ items }) => {
   return (
@@ -21,8 +21,8 @@ const Services: React.FC<ServicesProps> = ({ items }) => {
 
           <div className="mt-12">
             <ul className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 sm:gap-8">
-              {items?.map((item, i) => {
-                return <ServiceCard key={i} item={item} />;
+              {items.map((item) => {
+                return <ServiceCard key={item.id} item={item} />;
               })}
             </ul>
           </div>
@@ -35,7 +35,7 @@ const Services: React.FC<ServicesProps> = ({ items }) => {
 export default Services;
 
 export interface ServiceCardProps {
-  item: ComponentDynamicsTitleImage;
+  item: Service;
 }
 const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
   return (
@@ -44,21 +44,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ item }) => {
         'relative flex flex-col px-3 pb-3 pt-4 sm:p-6 border-2 border-dashed dark:border-primary-600 border-primary-300'
       )}
     >
-      <span className="absolute -top-6">
-        <div className="w-12 h-12 p-3 text-white rounded-full dark:bg-primary-500 bg-primary-100 group-hover:bg-white group-hover:text-primary-400 group-hover:shadow-md">
-          <img
-            alt={item.title}
-            src={item.image?.data?.attributes?.url!}
-            width={23}
-            height={23}
-          />
-        </div>
-      </span>
-      <span className="mt-3 text-sm font-extrabold dark:text-primary-100 text-primary-900 sm:text-md group-hover:text-white">
+      <span className="text-sm font-extrabold dark:text-primary-100 text-primary-900 sm:text-md">
         {item.title}
       </span>
-      <span className="mt-2 text-xs sm:text-sm dark:text-primary-200 text-primary-800 group-hover:text-white">
-        {item.desc}
+      <span className="mt-2 text-xs sm:text-sm dark:text-primary-200 text-primary-800">
+        {item.description}
       </span>
     </li>
   );

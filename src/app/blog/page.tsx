@@ -1,5 +1,5 @@
-import { getArticles } from '@adapters';
 import { BlogPostCard } from '@components/blog/BlogCard';
+import { posts } from '@/data';
 import { hostname } from '@utils';
 import { Metadata } from 'next';
 
@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     canonical: `${hostname}/blog`,
   },
 };
-export default async function BlogPage() {
-  const { posts } = await getData();
+export default function BlogPage() {
   return (
     <div className="max-w-xl py-3 mx-auto">
       <h2 className="text-3xl font-bold text-center">Blog</h2>
@@ -19,20 +18,11 @@ export default async function BlogPage() {
         Check out my blog, where i write mostly about web and mobile
         development, startups, and life.
       </p>
-      {/* <span className="text-primary-600">{posts.length} posts</span> */}
       <div className="px-4 mt-8">
-        {posts.articles?.data.map((post) => (
-          <BlogPostCard key={post.attributes?.slug} post={post as any} />
+        {posts.map((post) => (
+          <BlogPostCard key={post.slug} post={post} />
         ))}
       </div>
     </div>
   );
-}
-
-async function getData() {
-  const posts = await getArticles();
-
-  return {
-    posts,
-  };
 }

@@ -1,26 +1,10 @@
-import { getPages } from '@/adapters';
 import { Home } from '@components';
-import { globalRevalidateTiming } from '@utils';
-import { notFound } from 'next/navigation';
+import { homeContent } from '@/data';
 
-export const revalidate = globalRevalidateTiming;
-export default async function IndexPage() {
-  const { homePage } = await getData();
-  if (!homePage) return notFound();
-
+export default function IndexPage() {
   return (
     <div className="py-6">
-      <Home page={homePage as any} />
+      <Home content={homeContent} />
     </div>
   );
-}
-
-async function getData() {
-  const home = await getPages({
-    filters: { slug: { eq: 'home' } },
-  });
-
-  return {
-    homePage: home?.pages?.data[0].attributes,
-  };
 }

@@ -1,7 +1,5 @@
-import { getPages } from '@adapters';
+import { usesContent } from '@/data';
 import { hostname } from '@utils';
-import { overridesObj } from '@utils/markdown';
-import Markdown from 'markdown-to-jsx';
 import { Metadata } from 'next';
 import React from 'react';
 
@@ -12,43 +10,41 @@ export const metadata: Metadata = {
     canonical: `${hostname}/uses`,
   },
 };
-export default async function PortfolioPage() {
-  const { page } = await getData();
+export default function UsesPage() {
   return (
     <div className="max-w-3xl px-6 py-6 mx-auto">
       <div className="flex flex-col items-center">
         <h1 className="text-xl font-bold text-center sm:text-3xl">Uses</h1>
         <p className="mt-2 text-sm text-primary-600 text-center dark:text-primary-300 sm:text-lg">
-          I'm frequently asked about the things I use, so here's a complete list
+          {usesContent.description}
         </p>
       </div>
 
-      <div className="mt-8">
-        {page?.content && (
-          <Markdown
-            options={{
-              overrides: overridesObj,
-              forceBlock: true,
-            }}
-          >
-            {page?.content}
-          </Markdown>
-        )}
+      <div className="mt-8 space-y-8">
+        {usesContent.categories.map((category) => (
+          <div key={category.title}>
+            <h2 className="text-lg font-bold">{category.title}</h2>
+            <ul className="mt-2 space-y-1 list-disc list-inside">
+              {category.items.map((item) => (
+                <li key={item.label}>
+                  {item.url ? (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline hover:no-underline"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    item.label
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );
-}
-
-async function getData() {
-  const pages = await getPages({
-    filters: {
-      slug: { eq: 'uses' },
-    },
-  });
-
-  const page = pages.pages?.data?.[0].attributes;
-
-  return {
-    page,
-  };
 }

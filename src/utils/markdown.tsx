@@ -144,6 +144,36 @@ const Iframe = ({ src }: { src: string }) => {
   );
 };
 
+const Pre = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <pre className="my-3 overflow-x-auto rounded-lg bg-primary-100 p-4 text-sm leading-6 dark:bg-primary-950">
+      {children}
+    </pre>
+  );
+};
+
+const Code = ({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) => {
+  if (!className) {
+    return (
+      <code className="rounded bg-primary-100 px-1.5 py-0.5 text-[0.85em] dark:bg-primary-800">
+        {children}
+      </code>
+    );
+  }
+
+  return (
+    <code className={className.replace('lang-', 'language-')}>
+      {children}
+    </code>
+  );
+};
+
 export const overridesObj: MarkdownToJSX.Options['overrides'] = {
   p: Paragraph,
   iframe: Iframe,
@@ -158,6 +188,8 @@ export const overridesObj: MarkdownToJSX.Options['overrides'] = {
   h4: H4,
   h5: H5,
   h6: H6,
+  pre: Pre,
+  code: Code,
 };
 
 // check if link is extenral

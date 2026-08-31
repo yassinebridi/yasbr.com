@@ -1,13 +1,13 @@
 'use client';
 
-import { ComponentDynamicsProjectList } from '@adapters';
-import { Project } from '@components';
+import { Project as ProjectCard } from '@components';
+import type { Project } from '@/data/types';
 import clsx from 'clsx';
 import React from 'react';
 
 type ProjectKind = 'all' | 'os' | 'client';
 export interface ProjectsProps {
-  items: ComponentDynamicsProjectList[] | undefined;
+  items: Project[];
 }
 const Projects: React.FC<ProjectsProps> = ({ items }) => {
   const [selected, setSelected] = React.useState<ProjectKind>('all');
@@ -16,9 +16,7 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
     setSelected(type);
   };
   const selectedItems =
-    selected === 'all'
-      ? items
-      : items?.filter((item) => item.type === selected);
+    selected === 'all' ? items : items.filter((item) => item.type === selected);
 
   return (
     <div className="py-16 bg-primary-50 dark:bg-primary-800">
@@ -77,8 +75,8 @@ const Projects: React.FC<ProjectsProps> = ({ items }) => {
 
           <div className="mt-6">
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {selectedItems?.map((item, i) => {
-                return <Project key={i} projectItem={item} />;
+              {selectedItems.map((item) => {
+                return <ProjectCard key={item.slug} projectItem={item} />;
               })}
             </ul>
           </div>
